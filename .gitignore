@@ -6,3 +6,6 @@ datastructure01/.settings**
 datastructure01/target**
 datastructure01/.classpath
 datastructure01/.project
+.recommenders**
+*.settings**
+*target**
