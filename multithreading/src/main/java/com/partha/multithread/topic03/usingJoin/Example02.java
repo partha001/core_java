@@ -1,4 +1,4 @@
-package com.partha.multithread.topic03.someMethods;
+package com.partha.multithread.topic03.usingJoin;
 
 /**
  * resolving the issue faced in the previous program using join
