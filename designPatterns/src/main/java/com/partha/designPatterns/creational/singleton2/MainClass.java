@@ -2,6 +2,7 @@ package com.partha.designPatterns.creational.singleton2;
 
 /**
  * this is an improvement over the previous as this is threadsafe
+ * whereas the previous program is not threadsafe
  * @author partha
  *
  */
