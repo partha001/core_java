@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * anagram problem
- * this solution works fine for strins with non-repeating characters
+ * this solution works fine for strings with non-repeating characters
  * @author partha
  *
  */
