@@ -9,15 +9,15 @@ package com.partha.problemSolving.stringRelated;
 public class Permutation02 {
 
 	public static void main(String[] args) {
-		 permutation("partha");
+		 permutation("","GOD");
 	}
 
 	/*
 	  * A method exposed to client to calculate permutation of String in Java. 
 	  */
-	   public static void permutation(String input){
-	          permutation("", input);
-	   }
+//	   public static void permutation(String input){
+//	          permutation("", input);
+//	   }
 
 	   /*
 	    * Recursive method which actually prints all permutations
@@ -27,10 +27,12 @@ public class Permutation02 {
 	    */
 	   private static void permutation(String perm, String word) {
 	        if (word.isEmpty()) {
-	            System.err.println(perm + word);
+	            System.out.println(perm + word);
 
 	        } else {
 	            for (int i = 0; i < word.length(); i++) {
+//	            	if(i==1)
+//	            		System.out.println("");
 	                permutation(perm + word.charAt(i), word.substring(0, i) 
 	                                        + word.substring(i + 1, word.length()));
 	            }
