@@ -7,6 +7,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * thus heterogenous objects are allowed
  * null is allowed
  * duplicates are now allowed
+ * thus is just a threadsafe version of the set
  * @author partha
  *
  */
