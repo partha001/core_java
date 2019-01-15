@@ -1,4 +1,4 @@
-package com.partha.datastructure01.linkedlist;
+package com.partha.ds01.linkedlist.singlylinked01;
 
 public class Node {
 	

@@ -1,4 +1,4 @@
-package com.partha.datastructure01.sorting;
+package com.partha.ds01.sorting;
 
 public class InsertionSort {
 

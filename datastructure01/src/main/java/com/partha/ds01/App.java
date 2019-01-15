@@ -1,4 +1,4 @@
-package com.partha.datastructure01;
+package com.partha.ds01;
 
 /**
  * Hello world!
