@@ -1,4 +1,4 @@
-package com.partha.ds01.sorting;
+package com.partha.ds.sorting;
 
 public class MergeSort {
 	

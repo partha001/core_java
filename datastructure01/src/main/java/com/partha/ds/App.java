@@ -1,4 +1,4 @@
-package com.partha.ds01;
+package com.partha.ds;
 
 /**
  * Hello world!

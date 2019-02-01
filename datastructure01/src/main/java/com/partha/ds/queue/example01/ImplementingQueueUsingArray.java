@@ -1,4 +1,4 @@
-package com.partha.ds01.queue.example01;
+package com.partha.ds.queue.example01;
 
 public class ImplementingQueueUsingArray {
 

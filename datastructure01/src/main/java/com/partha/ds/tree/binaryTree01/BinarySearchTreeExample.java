@@ -1,11 +1,11 @@
-package com.partha.ds01.tree.binaryTree01;
+package com.partha.ds.tree.binaryTree01;
 
 /**
  * this program shows how to implement a binary tree in java
  * @author partha
  *
  */
-public class BinarySearchTreeImplementation {
+public class BinarySearchTreeExample {
 
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
@@ -15,7 +15,6 @@ public class BinarySearchTreeImplementation {
 		tree.insert(20);
 		tree.printInorder();
 	}
-
 }
 
 class BinarySearchTree{
@@ -251,8 +250,5 @@ class TreeNode{
 	public void setRightChild(TreeNode rightChild) {
 		this.rightChild = rightChild;
 	}
-
-
-
 
 }

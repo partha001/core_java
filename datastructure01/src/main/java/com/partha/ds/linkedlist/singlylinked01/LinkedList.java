@@ -1,4 +1,4 @@
-package com.partha.ds01.linkedlist.singlylinked01;
+package com.partha.ds.linkedlist.singlylinked01;
 
 public class LinkedList {
 	

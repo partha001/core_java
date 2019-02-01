@@ -1,4 +1,4 @@
-package com.partha.ds01.linkedlist.doublylinked01;
+package com.partha.ds.linkedlist.doublylinked01;
 
 public class DoublyLinkedList {
 	

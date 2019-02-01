@@ -1,4 +1,4 @@
-package com.partha.ds01.searching;
+package com.partha.ds.searching;
 
 import java.util.Arrays;
 
