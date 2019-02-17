@@ -26,7 +26,7 @@ public class PrintMiddle {
 	/* Function to print middle of linked list */
 	void printMiddle1(LinkedList<Integer> list) 
 	{ 
-		Integer slow_ptr = list.; 
+		//Integer slow_ptr = list.; 
 //		Node fast_ptr = list.getFirst().; 
 //		if (head != null) 
 //		{ 

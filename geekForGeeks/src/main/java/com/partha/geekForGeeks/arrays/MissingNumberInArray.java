@@ -1,13 +1,15 @@
 package com.partha.geekForGeeks.arrays;
 
-/**
- * problem status : completed
- * geek for geek status : compiles and runs successfully
- * @author partha
- */
+
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * @problemDefinition:  status : completed
+ * @link: https://www.geeksforgeeks.org/find-the-missing-number/
+ * geek for geek status : compiles and runs successfully
+ * @author partha
+ */
 public class MissingNumberInArray {
 
 	public static void main(String[] args) {

@@ -11,9 +11,12 @@ public class BinarySearchTreeImplementation {
 		BinarySearchTree tree = new BinarySearchTree();
 		tree.insert(100);
 		tree.insert(200);
+		tree.insert(150);
 		tree.insert(300);
-		tree.insert(20);
-		tree.printInorder();
+		tree.insert(10);
+		TreeNode subTreeMin = tree.getSubTreeMinimum(150);
+		System.out.println(subTreeMin==null ? null : subTreeMin.getData());
+		//tree.printInorder();
 	}
 
 }
@@ -72,6 +75,7 @@ class BinarySearchTree{
 		if( current == null)
 			return; // means the data is not found in the tree
 		//performing the delete for case1
+		//i.e. when the node to be deleted has no child node
 		if(current.getLeftChild() == null && current.getRightChild() == null){
 			if(current == root){
 				root = null;
@@ -83,6 +87,7 @@ class BinarySearchTree{
 			}
 		}
 		//performing delete for case2
+		//i.e. when the node to be delete has one child node
 		else if(current.getRightChild() == null){
 			if(current == root){
 				root = current.getLeftChild();
@@ -101,8 +106,42 @@ class BinarySearchTree{
 				parent.setRightChild(current.getRightChild());
 			}
 		}
-
+		
+		//deletion for case3 i.e. the node to be deleted has both the children
+		else if (current.getRightChild()!=null && current.getLeftChild()!=null){
+			//finding its inoder successor node 
+			TreeNode successor = getSubTreeMinimum(current.getData());
+			
+			//store the successor value
+			int val = successor.getData();
+			
+			//recursively delete the successor 
+			delete(val);
+			
+			//copy the value of successor to current node
+			current.
+			
+			
+			
+		}
+		
+		
 	}
+	
+	
+	//minimum sub tree element
+	/**
+	 * returns null if there is no element in the subtree which is smaller than data
+	 * @param data
+	 * @return
+	 */
+	public TreeNode getSubTreeMinimum(int data){
+		//first searching for the given value 
+		TreeNode current = find(data);
+		TreeNode result= (current ==null ? null : current.minimumKey());	
+		return (result==null || result.getData()==data ? null : result);
+	}
+
 
 
 	/** methods for inorder traveral start here**/
@@ -172,7 +211,8 @@ class BinarySearchTree{
 		System.out.print(node.getData() + " "); 
 	}
 	/** code for postorder traversal end here **/
-
+	
+	
 }
 
 class TreeNode{
@@ -221,6 +261,15 @@ class TreeNode{
 			return this.rightChild.getData();
 		return this.rightChild.smallest();
 	}
+	
+	
+	//helper function to find the minimum value node in a subtree rooted at current node
+	public TreeNode minimumKey(){
+		if(this.getLeftChild()!=null)
+			return this.leftChild.minimumKey();
+		return this;
+	}
+
 
 
 	/** utility methods end here  **/
