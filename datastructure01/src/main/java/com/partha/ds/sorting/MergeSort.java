@@ -2,9 +2,14 @@ package com.partha.ds.sorting;
 
 public class MergeSort {
 	
-	// Merges two subarrays of arr[]. 
-    // First subarray is arr[l..m] 
-    // Second subarray is arr[m+1..r] 
+
+	/**
+	 * @note : Merges two subarrays of arr[].  First subarray is arr[l..m] .Second subarray is arr[m+1..r] 
+	 * @param arr
+	 * @param l : leftindex
+	 * @param m : middleindex
+	 * @param r : rightindex
+	 */
     void merge(int arr[], int l, int m, int r) 
     { 
         // Find sizes of two subarrays to be merged 
@@ -61,8 +66,12 @@ public class MergeSort {
         } 
     } 
     
- // Main function that sorts arr[l..r] using 
-    // merge() 
+    /**
+     * @note: Main function that sorts arr[l..r] using merge()
+     * @param arr : inputArray
+     * @param l : leftindex
+     * @param r : rightindex
+     */
     void sort(int arr[], int l, int r) 
     { 
         if (l < r) 

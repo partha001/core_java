@@ -50,6 +50,10 @@ class BinarySearchTree{
 		return null;
 	}
 
+	/**
+	 * this method is incomplete for the last case.
+	 * @param data
+	 */
 	public void delete(int data){
 		TreeNode current = this.root;
 		TreeNode parent = this.root;
@@ -118,7 +122,7 @@ class BinarySearchTree{
 			delete(val);
 			
 			//copy the value of successor to current node
-			current.
+			//current.
 			
 			
 			
