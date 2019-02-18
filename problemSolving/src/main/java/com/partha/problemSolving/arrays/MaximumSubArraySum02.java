@@ -1,17 +1,22 @@
 package com.partha.problemSolving.arrays;
 
 /**
- * @description: here are using devide-and-conquer approach. i.e. 
- * @complexity : O(n log n) . recursively calling itself . the time-complexity is much like merge-sort complexity calculation
+ * @description: here also we are doing the brute-force approach i.e. find all possible sub-array sum
+ * however we have slightly changed the order of the operation. i.e. instead of having subarraysize based loop 
+ * as outermost we take subarray-index as the outermost loop.<br><br>
+ * 
+ * also we understand that subarraysum( for k elements ) = subarraysum( for k-1 elements )+ k-th element
+ * thus we take a subArraySum variable
+ * @complexity : O(n^2)
  * @author partha
  * @link : https://www.youtube.com/watch?v=ohHWQf1HDfU&vl=en
  *
  */
-public class MaximumSubArray03 {
+public class MaximumSubArraySum02 {
 
 	public static void main(String[] args) {
 		int[] arr= new int[]{-2,1,-3,4,-1,2,1,-5,4};
-		System.out.println(maximumSubArray(arr, arr.length));
+		System.out.println(maximumSubArraySum(arr, arr.length));
 	}
 	
 	/**
@@ -20,7 +25,7 @@ public class MaximumSubArray03 {
 	 * @param arr : input array
 	 * @param n : size of the input array
 	 */
-	public static int maximumSubArray(int arr[], int n){
+	public static int maximumSubArraySum(int arr[], int n){
 		
 		int result = Integer.MIN_VALUE;
 		

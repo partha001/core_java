@@ -8,11 +8,11 @@ package com.partha.problemSolving.arrays;
  * @author partha
  *
  */
-public class MaximumSubArray01 {
+public class MaximumSubArraySum01 {
 
 	public static void main(String[] args) {
 		int[] arr= new int[]{-2,1,-3,4,-1,2,1,-5,4};
-		System.out.println(maximumSubArray(arr, arr.length));
+		System.out.println(maximumSubArraySum(arr, arr.length));
 	}
 	
 	/**
@@ -21,7 +21,7 @@ public class MaximumSubArray01 {
 	 * @param arr : input array
 	 * @param n : size of the input array
 	 */
-	public static int maximumSubArray(int arr[], int n){
+	public static int maximumSubArraySum(int arr[], int n){
 		
 		int result = Integer.MIN_VALUE;
 		
