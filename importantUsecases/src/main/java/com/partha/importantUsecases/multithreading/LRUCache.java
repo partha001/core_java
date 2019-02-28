@@ -1,4 +1,4 @@
-package com.partha.problemSolving.maps;
+package com.partha.importantUsecases.multithreading;
 
 import java.util.HashMap;
 
