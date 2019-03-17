@@ -20,6 +20,10 @@ public class ImplementingStackUsingLinkedList {
 		 System.out.println("pushing 50 to stack");
 		 myStack.push(50);
 		 myStack.printStack();
+		 System.out.println("\nvalue popped = "+ myStack.pop());
+		 System.out.println("\nvalue popped = "+ myStack.pop());
+		 System.out.println("\nvalue popped = "+ myStack.pop());
+		 System.out.println("\nvalue popped = "+ myStack.pop());
 	}
 
 	@Getter
