@@ -3,7 +3,7 @@ package com.partha.importantUsecases.hashtables;
 public class ImplementingHashTable {
 	
 	public static void main(String[] args){
-		MyhashTable hashTable = new MyhashTable();
+		//MyhashTable hashTable = new MyhashTable();
 	}
 	
 	class MyhashTable{
