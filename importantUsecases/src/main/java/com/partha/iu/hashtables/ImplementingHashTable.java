@@ -1,4 +1,4 @@
-package com.partha.importantUsecases.hashtables;
+package com.partha.iu.hashtables;
 
 public class ImplementingHashTable {
 	
