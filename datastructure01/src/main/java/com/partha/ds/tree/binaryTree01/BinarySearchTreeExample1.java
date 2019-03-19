@@ -5,7 +5,7 @@ package com.partha.ds.tree.binaryTree01;
  * @author partha
  *
  */
-public class BinarySearchTreeExample {
+public class BinarySearchTreeExample1 {
 
 	public static void main(String[] args) {
 		BinarySearchTree tree = new BinarySearchTree();
