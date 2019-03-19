@@ -4,10 +4,10 @@ package com.partha.ds.tree.binaryTree01;
  * link : https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
  * @author parbiswa
  */
-public class BinarySearchTreeExample2 {
+public class BinarySearchTreeTraversal1 {
 
 	public static void main(String[] args) {
-		 BST tree = new BinarySearchTreeExample2().new BST(); 
+		 BST tree = new BinarySearchTreeTraversal1().new BST(); 
 		  
 	        /* Let us create following BST 
 	              50 
@@ -23,27 +23,17 @@ public class BinarySearchTreeExample2 {
 	        tree.insert(60); 
 	        tree.insert(80); 
 	        
+	        //printing nodes a particular level
+	        System.out.println("printing nodes at given level");
+	        tree.printGivenLevel(tree.root, 1);
+	        
+	        //printing nodes a particular level
+	        System.out.println("printing nodes at given level");
+	        tree.printGivenLevel(tree.root.left, 2);
+	  
 	        System.out.println("Inorder traversal of the given tree"); 
 	        tree.inorder(); 
-	  
-	        //deleting a leaf node
-	        System.out.println("\nDelete 20");
-	        tree.deleteKey(20); 
-	        System.out.println("Inorder traversal of the modified tree"); 
-	        tree.inorder(); 
-	  
-	        //deleting node with a single child
-	        System.out.println("\nDelete 30"); 
-	        tree.deleteKey(30); 
-	        System.out.println("Inorder traversal of the modified tree"); 
-	        tree.inorder(); 
-	  
-	        //deleting node with two children
-	        System.out.println("\nDelete 50"); 
-	        tree.deleteKey(50); 
-	        System.out.println("Inorder traversal of the modified tree"); 
-	        tree.inorder(); 
-	        
+
 	        
 	        
 	}
@@ -71,44 +61,6 @@ public class BinarySearchTreeExample2 {
 	        root = null; 
 	    } 
 	  
-	    // This method mainly calls deleteRec() 
-	    void deleteKey(int key) 
-	    { 
-	        root = deleteRec(root, key); 
-	    } 
-	  
-	    /* A recursive function to insert a new key in BST */
-	    Node deleteRec(Node root, int key) 
-	    { 
-	        /* Base Case: If the tree is empty */
-	        if (root == null)  return root; 
-	  
-	        /* Otherwise, recur down the tree */
-	        if (key < root.key) 
-	            root.left = deleteRec(root.left, key); 
-	        else if (key > root.key) 
-	            root.right = deleteRec(root.right, key); 
-	  
-	        // if key is same as root's key, then This is the node 
-	        // to be deleted 
-	        else
-	        { 
-	            // node with only one child or no child 
-	            if (root.left == null) 
-	                return root.right; 
-	            else if (root.right == null) 
-	                return root.left; 
-	  
-	            // node with two children: Get the inorder successor (smallest 
-	            // in the right subtree) 
-	            root.key = minValue(root.right); 
-	  
-	            // Delete the inorder successor 
-	            root.right = deleteRec(root.right, root.key); 
-	        } 
-	  
-	        return root; 
-	    } 
 	    
 	 // A utility function to do inorder traversal of BST 
 	    void inorderRec(Node root) 
@@ -165,6 +117,41 @@ public class BinarySearchTreeExample2 {
 	        inorderRec(root); 
 	    } 
 	    
-	     }
+	    /* Compute the "height" of a tree -- the number of 
+	    nodes along the longest path from the root node 
+	    down to the farthest leaf node.*/
+	    int height(Node root) 
+	    { 
+	        if (root == null) 
+	           return 0; 
+	        else
+	        { 
+	            /* compute  height of each subtree */
+	            int lheight = height(root.left); 
+	            int rheight = height(root.right); 
+	              
+	            /* use the larger one */
+	            if (lheight > rheight) 
+	                return(lheight+1); 
+	            else return(rheight+1);  
+	        } 
+	    } 
+	    
+	    
+	    /* Print nodes at the given level */
+	    void printGivenLevel (Node root ,int level) 
+	    { 
+	        if (root == null) 
+	            return; 
+	        if (level == 1) 
+	            System.out.println(root.key + " "); 
+	        else if (level > 1) 
+	        { 
+	            printGivenLevel(root.left, level-1); 
+	            printGivenLevel(root.right, level-1); 
+	        } 
+	    } 
+
+   }
 
 }
