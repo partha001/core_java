@@ -9,7 +9,8 @@ package com.partha.problemSolving.numbers;
 public class MissingNumber {
 
 	public static void main(String[] args) {
-		int[] arr = new int[]{0,1,2,4}
+		int[] arr = new int[]{0,1,2,4};
+		findMisingNumber(arr);
 	}
 	
 	
@@ -18,12 +19,13 @@ public class MissingNumber {
 		
 		int arrsum =0;
 		for(int i=0;i<arr.length;i++){
-			sum += arr[i];
+			arrsum += arr[i];
 			if(arr[i]> max)
 				max= arr[i];
 		}
 		
-		 sum = max*(max+1)/2;
+		 int sum = max*(max+1)/2;
+		 System.out.println("the missing number : "+ (sum - arrsum));
 		
 	}
 
