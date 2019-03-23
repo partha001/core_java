@@ -21,7 +21,11 @@ public class MoveZeroes01 {
 	}
 
 
-	
+	/**
+	 * 
+	 * @param arr = input array
+	 * @param n = length of the array
+	 */
     static void pushZerosToEnd(int arr[], int n) 
     { 
     	  int count = 0;  // Count of non-zero elements 

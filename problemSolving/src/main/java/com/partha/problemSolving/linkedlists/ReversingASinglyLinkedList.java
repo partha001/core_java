@@ -10,11 +10,10 @@ public class ReversingASinglyLinkedList {
 		list.head.next = new  ReversingASinglyLinkedList.Node(20);
 		list.head.next.next = new  ReversingASinglyLinkedList.Node(30);
 		printList(list);
-		
 		printList(reversingLinkedList(list));
 		
-		
 	}
+	
 	
 	public static LinkedList reversingLinkedList(LinkedList  list){
 		LinkedList reversedLinkedList = new LinkedList();
@@ -47,6 +46,8 @@ public class ReversingASinglyLinkedList {
 	static class LinkedList{
 		
 		Node head;
+		
+		int size =0;
 		
 		public LinkedList() {
 			this.head = null;
