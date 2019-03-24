@@ -1,7 +1,7 @@
 package com.partha.ds.tree.binaryTree01;
 
 /**
- * this program shows how to implement a binary tree in java
+ * @comment binary search tree implemention.all the the functions exc
  * @author partha
  *
  */
