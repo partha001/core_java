@@ -1,4 +1,4 @@
-package com.partha.problemSolving.linkedlists;
+package com.partha.problemSolving.linkedlists.singlylinked;
 
 /**
    1) Divide the list in two parts - first node and rest of the linked list.
