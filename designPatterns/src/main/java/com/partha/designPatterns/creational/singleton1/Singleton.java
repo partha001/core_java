@@ -2,7 +2,7 @@ package com.partha.designPatterns.creational.singleton1;
 
 public class Singleton {
 	
-private static Singleton Singleton_obj;
+	private static Singleton Singleton_obj;
 	
 	/* to prevent object creation first we declare a private constructor */
 	private Singleton(){
