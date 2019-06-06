@@ -1,4 +1,4 @@
-package com.partha.designPatterns.creational.builder1;
+package com.partha.designPatterns.creational.builder2;
 
 public interface RobotPlan {
 

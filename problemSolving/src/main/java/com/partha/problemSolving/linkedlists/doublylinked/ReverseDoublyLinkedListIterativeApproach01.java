@@ -1,4 +1,4 @@
-package com.partha.problemSolving.linkedlists;
+package com.partha.problemSolving.linkedlists.doublylinked;
 
 /**
  * this solution is complete

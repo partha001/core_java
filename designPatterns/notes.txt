@@ -1,0 +1,21 @@
+creational
+*************************
+1.singleton
+2.prototype
+3.builder
+4.factory
+5.abstract factory
+
+
+behavioral
+*******************
+1.strategy
+2.observer
+3.command pattern
+4.memento
+5.mediator
+6.chain of responsibility
+7.interpreter
+8.state
+9.visitor
+
