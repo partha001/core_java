@@ -1,5 +1,5 @@
 creational
-*************************
+******************
 1.singleton
 2.prototype
 3.builder
@@ -18,4 +18,14 @@ behavioral
 7.interpreter
 8.state
 9.visitor
+
+structural
+*******************
+1.adapter
+2.composite
+3.decorator
+4.facade
+5.proxy
+6.bridge
+7.flywight
 
