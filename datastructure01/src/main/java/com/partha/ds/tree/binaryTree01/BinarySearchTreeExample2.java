@@ -1,13 +1,10 @@
 package com.partha.ds.tree.binaryTree01;
 
-/**
- * link : https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
- * @author parbiswa
- */
 public class BinarySearchTreeExample2 {
 
-	public static void main(String[] args) {
-		BST tree = new BinarySearchTreeExample2().new BST(); 
+
+	public static void main(String[] args){
+		BST tree = new BinarySearchTreeExample2.BST(); 
 
 		/* Let us create following BST 
 	              50 
@@ -24,163 +21,195 @@ public class BinarySearchTreeExample2 {
 		tree.insert(80); 
 
 		System.out.println("Inorder traversal of the given tree"); 
-		tree.inorder(); 
+		tree.inorderTraversal(); 
+
+		//		System.out.println("Pre order traversal of the given tree"); 
+		//		tree.preorderTraversal();
+
+
+		//		System.out.println("Post order traversal of the given tree"); 
+		//		tree.postorderTraversal();
+
 
 		//deleting a leaf node
 		System.out.println("\nDelete 20");
 		tree.deleteKey(20); 
 		System.out.println("Inorder traversal of the modified tree"); 
-		tree.inorder(); 
+		tree.inorderTraversal(); 
 
 		//deleting node with a single child
 		System.out.println("\nDelete 30"); 
 		tree.deleteKey(30); 
 		System.out.println("Inorder traversal of the modified tree"); 
-		tree.inorder(); 
+		tree.inorderTraversal(); 
 
 		//deleting node with two children
 		System.out.println("\nDelete 50"); 
 		tree.deleteKey(50); 
 		System.out.println("Inorder traversal of the modified tree"); 
-		tree.inorder(); 
-		
-		System.out.println(tree.search(50));
-
+		tree.inorderTraversal(); 
 
 
 	}
 
-	class BST{
 
-		class Node 
+	public static class BST{
+
+		public Node root;
+
+		public BST() {
+			super();
+		}
+
+		public BST(Node root) {
+			super();
+			this.root = root;
+		}
+
+		//node insertion
+		public void insert(int data){
+			this.root = insert(data, this.root);				
+		}
+
+
+		private Node insert(int value, Node node){
+			if(node==null){
+				node = new Node(value);
+				return node;
+			}
+
+			if(value > node.value)
+				node.rightChild = insert(value,node.rightChild);
+			else if(value < node.value)
+				node.leftChild = insert(value,node.leftChild);
+
+			return node;
+		}
+
+
+		// This method mainly calls InorderRec() 
+		public void inorderTraversal() 
 		{ 
-			int key; 
-			Node left, right; 
+			inorderTraversal(this.root); 
+		}
 
-			public Node(int item) 
+
+		private void inorderTraversal(Node root) 
+		{ 
+			if (root != null) 
 			{ 
-				key = item; 
-				left = right = null; 
+				inorderTraversal(root.leftChild); 
+				System.out.print(root.value + " "); 
+				inorderTraversal(root.rightChild); 
 			} 
 		} 
 
-		// Root of BST 
-		Node root; 
 
-		// Constructor 
-		BST() 
+		public void preorderTraversal(){
+			preorderTraversal(this.root);
+		}
+
+		private void preorderTraversal(Node node) 
 		{ 
-			root = null; 
+			if (node == null) 
+				return ; 
+
+			/* first print data of node */
+			System.out.print(node.value + " "); 
+
+			/* then recur on left sutree */
+			preorderTraversal(node.leftChild); 
+
+			/* now recur on right subtree */
+			preorderTraversal(node.rightChild); 
+		} 
+
+		/** code for postorder traversal start here **/
+		public void postorderTraversal(){
+			postorderTraversal(this.root);
+		}
+
+		void postorderTraversal(Node node) 
+		{ 
+			if (node == null) 
+				return; 
+
+			// first recur on left subtree 
+			postorderTraversal(node.leftChild); 
+
+			// then recur on right subtree 
+			postorderTraversal(node.rightChild); 
+
+			// now deal with the node 
+			System.out.print(node.value + " "); 
+		}
+		/** code for postorder traversal end here **/
+
+
+
+		//gives min value under any given node
+		int minValue(Node root) 
+		{ 
+			int minv = root.value; 
+			while (root.leftChild != null) 
+			{ 
+				minv = root.leftChild.value; 
+				root = root.leftChild; 
+			} 
+			return minv; 
 		} 
 
 		// This method mainly calls deleteRec() 
-		void deleteKey(int key) 
+		public 	void deleteKey(int key) 
 		{ 
 			root = deleteRec(root, key); 
 		} 
 
+
 		/* A recursive function to insert a new key in BST */
-		Node deleteRec(Node root, int key) 
+		private Node deleteRec(Node root, int key) 
 		{ 
 			/* Base Case: If the tree is empty */
 			if (root == null)  return root; 
 
 			/* Otherwise, recur down the tree */
-			if (key < root.key) 
-				root.left = deleteRec(root.left, key); 
-			else if (key > root.key) 
-				root.right = deleteRec(root.right, key); 
+			if (key < root.value) 
+				root.leftChild = deleteRec(root.leftChild, key); 
+			else if (key > root.value) 
+				root.rightChild = deleteRec(root.rightChild, key); 
 
 			// if key is same as root's key, then This is the node 
 			// to be deleted 
 			else
 			{ 
 				// node with only one child or no child 
-				if (root.left == null) 
-					return root.right; 
-				else if (root.right == null) 
-					return root.left; 
+				if (root.leftChild == null) 
+					return root.rightChild; 
+				else if (root.rightChild == null) 
+					return root.leftChild; 
 
 				// node with two children: Get the inorder successor (smallest 
 				// in the right subtree) 
-				root.key = minValue(root.right); 
+				root.value = minValue(root.rightChild); 
 
 				// Delete the inorder successor 
-				root.right = deleteRec(root.right, root.key); 
+				root.rightChild = deleteRec(root.rightChild, root.value); 
 			} 
 
 			return root; 
 		} 
+	}
 
-		// A utility function to do inorder traversal of BST 
-		void inorderRec(Node root) 
-		{ 
-			if (root != null) 
-			{ 
-				inorderRec(root.left); 
-				System.out.print(root.key + " "); 
-				inorderRec(root.right); 
-			} 
-		} 
 
-		int minValue(Node root) 
-		{ 
-			int minv = root.key; 
-			while (root.left != null) 
-			{ 
-				minv = root.left.key; 
-				root = root.left; 
-			} 
-			return minv; 
-		} 
+	public static class Node{
 
-		// This method mainly calls insertRec() 
-		void insert(int key) 
-		{ 
-			root = insertRec(root, key); 
-		} 
+		int value;
+		Node leftChild;
+		Node rightChild;
 
-		/* A recursive function to insert a new key in BST */
-		Node insertRec(Node root, int key) 
-		{ 
-
-			/* If the tree is empty, return a new node */
-			if (root == null) 
-			{ 
-				root = new Node(key); 
-				return root; 
-			} 
-
-			/* Otherwise, recur down the tree */
-			if (key < root.key) 
-				root.left = insertRec(root.left, key); 
-			else if (key > root.key) 
-				root.right = insertRec(root.right, key); 
-
-			/* return the (unchanged) node pointer */
-			return root; 
-		} 
-
-		// This method mainly calls InorderRec() 
-		void inorder() 
-		{ 
-			inorderRec(root); 
-		}
-		
-		 boolean search(int data){
-			 boolean result = false;
-			 Node node = this.root;
-			 while(node!=null){
-				 if(node.key == data){
-					 result = true;
-					 break;
-				 }else if(data < node.key)
-					 node = node.left;
-				 else
-					 node = node.right;					 
-			 }
-			 return result;
-			
+		public Node(int value) {
+			super();
+			this.value = value;
 		}
 
 	}
