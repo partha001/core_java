@@ -1,4 +1,4 @@
-package com.partha.ds.tree.binaryTree01;
+package com.partha.ds.tree.binarySearchTree;
 
 /**
  * @comment binary search tree implemention.all the the functions exc

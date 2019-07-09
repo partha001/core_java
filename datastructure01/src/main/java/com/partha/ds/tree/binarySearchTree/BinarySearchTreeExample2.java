@@ -1,4 +1,4 @@
-package com.partha.ds.tree.binaryTree01;
+package com.partha.ds.tree.binarySearchTree;
 
 public class BinarySearchTreeExample2 {
 

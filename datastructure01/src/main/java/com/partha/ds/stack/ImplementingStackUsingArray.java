@@ -1,4 +1,4 @@
-package com.partha.ds.stack.example01;
+package com.partha.ds.stack;
 
 public class ImplementingStackUsingArray {
 
