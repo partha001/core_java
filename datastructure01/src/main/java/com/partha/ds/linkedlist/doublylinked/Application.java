@@ -20,6 +20,7 @@ public class Application {
 	}
 	
 	public static class DoublyLinkedList{
+		
 		public Node head ;
 		
 		

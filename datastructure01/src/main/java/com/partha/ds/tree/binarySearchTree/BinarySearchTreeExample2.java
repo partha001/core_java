@@ -111,17 +111,11 @@ public class BinarySearchTreeExample2 {
 
 		private void preorderTraversal(Node node) 
 		{ 
-			if (node == null) 
-				return ; 
-
-			/* first print data of node */
-			System.out.print(node.value + " "); 
-
-			/* then recur on left sutree */
-			preorderTraversal(node.leftChild); 
-
-			/* now recur on right subtree */
-			preorderTraversal(node.rightChild); 
+			if (node != null) {
+				System.out.print(node.value + " "); 
+				preorderTraversal(node.leftChild); 
+				preorderTraversal(node.rightChild); 
+			}	
 		} 
 
 		/** code for postorder traversal start here **/
@@ -131,17 +125,17 @@ public class BinarySearchTreeExample2 {
 
 		void postorderTraversal(Node node) 
 		{ 
-			if (node == null) 
-				return; 
+			if (node != null) {
+				// first recur on left subtree 
+				postorderTraversal(node.leftChild); 
 
-			// first recur on left subtree 
-			postorderTraversal(node.leftChild); 
+				// then recur on right subtree 
+				postorderTraversal(node.rightChild); 
 
-			// then recur on right subtree 
-			postorderTraversal(node.rightChild); 
-
-			// now deal with the node 
-			System.out.print(node.value + " "); 
+				// now deal with the node 
+				System.out.print(node.value + " "); 
+			}
+			
 		}
 		/** code for postorder traversal end here **/
 
