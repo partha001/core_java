@@ -20,9 +20,16 @@ public class LowestCommonAncestorOfBST {
 		tree.insert(70); 
 		tree.insert(60); 
 		tree.insert(80); 
-
-		System.out.println("Inorder traversal of the given tree"); 
-		tree.inorderTraversal(); 
+		
+		//testing with different inputs
+//		Node node= tree.findLowestCommonAncestor(tree.root, new Node(20), new Node(40));
+//		System.out.println(node.value);
+		
+//		Node node= tree.findLowestCommonAncestor(tree.root, new Node(60), new Node(80));
+//		System.out.println(node.value);
+		
+		Node node= tree.findLowestCommonAncestor(tree.root, new Node(70), new Node(60));
+		System.out.println(node.value);
 		
 		
 	}
@@ -43,19 +50,16 @@ public class LowestCommonAncestorOfBST {
 			this.root = root;
 		}
 		
-//		public Node findLowestCommonAncestor(Node current ,Node node1, Node node2 ){
-//			if(current.value > node1.value && current.value>node2.value){
-//				return findLowestCommonAncestor(current.leftChild, node1, node2);
-//			}else if(current.value < node1.value && current.value <node2.value){
-//				return findLowestCommonAncestor(current.rightChild, node1, node2);
-//			}
-//			else{
-//				if((current.value>node1.value && current.value<node2.value)
-//					&& (current.value>node2.value && current.value<node1.value)){
-//					
-//				}
-//			}
-//		}
+		public Node findLowestCommonAncestor(Node current ,Node node1, Node node2 ){
+			if(current.value > node1.value && current.value>node2.value){
+				return findLowestCommonAncestor(current.leftChild, node1, node2);
+			}else if(current.value < node1.value && current.value <node2.value){
+				return findLowestCommonAncestor(current.rightChild, node1, node2);
+			}
+			else{
+				return current;
+			}
+		}
 
 		//node insertion
 		public void insert(int data){
