@@ -1,10 +1,10 @@
 package com.partha.ds.tree.binarySearchTree;
 
-public class BinarySearchTreeExample2 {
+public class BinarySearchTreeRecursiveApproach {
 
 
 	public static void main(String[] args){
-		BST tree = new BinarySearchTreeExample2.BST(); 
+		BST tree = new BinarySearchTreeRecursiveApproach.BST(); 
 
 		/* Let us create following BST 
 	              50 
