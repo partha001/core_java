@@ -1,6 +1,5 @@
 package com.partha.networkingWithJava.example02.socket;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,17 +27,29 @@ public class Server {
 			
 			
 			while(true){
+				System.out.println("waiting for operation");
 				int operation = Integer.parseInt(in.readLine());
+				System.out.println("waiting for input1");
 				int num1 = Integer.parseInt(in.readLine());
+				System.out.println("waiting for input2");
 				int num2 = Integer.parseInt(in.readLine());
 				int result =0;
 				switch(operation){
-				case(1) : result = num1 + num2; break;
-				case(2) : result = num1 - num2; break;
-				case(3) : result = num1 * num2; break;
-				case(4) : result = num1 / num2; break;
+				case(1) : 
+					result = num1 + num2; 
+					break;
+				case(2) : 
+					result = num1 - num2; 
+					break;
+				case(3) : 
+					result = num1 * num2; 
+					break;
+				case(4) : 
+					result = num1 / num2; 
+					break;
 				}
 				System.out.println("result:"+ result);
+				out.println(result);
 				
 			}
 			
@@ -46,7 +57,6 @@ public class Server {
 			
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

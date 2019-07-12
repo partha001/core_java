@@ -28,15 +28,22 @@ public class Client {
 			int number1 = 0;
 			int number2 = 0;
 			
+			boolean flag = true;
+			
 			while(true){
 				
 				System.out.println("enter 1 for addition");
 				System.out.println("enter 2 for subtraction");
 				System.out.println("enter 3 for multiplication");
 				System.out.println("enter 4 for division");
-				System.out.println("enter option");
+				System.out.println("enter 5 for exit");
 				
+				System.out.println("enter option");
 				option = Integer.parseInt(input1.readLine());
+				
+				if(option==5){
+					break;
+				}
 				
 				System.out.println("enter an number1");
 				number1 = Integer.parseInt(input1.readLine());
@@ -48,13 +55,13 @@ public class Client {
 				pr.println(number1);
 				pr.println(number2);
 				
+				System.out.println("result =" + input2.readLine());
+				
 			}
 			
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
