@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.partha</groupId>
-	<artifactId>datastructure01</artifactId>
+	<artifactId>datastructure</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>datastructure01</name>
+	<name>datastructure</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
