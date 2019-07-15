@@ -18,7 +18,6 @@ public class Server {
 			System.out.println("connection with client established");
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
