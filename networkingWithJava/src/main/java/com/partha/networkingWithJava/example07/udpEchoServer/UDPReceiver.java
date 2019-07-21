@@ -1,4 +1,4 @@
-package com.partha.networkingWithJava.example07;
+package com.partha.networkingWithJava.example07.udpEchoServer;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

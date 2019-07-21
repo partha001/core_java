@@ -1,4 +1,4 @@
-package com.partha.networkingWithJava.example07;
+package com.partha.networkingWithJava.example07.udpEchoServer;
 
 public class PortsUsed {
 	

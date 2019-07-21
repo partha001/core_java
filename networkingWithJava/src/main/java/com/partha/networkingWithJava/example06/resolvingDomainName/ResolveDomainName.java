@@ -1,4 +1,4 @@
-package com.partha.networkingWithJava.example06;
+package com.partha.networkingWithJava.example06.resolvingDomainName;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
