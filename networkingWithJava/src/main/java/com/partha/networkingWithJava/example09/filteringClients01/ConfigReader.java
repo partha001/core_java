@@ -2,6 +2,7 @@ package com.partha.networkingWithJava.example09.filteringClients01;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Properties;
 
@@ -26,8 +27,18 @@ public class ConfigReader {
 	
 	public Config getConfig(){
 		return new Config(){
+
+			@Override
+			public Collection<String> getAllowedIps() {
+				return allowedIps;
+			}
+
+			@Override
+			public Collection<String> getDeniedIps() {
+				return deniedIps;
+			}
 			
-		}
+		};
 	}
 
 }

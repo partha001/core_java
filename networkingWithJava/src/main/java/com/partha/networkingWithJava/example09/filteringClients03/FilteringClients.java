@@ -1,4 +1,4 @@
-package com.partha.networkingWithJava.example09.filteringClients01;
+package com.partha.networkingWithJava.example09.filteringClients03;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,11 +11,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * problemStatement : the intension of this program is to allow only those ip addresses which matches 
+ * problemStatement : the intension of this program is to allow only those hostnames which matches 
  * with a regular expression mentioned in my properties file.
- * 
- * it also denies client connections which match denied ip address regular expression mentioned in the 
- * properties file
  * @author partha
  *
  */
@@ -34,26 +31,26 @@ public class FilteringClients {
 			final Socket clientSocket = serverSocket.accept();
 			final InetSocketAddress remote = (InetSocketAddress) clientSocket.getRemoteSocketAddress();
 			final InetAddress address = remote.getAddress();
-			final String hostAddress = address.getHostAddress();
-			System.out.println("connection from port="+ remote.getPort() + " ip="+ hostAddress);
-			if(isAllowed(hostAddress)){
+			final String hostname = address.getHostName();
+			System.out.println("connection from port="+ remote.getPort() + " ip="+ hostname);
+			if(isAllowed(hostname)){
 				serve(service, clientSocket);
 			} else {
 				clientSocket.close();
-				System.out.println("connection from port="+ remote.getPort() + " ip="+ hostAddress + " is refused");
+				System.out.println("connection from port="+ remote.getPort() + " ip="+ hostname + " is refused");
 			}
 		}
 
 	}
 
-	private static boolean isAllowed(String hostAddress){
-		return config.getAllowedIps()
+	private static boolean isAllowed(String hostname){
+		return config.getAllowedDomains()
 				.stream()
-				.anyMatch(hostAddress::matches)
+				.anyMatch(hostname::matches)
 				&&
-				config.getDeniedIps()
+				config.getDeniedDomains()
 				.stream()
-				.noneMatch(hostAddress::matches);
+				.noneMatch(hostname::matches);
 	}
 
 	private static void serve(ExecutorService service,Socket clientSocket){
