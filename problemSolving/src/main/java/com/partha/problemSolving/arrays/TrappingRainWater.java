@@ -2,7 +2,7 @@ package com.partha.problemSolving.arrays;
 
 /**
  * source: https://www.geeksforgeeks.org/trapping-rain-water/
- * timecomplexity : O(n2).
+ * timecomplexity : O(n^2).
  * this is the simple solution
  * @author partha
  *
@@ -10,7 +10,7 @@ package com.partha.problemSolving.arrays;
 public class TrappingRainWater {
 
 	public static void main(String[] args) {
-		 int arr[] = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+		 int[] arr = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
 		 System.out.println("Maximum water that can be accumulated is " +  
                  findWater(arr)); 
 	}
