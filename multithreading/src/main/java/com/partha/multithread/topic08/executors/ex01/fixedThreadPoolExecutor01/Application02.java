@@ -1,17 +1,19 @@
-package com.partha.multithread.topic08.executors.cachedThreadPoolExecutor01;
+package com.partha.multithread.topic08.executors.ex01.fixedThreadPoolExecutor01;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Application01 {
+public class Application02 {
 
 	public static void main(String[] args) {
 		System.out.println("starting main thread");
-		ExecutorService executor = Executors.newCachedThreadPool();
+		ExecutorService executor = Executors.newFixedThreadPool(2);
 		executor.submit(new Thread(new MyThread(), "thread1"));
 		executor.submit(new Thread(new MyThread(), "thread2"));
 		executor.submit(new Thread(new MyThread(), "thread3"));
 		executor.shutdown();
+		//executor.submit(new Thread(new MyThread(), "thread4"));
+		
 		System.out.println("completing main thread");
 	}
 	
