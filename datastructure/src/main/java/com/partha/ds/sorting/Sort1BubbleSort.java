@@ -1,6 +1,6 @@
 package com.partha.ds.sorting;
 
-public class BubbleSort {
+public class Sort1BubbleSort {
 
 	public static void main(String[] args) {
 		

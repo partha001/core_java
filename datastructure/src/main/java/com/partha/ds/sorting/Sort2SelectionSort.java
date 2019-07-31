@@ -1,6 +1,6 @@
 package com.partha.ds.sorting;
 
-public class SelectionSort {
+public class Sort2SelectionSort {
 
 	public static void main(String[] args) {
 		
