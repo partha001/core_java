@@ -1,6 +1,7 @@
 package com.partha.multithread.topic08.executors.ex05.returningValues;
 
 /**
+ * Strategy1: returning values using normal threads
  * this is program shows how to get procesing results from threads using runnable and not callable.
  * @author partha
  *
