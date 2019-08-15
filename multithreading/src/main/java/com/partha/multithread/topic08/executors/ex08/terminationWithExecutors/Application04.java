@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 
 
-public class Application03 {
+public class Application04 {
 
 	public static void main(String[] args) {
 
@@ -24,10 +26,10 @@ public class Application03 {
 			MyRunnableNonBlocking task4 = new MyRunnableNonBlocking();
 			
 			ExecutorService executor = Executors.newCachedThreadPool();
-			executor.submit(task1);
-			executor.submit(task2);
-			executor.submit(task3);
-			executor.submit(task4);
+			Future<Integer> future1 = executor.submit(task1);
+			Future<Integer> future2 = executor.submit(task2);
+			Future future3 = executor.submit(task3);
+			Future future4 = executor.submit(task4);
 			
 			TimeUnit.MILLISECONDS.sleep(1000);
 			executor.shutdownNow();
@@ -35,11 +37,18 @@ public class Application03 {
 			System.out.println("["+Thread.currentThread().getName()+"] all threads terminated: "+
 								executor.awaitTermination(1000, TimeUnit.MILLISECONDS));
 			
-
+			System.out.println("["+Thread.currentThread().getName()+"] future1: "+
+					future1.get());
+			
+			System.out.println("["+Thread.currentThread().getName()+"] future2: "+
+					future2.get());
 
 			System.out.println("["+Thread.currentThread().getName()+"] ending main thread");
 
 		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -56,7 +65,7 @@ public class Application03 {
 
 
 		@Override
-		public Integer call()  {
+		public Integer call() throws InterruptedException  {
 			System.out.println("["+Thread.currentThread().getName()+"] started");
 			int result = 1;
 
@@ -64,12 +73,12 @@ public class Application03 {
 				result = result *i;
 				System.out.println("["+Thread.currentThread().getName()+"] printing intermediate result : "+ result);
 
-				try {
+				//try {
 					TimeUnit.MILLISECONDS.sleep(500);
-				} catch (InterruptedException e) {
-					System.out.println("["+Thread.currentThread().getName()+"] sleep interrupted. Cancelling ...");
-					break;
-				}
+//				} catch (InterruptedException e) {
+//					System.out.println("["+Thread.currentThread().getName()+"] sleep interrupted. Cancelling ...");
+//					//break;
+//				}
 
 			}
 			System.out.println("["+Thread.currentThread().getName()+"] completed");
