@@ -8,41 +8,36 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class App01SchedulingTaskForOneTimeExecution {
-	
+public class App03RepeatedFixedRateExecutions {
+
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSS");
 
 	public static void main(String[] args) throws InterruptedException {
+
 		System.out.println("["+Thread.currentThread().getName()+ "]  started" );
 
 		//by passing true we have chosen to run the timer thread in a daemon mode
-		Timer timer = new Timer("Timer-thread",false);
 		
-		/***************** first task ******************/
-		//scheduling by providing the exact time to run		
-		Date currentTime = new Date();
-		Date scheduledTime =  getFutureTime(currentTime, 5000);
-		System.out.println("["+Thread.currentThread().getName()+ 
-								"]  task1-details currentTime:"+sdf.format(currentTime) + 
-								"   scheduledTime:"+ sdf.format(scheduledTime));
-		timer.schedule(new MyTask("task1",2000), scheduledTime);
+		Timer timer = new Timer("Timer-thread",true);
+		Date currentTime  = new Date();
+		
+		Date scheduledTime = getFutureTime(currentTime, 3000);
+		long intervalInMillis = 2000;
+		System.out.println("["+Thread.currentThread().getName()+ "]  currentTime:"+sdf.format(currentTime)+ "    scheduledTime for firsttask: "+ sdf.format(scheduledTime) );
+		
+		timer.scheduleAtFixedRate(new MyTask("mytask1", 4000), scheduledTime , intervalInMillis);
+		//timer.scheduleAtFixedRate(new MyTask("mytask1", 4000), scheduledTime , intervalInMillis);
 		
 		
-		/***************** second task ******************/
-		//scheduling by providing the offset in milliseconds from the current time	
-		MyTask myTask2 = new MyTask("task2",1000);
-		timer.schedule(myTask2, 2000);
-		System.out.println("["+Thread.currentThread().getName()+ 
-				"]  task2-details currentTime:"+sdf.format(currentTime) + 
-				"   scheduledTime:"+ sdf.format(myTask2.scheduledExecutionTime()));
 		
-//// to terminate the timer ourselves
-//		TimeUnit.MILLISECONDS.sleep(50000);
-//		timer.cancel();
-			
+		
+		TimeUnit.MILLISECONDS.sleep(10000);
+		System.out.println("["+Thread.currentThread().getName()+ "]  cancelling now" );
+		timer.cancel();
+
 		System.out.println("["+Thread.currentThread().getName()+ "]  completed" );
+
 	}
-	
 	
 	public static Date getFutureTime(Date initialTime, long millisToAdd){
 		Calendar cal = GregorianCalendar.getInstance();
@@ -50,14 +45,13 @@ public class App01SchedulingTaskForOneTimeExecution {
 		return cal.getTime();
 	}
 
-	
 	public static class MyTask extends  TimerTask {
-		
+
 		private String taskId;
 		private long taskDurationInMillis;
 
 		private SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSS");
-		
+
 		public MyTask(String taskId,long taskDurationInMillis) {
 			super();
 			this.taskId = taskId;

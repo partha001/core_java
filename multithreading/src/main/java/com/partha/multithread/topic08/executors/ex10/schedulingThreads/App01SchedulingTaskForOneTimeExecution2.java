@@ -8,7 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class App01SchedulingTaskForOneTimeExecution {
+public class App01SchedulingTaskForOneTimeExecution2 {
 	
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSS");
 
@@ -21,23 +21,23 @@ public class App01SchedulingTaskForOneTimeExecution {
 		/***************** first task ******************/
 		//scheduling by providing the exact time to run		
 		Date currentTime = new Date();
-		Date scheduledTime =  getFutureTime(currentTime, 5000);
+		Date scheduledTime =  getFutureTime(currentTime, 1000);
 		System.out.println("["+Thread.currentThread().getName()+ 
 								"]  task1-details currentTime:"+sdf.format(currentTime) + 
 								"   scheduledTime:"+ sdf.format(scheduledTime));
-		timer.schedule(new MyTask("task1",2000), scheduledTime);
+		timer.schedule(new MyTask("task1",5000), scheduledTime);
 		
 		
 		/***************** second task ******************/
 		//scheduling by providing the offset in milliseconds from the current time	
-		MyTask myTask2 = new MyTask("task2",1000);
+		MyTask myTask2 = new MyTask("task2",2000);
 		timer.schedule(myTask2, 2000);
 		System.out.println("["+Thread.currentThread().getName()+ 
 				"]  task2-details currentTime:"+sdf.format(currentTime) + 
 				"   scheduledTime:"+ sdf.format(myTask2.scheduledExecutionTime()));
 		
-//// to terminate the timer ourselves
-//		TimeUnit.MILLISECONDS.sleep(50000);
+		// to terminate the timer ourselves
+//		TimeUnit.MILLISECONDS.sleep(8000);
 //		timer.cancel();
 			
 		System.out.println("["+Thread.currentThread().getName()+ "]  completed" );
