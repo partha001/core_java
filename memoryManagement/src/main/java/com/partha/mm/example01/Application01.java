@@ -17,5 +17,7 @@ public class Application01 {
 	public static void incrementByOneHundred(int var){
 		var =  var + 100;
 	}
+	
+	//some comment
 
 }
