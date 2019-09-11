@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author partha
  *
  */
-public class Application01 {
+public class App01PassingObjectArguments {
 
 	public static void main(String[] args) {
 		ArrayList<String> list = new ArrayList<String>();

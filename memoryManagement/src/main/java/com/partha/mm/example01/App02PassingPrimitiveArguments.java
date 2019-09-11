@@ -6,7 +6,7 @@ package com.partha.mm.example01;
  * @author partha
  *
  */
-public class Application02 {
+public class App02PassingPrimitiveArguments {
 
 	public static void main(String[] args) {
 		int var = 10;
