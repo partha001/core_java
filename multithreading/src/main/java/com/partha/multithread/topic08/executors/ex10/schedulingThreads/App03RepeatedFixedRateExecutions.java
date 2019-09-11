@@ -1,14 +1,5 @@
 package com.partha.multithread.topic08.executors.ex10.schedulingThreads;
 
-public class App02RepeatedFixedDelayExecutions {
-
-	public static void main(String[] args) {
-
-	}
-
-}
-package com.partha.multithread.topic08.executors.ex10.schedulingThreads;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,9 +8,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-import com.partha.multithread.topic08.executors.ex10.schedulingThreads.App01SchedulingTaskForOneTimeExecution2.MyTask;
-
-public class App02RepeatedFixedDelayExecutions {
+public class App03RepeatedFixedRateExecutions {
 
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSS");
 
@@ -36,8 +25,9 @@ public class App02RepeatedFixedDelayExecutions {
 		long intervalInMillis = 2000;
 		System.out.println("["+Thread.currentThread().getName()+ "]  currentTime:"+sdf.format(currentTime)+ "    scheduledTime for firsttask: "+ sdf.format(scheduledTime) );
 		
-		timer.schedule(new MyTask("mytask1", 1000), scheduledTime , intervalInMillis);
-		//timer.schedule(new MyTask("mytask1", 5000), scheduledTime , intervalInMillis);
+		timer.scheduleAtFixedRate(new MyTask("mytask1", 4000), scheduledTime , intervalInMillis);
+		//timer.scheduleAtFixedRate(new MyTask("mytask1", 4000), scheduledTime , intervalInMillis);
+		
 		
 		
 		
