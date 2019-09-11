@@ -1,14 +1,5 @@
 package com.partha.multithread.topic08.executors.ex10.schedulingThreads;
 
-public class App02RepeatedFixedDelayExecutions {
-
-	public static void main(String[] args) {
-
-	}
-
-}
-package com.partha.multithread.topic08.executors.ex10.schedulingThreads;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,8 +7,6 @@ import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-
-import com.partha.multithread.topic08.executors.ex10.schedulingThreads.App01SchedulingTaskForOneTimeExecution2.MyTask;
 
 public class App02RepeatedFixedDelayExecutions {
 
