@@ -1,6 +1,6 @@
 package com.partha.ds.sorting;
 
-public class MergeSort {
+public class Sort4MergeSort {
 	
 
 	/**
@@ -109,7 +109,7 @@ public class MergeSort {
         System.out.println("Given Array"); 
         printArray(arr); 
   
-        MergeSort ob = new MergeSort(); 
+        Sort4MergeSort ob = new Sort4MergeSort(); 
         ob.sort(arr, 0, arr.length-1); 
   
         System.out.println("\nSorted array"); 

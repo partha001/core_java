@@ -14,6 +14,7 @@ public class MissingNumberInArray {
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
+		System.out.println("enter number of inputs");
 		int i=scanner.nextInt();
 		for(int j=0;j<i;j++){
 			

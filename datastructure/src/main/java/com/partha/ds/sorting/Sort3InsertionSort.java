@@ -1,6 +1,6 @@
 package com.partha.ds.sorting;
 
-public class InsertionSort {
+public class Sort3InsertionSort {
 
 	public static void main(String[] args) {
 		int[] arr= new int[]{12,11,10,8,28,21};
