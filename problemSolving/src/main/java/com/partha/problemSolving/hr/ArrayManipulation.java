@@ -1,7 +1,5 @@
 package com.partha.problemSolving.hr;
 
-import java.util.Arrays;
-
 /**
  * problemDefiniton: https://www.hackerrank.com/challenges/crush/problem
  * @author partha
