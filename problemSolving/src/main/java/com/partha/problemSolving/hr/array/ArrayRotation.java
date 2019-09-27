@@ -1,4 +1,4 @@
-package com.partha.problemSolving.hr;
+package com.partha.problemSolving.hr.array;
 
 import java.util.stream.IntStream;
 
