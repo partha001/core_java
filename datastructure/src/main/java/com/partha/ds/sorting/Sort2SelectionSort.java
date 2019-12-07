@@ -1,5 +1,8 @@
 package com.partha.ds.sorting;
 
+/*
+ * timecomplexity : O(n^2)
+ */
 public class Sort2SelectionSort {
 
 	public static void main(String[] args) {
