@@ -10,7 +10,7 @@ package com.partha.problemSolving.dynamicProgramming;
  * 					sumRange(1,4) = 3
  * 					sumRange(3,3) = 10
  */
-public class SumOfTheRange {
+public class Ex05SumOfTheRange {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

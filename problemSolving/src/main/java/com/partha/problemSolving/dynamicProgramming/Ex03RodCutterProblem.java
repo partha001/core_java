@@ -11,7 +11,7 @@ package com.partha.problemSolving.dynamicProgramming;
  * @author partha
  *
  */
-public class RodCutterProblem {
+public class Ex03RodCutterProblem {
 
 	public static void main(String[] args) {
 

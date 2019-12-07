@@ -6,7 +6,7 @@ package com.partha.problemSolving.dynamicProgramming;
  * @author partha
  *
  */
-public class StairwayToHeaven {
+public class Ex01StairwayToHeaven {
 
 	public static void main(String[] args) {
 		int totalNoOfStairsToClimb = 3;

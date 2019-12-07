@@ -7,11 +7,11 @@ package com.partha.problemSolving.dynamicProgramming;
  * @author partha
  *
  */
-public class ShareMarket {
+public class Ex04ShareMarket {
 
 	public static void main(String[] args) {
 
-		ShareMarket sm = new ShareMarket();
+		Ex04ShareMarket sm = new Ex04ShareMarket();
 		int[] price = {8, 1, 2, 4, 6, 3};
 		int size = 6;
 		System.out.println("Maximum profit that we can gain from price array {8, 1, 2, 4, 6, 3} is " + sm.maxProfit(price, size));

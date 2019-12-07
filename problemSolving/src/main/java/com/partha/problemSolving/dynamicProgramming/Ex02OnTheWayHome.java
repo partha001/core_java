@@ -8,7 +8,7 @@ package com.partha.problemSolving.dynamicProgramming;
  * @author Partha
  *
  */
-public class OnTheWayHome {
+public class Ex02OnTheWayHome {
 
 	public static void main(String[] args) {
 		System.out.println(findNumberOfWaysToReachHome(5,6));
