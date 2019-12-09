@@ -3,90 +3,60 @@ package com.partha.ds.sorting;
 public class Sort4MergeSort {
 	
 
-	/**
-	 * @note : Merges two subarrays of arr[].  First subarray is arr[l..m] .Second subarray is arr[m+1..r] 
-	 * @param arr
-	 * @param l : leftindex
-	 * @param m : middleindex
-	 * @param r : rightindex
-	 */
-    void merge(int arr[], int l, int m, int r) 
-    { 
-        // Find sizes of two subarrays to be merged 
-        int n1 = m - l + 1; 
-        int n2 = r - m; 
-  
-        /* Create temp arrays */
-        int L[] = new int [n1]; 
-        int R[] = new int [n2]; 
-  
-        /*Copy data to temp arrays*/
-        for (int i=0; i<n1; ++i) 
-            L[i] = arr[l + i]; 
-        for (int j=0; j<n2; ++j) 
-            R[j] = arr[m + 1+ j]; 
-  
-  
-        /* Merge the temp arrays */
-  
-        // Initial indexes of first and second subarrays 
-        int i = 0, j = 0; 
-  
-        // Initial index of merged subarry array 
-        int k = l; 
-        while (i < n1 && j < n2) 
-        { 
-            if (L[i] <= R[j]) 
-            { 
-                arr[k] = L[i]; 
-                i++; 
-            } 
-            else
-            { 
-                arr[k] = R[j]; 
-                j++; 
-            } 
-            k++; 
-        } 
-  
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) 
-        { 
-            arr[k] = L[i]; 
-            i++; 
-            k++; 
-        } 
-  
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) 
-        { 
-            arr[k] = R[j]; 
-            j++; 
-            k++; 
-        } 
-    } 
-    
-    /**
-     * @note: Main function that sorts arr[l..r] using merge()
-     * @param arr : inputArray
-     * @param l : leftindex
-     * @param r : rightindex
-     */
-    void sort(int arr[], int l, int r) 
-    { 
-        if (l < r) 
-        { 
-            // Find the middle point 
-            int m = (l+r)/2; 
-  
-            // Sort first and second halves 
-            sort(arr, l, m); 
-            sort(arr , m+1, r); 
-  
-            // Merge the sorted halves 
-            merge(arr, l, m, r); 
-        } 
-    } 
+	public static void mergeSort(int[] arr,int left,int right) {
+		if(left<right) {
+			int mid = (left+right)/2;
+			mergeSort(arr,left,mid);
+			mergeSort(arr, mid+1, right);
+			merge(arr,left,mid,right);
+		}
+	}
+	
+
+	
+	
+	public static void merge(int[] arr,int left,int mid,int right) {
+		int length1 = mid - left +1;
+		int length2 = right - mid;
+		
+		int[] larr = new int[length1];
+		int[] rarr = new int[length2];
+		
+		for(int i=0;i<length1;i++) {
+			larr[i]=arr[left+i];			
+		}
+		
+		for(int j=0;j<length2;++j) {
+			rarr[j]=arr[mid+1+j];
+		}
+		
+		int i=0;
+		int j=0;
+		int k= left;
+		
+		while(i<length1 && j<length2) {
+			if(larr[i]<=rarr[j]) {
+				arr[k]=larr[i];
+				i++;
+			}else {
+				arr[k] = rarr[j];
+				j++;
+			}
+			k++;
+		}
+		
+		while(i<length1) {
+			arr[k]=larr[i];
+			k++;
+			i++;
+		}
+		
+		while(j<length2) {
+			arr[k]=rarr[j];
+			k++;
+			j++;
+		}
+	}
     
     
     /* A utility function to print array of size n */
@@ -109,8 +79,7 @@ public class Sort4MergeSort {
         System.out.println("Given Array"); 
         printArray(arr); 
   
-        Sort4MergeSort ob = new Sort4MergeSort(); 
-        ob.sort(arr, 0, arr.length-1); 
+        mergeSort(arr, 0, arr.length-1);
   
         System.out.println("\nSorted array"); 
         printArray(arr); 

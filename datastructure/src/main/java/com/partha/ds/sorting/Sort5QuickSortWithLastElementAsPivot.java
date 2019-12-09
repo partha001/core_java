@@ -2,7 +2,7 @@ package com.partha.ds.sorting;
 
 import java.util.stream.IntStream;
 
-public class Sort5QuickSort {
+public class Sort5QuickSortWithLastElementAsPivot {
 
 	public static void main(String[] args) {
 		
