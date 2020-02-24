@@ -1,6 +1,7 @@
 package com.partha.ds.heap;
 
 import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.NoSuchElementException;
 
 public class BinaryHeap {
