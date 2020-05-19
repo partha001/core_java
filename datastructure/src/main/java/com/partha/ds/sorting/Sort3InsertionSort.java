@@ -9,7 +9,7 @@ public class Sort3InsertionSort {
 		int[] arr= new int[]{12,11,10,8,28,21};
 		
 		
-		for(int i=0;i<arr.length;i++){
+		for(int i=1;i<arr.length;i++){
 			int current=arr[i];
 			int j=i-1;
 			while(j>=0 && current<arr[j]){
