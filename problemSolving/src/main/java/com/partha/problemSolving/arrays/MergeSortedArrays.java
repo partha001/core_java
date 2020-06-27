@@ -19,50 +19,34 @@ public class MergeSortedArrays {
 	}
 
 	public static int[] mergeSortedArrays(int[] arra,int[] arrb){
-		if(arra.length==0)
-			return arrb;
-		else if (arrb.length==0)
-			return arra;
-		else{
-			int[] result = new int[arra.length+arrb.length];
-
-			int currentIndexA = 0;
-			int currentIndexB = 0;			
-			int i=0;
-
-			while(i<result.length){
-				//when one of them is exhausted
-				if(currentIndexA==arra.length || currentIndexB== arrb.length){
-					//when arrayA is exhausted
-					if(currentIndexA==arra.length){
-						result[i]=arrb[currentIndexB];
-						currentIndexB++;
-					}else{
-						result[i]= arra[currentIndexA];
-						currentIndexB++;
-					}
-				}
-				//when none of the arrays are exhaused
-				else{
-
-					if(arra[currentIndexA]<=arrb[currentIndexB]){
-
-						result[i]=arra[currentIndexA];
-						currentIndexA++;
-					}else{
-						result[i]=arra[currentIndexA];
-						currentIndexB++;
-					}
-				}
-				i++;
-
-
-
-
+		int[] resultArr = new int[arra.length+arrb.length];
+		int a=0;
+		int b=0;
+		int c=0;
+		while(a<arra.length && b<arrb.length) {
+			if(arra[a]<=arrb[b]) {
+				resultArr[c]= arra[a];
+				a++;
+			}else {
+				resultArr[c] = arrb[b];
+				b++;
 			}
-			return result;
+			c++;
 		}
-		//return resu
+		
+		while(a<arra.length) {
+			resultArr[c]= arra[a];
+			c++;
+			a++;
+		}
+		
+		while(b<arrb.length) {
+			resultArr[c] = arrb[b];
+			c++;
+			b++;
+		}
+		
+		return resultArr;
 	}
-
-	}
+	
+}

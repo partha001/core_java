@@ -6,7 +6,8 @@ public class Sort5QuickSortWithFirstElementAsPivot {
 
 	public static void main(String[] args) {
 
-		int arr[] = {12, 11, 13, 5, 6, 7}; 
+		//int arr[] = {12, 11, 13, 5, 6, 7}; 
+		int[] arr = new int[] {12,11,66,23};
 		  
         System.out.println("Given Array"); 
         IntStream.range(0, arr.length)
@@ -44,37 +45,37 @@ public class Sort5QuickSortWithFirstElementAsPivot {
      * Uses the first element in the array as the pivot 
      * 
      * @param array
-     * @param l
-     * @param r
+     * @param left
+     * @param right
      */
-    static void sort(int[] array, int l, int r) {
-        if (l < r) {
+    static void sort(int[] array, int left, int right) {
+        if (left < right) {
             // select pivot element (left-most)  
-            int pivot = array[l];
+            int pivot = array[left];
             // partition and shuffle around pivot 
-            int i = l;
-            int j = r;
-            while (i < j) {
+            int start = left;
+            int end = right;
+            while (start < end) {
                 // move right to avoid pivot element 
-                i += 1;
+                start += 1;
                 // scan right: find elements greater than pivot 
-                while (i <= r && array[i] < pivot) {
-                    i += 1;
+                while (start <= right && array[start] < pivot) {
+                    start += 1;
                 }
                 // scan left: find elements smaller than pivot
-                while (j >= l && array[j] > pivot) {
-                    j -= 1;
+                while (end >= left && array[end] > pivot) {
+                    end -= 1;
                 }
-                if (i <= r && i < j) {
+                if (start <= right && start < end) {
                     // swap around pivot  
-                    swap(array, i, j);
+                    swap(array, start, end);
                 }
             }
             // put pivot in correct place
-            swap(array, l, j);
+            swap(array, left, end);
             // sort partitions 
-            sort(array, l, j - 1);
-            sort(array, j + 1, r);
+            sort(array, left, end - 1);
+            sort(array, end + 1, right);
         }
     }
 
