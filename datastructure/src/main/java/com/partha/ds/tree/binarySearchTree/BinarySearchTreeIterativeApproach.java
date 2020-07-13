@@ -21,12 +21,18 @@ public class BinarySearchTreeIterativeApproach {
 		//tree.insert(10); 
 		tree.insert(40); 
 		tree.insert(70); 
-		tree.insert(60); 
+//		tree.insert(60); 
 		tree.insert(80); 
-		//tree.delete(50);
+		//tree.insert(78); 
+		//tree.insert(79); 
+//		tree.insert(55); 
+//    	tree.insert(65);
+//		tree.insert(90);
+		tree.delete(50);
+		
 		//tree.preOrderTraversal();
-		//tree.inOrderTraversal();
-		tree.postOrderTraversal();
+		tree.inOrderTraversal();
+		//tree.postOrderTraversal();
 		//System.out.println(tree.delete(20));
 		//System.out.println(tree.delete(10));
 		//System.out.println(tree.search(50));
@@ -63,7 +69,7 @@ public class BinarySearchTreeIterativeApproach {
 	  
 	  
 	        Stack<Node> s = new Stack<Node>(); 
-	        Node curr = root; 
+	        Node curr = root;
 	  
 	        // traverse the tree 
 	        while (curr != null || s.size() > 0) 
@@ -75,7 +81,7 @@ public class BinarySearchTreeIterativeApproach {
 	                /* place pointer to a tree node on the stack before 
 	                 * traversing the node's left subtree */
 	                s.push(curr); 
-	                curr = curr.left; 
+	                curr = curr.left;
 	            } 
 	  
 	            /* Current must be NULL at this point */
@@ -202,7 +208,7 @@ public class BinarySearchTreeIterativeApproach {
 			Node current = this.root;
 			boolean isLeftChild = true;
 			boolean found = false;
-			
+
 			//first searching the node to be deleted and populating the above values
 			while(current!=null){
 				if(current.value<data){
@@ -220,59 +226,105 @@ public class BinarySearchTreeIterativeApproach {
 					break;
 				}
 			}
-			
+
 			if(found){
-				
+
 				//case1: if node to be deleted is a leaf node
 				if(current.left==null && current.right==null){
-					
+
 					if(isLeftChild){
 						parent.left = null;
 					}else{
 						parent.right = null ;
 					}
 				}
-				
+
 				//case2: if has one child
 				if((current.left == null && current.right!=null) || (current.right == null && current.left!=null)){
-					
+
 					if(isLeftChild){
-						
+
 						if(current.right == null){
 							parent.left = current.left;
 						}else if(current.left == null){
 							parent.left = current.right;
 						}
-						
-						
+
+
 					}else{
-						
+
 						if(current.right == null){
 							parent.right = current.left;
 						}else if(current.left == null){
 							parent.right = current.right;
 						}
 					}
-					
+
 				}
-				
+
 				//case3: current has both left and right child
 				if(current.left != null && current.right != null){
-					
-					if(isLeftChild){
-						Node temp = current.left;
-						temp.right = current.right;
-						parent.left = temp;
+
+					//finding the successor [successor = min of right subtree]
+					Node successor = null;
+					Node successorParent = null ;
+					successor = current.right;
+					successorParent = current;
+					while(successor.left!=null) {
+						successorParent = successor;
+						successor = successor.left;
 					}
-					else{
-						 Node temp = current.right;
-						 temp.left = current.left;
-						 parent.right = temp;
+
+					if(successorParent.value<successor.value) {
+						successorParent.right = null;
+					}else {
+						successorParent.left = null;
+					}
+
+					//if successor doesnt have right child 
+					//replacing successor with node to be deleted
+					if(parent==null) {
+						
+						if(successor.right==null) {
+							successor.left = current.left;
+							successor.right = current.right;
+							successorParent.left = null;
+							this.root = successor;
+						}else {
+							if(successorParent.value == current.value) {
+								successor.left = current.left;
+								this.root = successor;
+							}else {
+								successorParent.left = successor.right;
+								successor.left = current.left;
+								successor.right = current.right;
+								this.root = successor ;
+							}
+						}
+					}else {
+						if(isLeftChild) {
+							parent.left = successor;
+						}else {
+							parent.right = successor;
+						}
+						successor.left = current.left;
+						if(successor.right==null) {
+							successor.right = current.right;
+						}else {
+							if(successorParent.value==current.value) {
+								
+							}else {
+								
+								successorParent.left = successor.right ;
+								successor.right = current.right;
+							}
+						}
+
 					}
 				}
-				
+
 			}
-			
+
 			return found;
 		}
 	}
