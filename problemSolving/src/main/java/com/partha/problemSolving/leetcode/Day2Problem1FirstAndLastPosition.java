@@ -13,6 +13,8 @@ public class Day2Problem1FirstAndLastPosition {
 		searchRange(new int[] {5,7,7,8,8,10}, 8);
 	}
 
+	
+	
 	public static int[] searchRange(int[] nums, int target) {
 		Result result = search(nums, 0, nums.length-1, target);
 		if(result.found) {

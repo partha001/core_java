@@ -1,5 +1,7 @@
 package com.partha.problemSolving.leetcode;
 
+import java.util.Arrays;
+
 /**
  * https://leetcode.com/problems/valid-anagram/
  * @author biswaspa
@@ -10,49 +12,73 @@ public class Day1Problem2Anagram {
 	public static void main(String[] args) {
 
 	}
-
-	//approach1
-	 public int[] twoSum(int[] nums, int target) {	       
-			int[] result = new int[2];
-			boolean found= false;
-			for(int i=0;i<nums.length-1;i++) {
-				if(!found) {
-					for(int j=i+1;j<nums.length;j++) {
-						if(nums[i]+nums[j]== target) {
-							result[0]=i;
-							result[1]=j;
-							found = true;
-							break;
-						}
-					}
-
-				}else {
-					break;
-				}
+	
+	/**
+	 * method : one pass
+	 * timecomplexity : O(nlogn)
+	 * spacecomplexity : O(2n) or O(n)
+	 * @author biswaspa
+	 *
+	 */
+	static class Solution1 {
+	    public boolean isAnagram(String s, String t) {
+			if(s.length()==t.length()){
+				char[] sarr = s.toCharArray();
+				char[] tarr = t.toCharArray();
+				Arrays.sort(sarr);
+				Arrays.sort(tarr);		
+				return Arrays.equals(sarr, tarr);
+			}else{
+				return false;
 			}
-			return result;
-	 }
 
-//	//approach2 since single loop
-//	public static int[] twoSum(int[] nums, int target) {
-//        int[] result = new int[2];
-//        Map<Integer,Integer> map = new HashMap<>();
-//        
-//        //inserting element into hashmap
-//        for(int i=0;i<nums.length;i++){
-//            map.put(nums[i],i);
-//        }
-//        
-//        for(int i=0;i<nums.length-1;i++){
-//            if(map.get(target-nums[i])!=null) {
-//            	result[0]=i;
-//            	result[1]=map.get(target-nums[i]);
-//            	break;
-//            }
-//        }
-//        
-//        return result;
-//    }
+	    }
+	}
+
+	
+	
+	
+
+	/**
+	 * method : one pass
+	 * timecomplexity : O(n)
+	 * spacecomplexity : O(n)
+	 * @author biswaspa
+	 *
+	 */
+	static class Solution2 {
+	    public boolean isAnagram(String s, String t) {
+			if(s.length()==t.length()){
+
+				int[] countArr=new int[256];
+				for(int i=0;i<s.length();i++){
+					countArr[s.charAt(i)]++;
+					countArr[t.charAt(i)]--;
+				}
+
+
+				boolean flag=true;
+				for(int i=0;i<256;i++){
+					if(countArr[i]!=0){
+						flag=false;
+						break;
+					}
+				}
+
+				if(flag){
+					return true;
+				}else{
+					return false;
+				}
+
+
+			}else{
+				return false;
+			}
+
+	    }
+	}
+
 
 	 
 }

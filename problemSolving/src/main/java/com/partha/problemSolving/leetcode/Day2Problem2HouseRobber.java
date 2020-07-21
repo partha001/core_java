@@ -16,12 +16,10 @@ public class Day2Problem2HouseRobber {
 	       if(nums.length>=1) {
 	    	   result[0]=nums[0];
 	       }if(nums.length>=2) {
-	    	   result[1]= (nums[0]>=nums[1] )? nums[0] : nums[1];
-	       }if(nums.length>=3) {
-	    	   result[2]= (nums[0]+nums[2] >= nums[1] ) ? nums[0]+nums[2] : nums[2];
+	    	   result[1]= nums[1];
 	       }
-	       for(int i=3 ; i<nums.length; i++) {
-	    	   
+	       for(int i=2 ; i<nums.length; i++) {
+	    	   result[i] = (result[i-1] >= (nums[i] + result[i-2]) )?  result[i-1] : (nums[i] + result[i-2]) ;
 	       }
 	       return result[nums.length-1];
 	    }
