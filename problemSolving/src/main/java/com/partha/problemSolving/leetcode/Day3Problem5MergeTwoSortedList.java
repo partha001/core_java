@@ -1,4 +1,4 @@
-package com.partha.problemSolving.peerProgramming;
+package com.partha.problemSolving.leetcode;
 
 /**
  * link : https://leetcode.com/problems/merge-two-sorted-lists/

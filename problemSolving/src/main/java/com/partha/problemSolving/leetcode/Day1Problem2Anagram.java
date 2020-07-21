@@ -1,4 +1,4 @@
-package com.partha.problemSolving.peerProgramming;
+package com.partha.problemSolving.leetcode;
 
 /**
  * https://leetcode.com/problems/valid-anagram/

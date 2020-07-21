@@ -1,4 +1,4 @@
-package com.partha.problemSolving.peerProgramming;
+package com.partha.problemSolving.leetcode;
 
 /**
  * leetcode : https://leetcode.com/problems/house-robber/

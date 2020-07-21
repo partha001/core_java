@@ -1,4 +1,4 @@
-package com.partha.problemSolving.peerProgramming;
+package com.partha.problemSolving.leetcode;
 
 /**
  * leetcode: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/

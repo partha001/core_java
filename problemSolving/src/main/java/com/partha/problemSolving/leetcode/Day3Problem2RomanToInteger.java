@@ -1,4 +1,4 @@
-package com.partha.problemSolving.peerProgramming;
+package com.partha.problemSolving.leetcode;
 
 import java.util.HashMap;
 
