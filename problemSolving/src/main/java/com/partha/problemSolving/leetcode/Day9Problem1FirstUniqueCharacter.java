@@ -11,7 +11,7 @@ import java.util.Map;
 public class Day9Problem1FirstUniqueCharacter {
 
 	public static void main(String[] args) {
-		System.out.println(new Solution1().firstUniqChar("leetcode"));
+		System.out.println(new Solution2().firstUniqChar("leetcode"));
 	}
 	
 	
@@ -58,6 +58,26 @@ public class Day9Problem1FirstUniqueCharacter {
 	        }
 	    }
 
+	}
+	
+	
+	
+	static class Solution2 {
+		 public int firstUniqChar(String s) {
+			 int[] arr= new int[256];
+			 for(int i=0;i<s.length();i++) {
+				 int ascii = (int)s.charAt(i);
+				 arr[ascii]++;
+			 }
+			 
+			for(int i=0;i<s.length();i++) {
+				int ascii = (int)s.charAt(i);
+				if(arr[ascii]==1) {
+					return i;
+				}
+			}			
+			return -1;
+		 }
 	}
 	
 	

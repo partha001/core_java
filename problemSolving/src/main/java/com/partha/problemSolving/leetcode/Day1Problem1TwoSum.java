@@ -1,5 +1,6 @@
 package com.partha.problemSolving.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 public class Day1Problem1TwoSum {
 
 	public static void main(String[] args) {
-
+		System.out.println(new Solution4().twoSum(new int[] {1,2,3,4}, 7));
 	}
 
 	/**
@@ -101,6 +102,33 @@ public class Day1Problem1TwoSum {
 		    throw new IllegalArgumentException("No two sum solution");
 		}
 		
+	}
+	
+	
+	/**
+	 * however if the array is sorted then two pointer approach can be used
+	 * @author biswaspa
+	 *
+	 */
+	static class Solution4 {
+		
+		public int[] twoSum(int[] nums, int target) {
+			Arrays.sort(nums);
+			
+			int left=0;
+			int right=nums.length-1;
+			while(left<right) {
+				int sum=nums[left]+nums[right];
+				if(sum==target) {
+					return new int[] {left,right};
+				}else if(sum<target) {
+					left++;
+				}else {
+					right--;
+				}
+			}
+			throw new RuntimeException("no such pair found");
+		}
 	}
 
 
