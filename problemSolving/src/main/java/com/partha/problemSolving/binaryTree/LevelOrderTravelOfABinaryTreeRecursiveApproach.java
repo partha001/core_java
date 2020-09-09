@@ -1,5 +1,8 @@
 package com.partha.problemSolving.binaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * problemStatement: level order traversal using recursive approach
  * referred from : https://www.geeksforgeeks.org/level-order-tree-traversal/
@@ -28,7 +31,7 @@ public class LevelOrderTravelOfABinaryTreeRecursiveApproach {
 		//tree1.inorderTraversal();
 		tree1.levelOrderTraversal();
 		
-		
+		 List<List<Integer>> finalList = new ArrayList<List<Integer>>();
 
 	}
 	
