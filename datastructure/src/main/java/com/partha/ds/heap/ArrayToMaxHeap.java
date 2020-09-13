@@ -19,11 +19,11 @@ public class ArrayToMaxHeap {
         //   9    8  15  17 
 		
         int arr[] = { 1, 3, 5, 4, 6, 13, 10,  9, 8, 15, 17 };  
-        int n = arr.length; 
+        
   
         HeapOperations heapOperations = new HeapOperations();
-        heapOperations.buildHeap(arr, n); 
-        heapOperations.printHeap(arr, n); 
+        heapOperations.buildHeap(arr, arr.length); 
+        heapOperations.printHeap(arr, arr.length); 
 	}
 	
 	static class HeapOperations {
@@ -54,7 +54,7 @@ public class ArrayToMaxHeap {
 	  
 	            // Recursively heapify the affected sub-tree 
 	            heapify(arr, n, largest); 
-	        } 
+	        }
 	    }
 	    
 	    
@@ -78,11 +78,10 @@ public class ArrayToMaxHeap {
 	    // representation of Heap 
 	    static void printHeap(int arr[], int n) 
 	    { 
-	        System.out.println("Array representation of Heap is:"); 
-	  
+	        System.out.println("Array representation of Heap is:"); 	  
 	        for (int i = 0; i < n; ++i) 
-	            System.out.print(arr[i] + " "); 
-	  
+	            System.out.print(arr[i] + " ");
+	         
 	        System.out.println(); 
 	    } 
 	}
