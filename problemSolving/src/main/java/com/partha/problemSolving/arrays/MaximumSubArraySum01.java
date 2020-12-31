@@ -17,7 +17,7 @@ public class MaximumSubArraySum01 {
 	
 	/**
 	 * this method prints the maximum subarray sum
-	 * 
+	 * time complexity O(n^2)
 	 * @param arr : input array
 	 * @param n : size of the input array
 	 */
@@ -46,5 +46,6 @@ public class MaximumSubArraySum01 {
 		
 		return result;
 	}
+	
 
 }

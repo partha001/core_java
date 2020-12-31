@@ -66,5 +66,27 @@ public class Day9Problem3 {
 			}
 		}
 	}
+	
+	
+	/**
+	 * using dp
+	 * timecomplexity O(n)
+	 * @author biswaspa
+	 *
+	 */
+	static class Solution3 {
+	    public int maxSubArray(int[] nums) {
+	        System.out.println(nums[0]);
+	        if(nums.length==0)
+	            return nums[0];
+	        int maxSum = nums[0];
+	        int lastSum = nums[0];
+	        for(int i=1;i<nums.length;i++){
+	            lastSum = Math.max(lastSum + nums[i], nums[i]);
+	            maxSum = Math.max(lastSum,maxSum);
+	        }
+	        return maxSum;
+		}
+	}
 
 }
