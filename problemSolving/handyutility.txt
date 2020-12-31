@@ -1,0 +1,17 @@
+// this is used to fill an array with a value
+Arrays.fill(arr,val);
+
+//to check if a character is alphabet
+boolean Character.isAlphabetic(char c);
+
+//returns the minimum value
+Math.min(val1,val2);
+
+//returns max value
+Math.max(val1,val2);
+
+
+
+
+
+

@@ -9,3 +9,6 @@ datastructure01/.project
 .recommenders**
 *.settings**
 *target**
+**.factorypath**
+**.classpath**
+problemSolving/.sts4-cache/classpath-data.json
