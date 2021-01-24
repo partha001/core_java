@@ -14,7 +14,6 @@ public class CombinationSum4 {
 	public static void main(String[] args) {
 		System.out.println(new Solution1().combinationSum4(new int[] {1, 2, 3}, 3));
 	}
-	
 
 	static class Solution1 {
 	    public int combinationSum4(int[] nums, int target) {
