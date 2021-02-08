@@ -23,7 +23,7 @@ public class Day12RightViewOfBinaryTree {
 	}
 
 
-	public static class TreeNode {
+	static class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
@@ -65,9 +65,42 @@ public class Day12RightViewOfBinaryTree {
 		}
 
 	}
+	
+	
+	/**
+	 * timeComplexity: O(n) Time  spaceComplexity:O(1)
+	 * @author biswaspa
+	 *
+	 */
+	static class Solution2 {
+	    int index = 0;
+	    List<Integer> list = new ArrayList<>();
+	    
+	    public List<Integer> rightSideView(TreeNode root) {	     
+	        if(root == null)
+	            return list;      //Time O(n) and space O(1)
+	        
+	        int level = 1;	        
+	        right(root, level);
+	        return list;
+	    }
+	    
+	    private void right(TreeNode root, int level){
+	        
+	        if(root == null){
+	            return;
+	        }
+	        
+	        if(level > index){  // case when level is greater than Index 
+	            index = level;
+	            list.add(root.val);
+	        }
+	        
+	        right(root.right, level+1);
+	        right(root.left, level+1);
+	    }
+	}
 
 }
 
-/**
- * 
- */
+
