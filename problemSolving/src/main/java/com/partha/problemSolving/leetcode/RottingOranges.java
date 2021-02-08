@@ -3,6 +3,11 @@ package com.partha.problemSolving.leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * https://leetcode.com/problems/rotting-oranges
+ * @author biswaspa
+ *
+ */
 public class RottingOranges {
 
 	public static void main(String[] args) {
