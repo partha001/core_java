@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * https://leetcode.com/problems/rotting-oranges
+ * https://leetcode.com/problems/rotting-oranges/
  * @author biswaspa
  *
  */
