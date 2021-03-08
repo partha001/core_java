@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * 
+ * https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/
  * @author biswaspa
  *
  */
@@ -64,6 +64,45 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	        return result;
 	        
 	    }
+	}
+	
+	
+	private static class Solution2 {
+	    
+	    int sum = 0;
+	    public int sumEvenGrandparent(TreeNode root) {
+	        if(root == null){
+	            return 0;
+	        }
+	        path(root);
+	        return sum;
+	    }
+	    
+	    private void path(TreeNode root){
+	        if(root == null){
+	            return;
+	        }
+	        
+	        if(root.val % 2 == 0){
+	            int a,b,c,d=0;
+	            if(root.left!=null && root.left.left!=null){
+	                sum = sum + root.left.left.val;
+	            }
+	            if(root.left!=null && root.left.right!=null){
+	                sum = sum + root.left.right.val;
+	            }
+	            if(root.right!=null && root.right.left!=null){
+	                sum = sum + root.right.left.val;
+	            }
+	            if(root.right!=null && root.right.right!=null){
+	                sum = sum + root.right.right.val;
+	            }
+	        }
+	        path(root.left);
+	        path(root.right);
+	    }
+	    
+
 	}
 	
 	

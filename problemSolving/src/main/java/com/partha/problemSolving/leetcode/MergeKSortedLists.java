@@ -1,5 +1,7 @@
 package com.partha.problemSolving.leetcode;
 
+import java.util.PriorityQueue;
+
 /**
  * https://leetcode.com/problems/merge-k-sorted-lists/
  * @author biswaspa
@@ -65,6 +67,41 @@ public class MergeKSortedLists {
 		} 
 	}
 
+	
+	private static class Solution2 {
+	    public ListNode mergeKLists(ListNode[] lists) {
+	        
+	        int n = lists.length;
+	        if(n == 1){    // case when list is null
+	            return lists[0];
+	        }
+	        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b)->a.val - b.val);  //min_heap
+	        
+	        for(int i = 0;i<lists.length;i++){    //Time: O(k) + nlogk space:o(k)
+	            ListNode current = lists[i];
+	            if(current!=null){
+	            pq.add(current);
+	            }
+	        }
+	        
+	        ListNode head = new ListNode(0);
+	        ListNode current = head;
+	        
+	        while(!pq.isEmpty()){
+	            
+	            ListNode top = pq.remove();
+	            current.next = top;
+	            current = current.next;
+	            
+	            if(top.next!=null){
+	                pq.add(top.next);
+	            }
+	        }
+	        
+	        return head.next;
+	        
+	    }
+	}
 
 
 	private static  class ListNode {
