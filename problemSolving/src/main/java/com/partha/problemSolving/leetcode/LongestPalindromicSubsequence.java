@@ -5,7 +5,7 @@ package com.partha.problemSolving.leetcode;
  * @author biswaspa
  *
  */
-public class LongestPalindromicSequence {
+public class LongestPalindromicSubsequence {
 
 	public static void main(String[] args) {
 		System.out.println(new Solution1().longestPalindromeSubseq("cbbd"));
