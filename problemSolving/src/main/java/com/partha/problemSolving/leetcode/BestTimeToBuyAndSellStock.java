@@ -1,7 +1,7 @@
 package com.partha.problemSolving.leetcode;
 
 /**
- * link : https://leetcode.com/problems/plus-one/submissions/
+ * link : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  * @author biswaspa
  *
  */
