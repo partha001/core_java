@@ -5,7 +5,7 @@ package com.partha.problemSolving.leetcode;
  * @author biswaspa
  *
  */
-public class BuySellStock {
+public class BestTimeToBuyAndSellStock {
 
 	public static void main(String[] args) {
 		System.out.println(new Solution3().maxProfit(new int[] {7,1,5,3,6,4}));
@@ -85,25 +85,18 @@ public class BuySellStock {
 		
 		 public int maxProfit(int[] prices) {
 			 
-			 //corner case
-			 if(prices.length<=1) {
-				 return 0;
-			 }
-			 
-			 int min = prices[0] ;
-			 int maxProfit = prices[0]<prices[1] ? prices[1] - prices[0] : 0;
-			 
-			 for(int i=2;i<prices.length;i++) {
-				 if(prices[i-1]<min) {
-					 min = prices[i-1];
-				 }
-				 
-				 if( (prices[i]-min) > maxProfit ) {
-					 maxProfit = prices[i]-min;
-				 }
-			 }
-			 
-			 return maxProfit;
+			 if(prices.length<=1)
+		            return 0;
+		        int maxProfit=0;
+		        int minPrice=prices[0];
+		        for(int i=1;i<prices.length;i++){
+		           if(prices[i]>=minPrice)
+		               maxProfit = Math.max(maxProfit,prices[i]-minPrice);
+		            else{
+		                minPrice = prices[i];
+		            }
+		        }
+		        return maxProfit;
 		 
 		 }
 		

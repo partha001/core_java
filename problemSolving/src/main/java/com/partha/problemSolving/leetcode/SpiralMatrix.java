@@ -12,65 +12,55 @@ public class SpiralMatrix {
 
 	public static void main(String[] args) {
 		int[][] arr = new int[][] {{1, 2, 3} , { 4, 5, 6} , {7, 8, 9}};
-
+		System.out.println(new Solution1().spiralOrder(arr));
 	}
 
 
-	class Solution {
+	private static class Solution1 {
 		public List<Integer> spiralOrder(int[][] matrix) {
-			List<Integer> list = new ArrayList<>();
-			int direction =1;
-			int[][] arr = matrix;
-
-			int left=0;			
-			int top = 0;
 			int bottom = matrix.length-1;
-			int right = matrix[0].length-1;                              //
-			while(left<=right && top<=bottom){ 
+			List<Integer> list = new ArrayList();
+			if(bottom==-1)
+				return list;
 
-				//movement = left to right movement in same row
-				if(direction==1){
-					for(int i=left;i<=right;i++){
-						//System.out.print(arr[top][i]+ " ");'/b  ....nbg 
-						list.add(arr[top][i]);
-					}
-					direction=2;
+			int right = matrix[0].length-1;
+			int top = 0;
+			int left = 0;
+			int direction  = 1; 
+
+			while(top<=bottom && left<=right){
+				if(direction==1){ //left to right
+					for(int i=left;i<=right;i++)
+						list.add(matrix[top][i]);
 					top++;
+					direction=2;
+					continue;
 				}
-
-				//movement = top to bottom in same column
-				if(direction==2){
-					for(int i=top;i<=bottom;i++){
-						//System.out.print(arr[i][right]+ " ");
-						list.add(arr[i][right]);
-					}
-					direction=3;
+				if(direction==2){ //top to bottom
+					for(int i=top;i<=bottom;i++)
+						list.add(matrix[i][right]);
 					right--;
+					direction=3;
+					continue;
 				}
-
-				//movement = right to left in same row
-				if(direction==3){
-					for(int i=right;i>=left;i--){
-						//System.out.print(arr[bottom][i]+ " ");
-						list.add(arr[bottom][i]);
-					}
-					direction=4;
+				if(direction==3){ //right to left
+					for(int i=right;i>=left;i--)
+						list.add(matrix[bottom][i]);
 					bottom--;
+					direction=4;
+					continue;
 				}
-
-				//movement = bottom to up in same column
-				if(direction==4){
-					for(int i=bottom;i>=top;i--){
-						//System.out.print(arr[i][left]+" ");
-						list.add(arr[i][left]);
-					}
+				if(direction==4){ //bottom to top
+					for(int i=bottom;i>=top;i--)
+						list.add(matrix[i][left]);
+					left++;              
 					direction=1;
-					left++;
+					continue;
 				}
-
 			}
-			return list;	
+			return list;   
 		}
 	}
+
 
 }
