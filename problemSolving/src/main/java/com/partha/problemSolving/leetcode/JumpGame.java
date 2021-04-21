@@ -11,22 +11,15 @@ public class JumpGame {
 
 	}
 	
-	private static class Solution {
+	class Solution {
 	    public boolean canJump(int[] nums) {
-	        if(nums[0] == 0 && nums.length == 1){
-	            return true;
+	        int reachable = 0;
+	        for(int i=0; i<nums.length; i++){
+	            if(reachable<i)
+	             return false;
+	          reachable = Math.max(reachable,i+nums[i]);  
 	        }
-	        
-	       int max = nums[0];
-	       for(int i = 1;i<nums.length;i++){
-	           if( i > max){
-	               return false;
-	           }
-	           if(i+nums[i] > max){
-	               max = i + nums[i];
-	           }
-	       }
-	      return true;
+            return true;
 	    }
 	}
 
