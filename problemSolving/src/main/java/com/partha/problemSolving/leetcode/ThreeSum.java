@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * https://leetcode.com/problems/3sum/
+ * @author biswaspa
+ *
+ */
 public class ThreeSum {
 
 	public static void main(String[] args) {

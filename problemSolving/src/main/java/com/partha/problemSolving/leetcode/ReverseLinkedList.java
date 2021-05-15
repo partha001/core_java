@@ -1,5 +1,10 @@
 package com.partha.problemSolving.leetcode;
 
+/**
+ * link : https://leetcode.com/problems/reverse-linked-list/
+ * @author biswaspa
+ *
+ */
 public class ReverseLinkedList {
 
 	public static void main(String[] args) {
@@ -10,7 +15,7 @@ public class ReverseLinkedList {
 	
 	
 	//  Definition for singly-linked list.
-	  static class ListNode {
+	 private static class ListNode {
 	     int val;
 	     ListNode next;
 	     ListNode() {}
@@ -23,7 +28,7 @@ public class ReverseLinkedList {
 	   * @author biswaspa
 	   *
 	   */
-	static class Solution1 {
+	private static class Solution1 {
 	    public ListNode reverseList(ListNode head) {        
 	       ListNode previous = null;
 	        ListNode current = head;

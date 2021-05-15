@@ -27,8 +27,8 @@ public class MaximumProductSubarray {
 	             if(val<0){
 	                 int temp1=mnp;
 	                 int temp2=mpp;
-	               mpp=Math.max(val,temp1*val);
-	               mnp=Math.min(val,temp2*val);    
+	               mpp=Math.max(val,val*temp1);
+	               mnp=Math.min(val,val*temp2);    
 	             }else{
 	                mpp=Math.max(val,val*mpp);
 	                mnp=Math.min(val,val*mnp); 

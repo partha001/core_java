@@ -11,7 +11,8 @@ import java.util.Queue;
 public class ShortestPathInBinaryMatrix {
 
 	public static void main(String[] args) {
-
+		int[][] grid = new int[][] {{0,0,0},{1,1,0},{1,1,0}};
+		System.out.println(new Solution2().shortestPathBinaryMatrix(grid));
 	}
 	
 	/**
@@ -19,7 +20,7 @@ public class ShortestPathInBinaryMatrix {
 	 * @author partha
 	 *
 	 */
-	static class Solution1 {
+	private static class Solution1 {
 	    
 	    int r[] = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 }; // co-ordinates
 	    int c[] = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 }; 
@@ -73,6 +74,61 @@ public class ShortestPathInBinaryMatrix {
 	        }
 	        
 	        return -1;
+	    }
+	}
+	
+	
+	private static class Solution2 {
+	    
+	    int length = Integer.MAX_VALUE;;
+	    int n = 0;   
+	    int[] arrX = new int[]{0,-1,-1,-1,0,1,1,1};
+	    int[] arrY = new int[]{-1,-1,0,1,1,1,0,-1}; 
+	    
+	    public int shortestPathBinaryMatrix(int[][] grid) {
+	        n = grid.length;
+	        if(n==0) //edge case1
+	            return 0;
+	        
+	        if(grid[0][0]==1 || grid[n-1][n-1]==1) //edge case2
+	            return -1;
+	        
+	        if(n==1 && grid[0][0]==0) //edge case3
+	            return 1;
+	        
+	        
+	        int[][] visited = new int[n][n];
+	        visited[0][0] = 1;
+	        dfs(grid,visited,0,0,1);
+	        return this.length;
+	    }
+	    
+	    
+	    public void dfs(int[][] grid,int[][] visited,int x,int y,int currentLength){            
+	            
+	            if(x==n-1 && y==n-1){
+	                this.length = Math.min(currentLength,this.length);
+	                return; 
+	            }
+	                
+	            
+	            for(int i=0;i<8;i++){
+	                int newx = x + arrX[i];
+	                int newy = y + arrY[i];
+	                if(validateCoordinate(newx,newy) && visited[newx][newy]==0 && grid[newx][newy]==0){
+	                    visited[newx][newy] = 1;
+	                    dfs(grid,visited,newx,newy,currentLength+1);
+	                    visited[newx][newy] = 0;
+	                }
+	            }
+	            
+	        
+	    }
+	    
+	    public boolean validateCoordinate(int x,int y){
+	        if(x>=0 && x<n && y>=0 && y<n)
+	            return true;
+	        return false;
 	    }
 	}
 
