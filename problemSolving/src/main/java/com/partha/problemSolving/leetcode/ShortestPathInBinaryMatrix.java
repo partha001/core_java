@@ -78,6 +78,7 @@ public class ShortestPathInBinaryMatrix {
 	}
 	
 	
+	/** my solution. try with dfs. but fails in somecases**/
 	private static class Solution2 {
 	    
 	    int length = Integer.MAX_VALUE;;
