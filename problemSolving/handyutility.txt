@@ -10,6 +10,9 @@ Math.min(val1,val2);
 //returns max value
 Math.max(val1,val2);
 
+//way to sort a collection in ascending order
+list.sort((a,b) -> a-b);
+
 
 
 
