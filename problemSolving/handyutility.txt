@@ -13,6 +13,11 @@ Math.max(val1,val2);
 //way to sort a collection in ascending order
 list.sort((a,b) -> a-b);
 
+//to generate integer within a range
+Random random = new Random();
+int generatedNumber = random.nextInt(range);
+
+
 
 
 

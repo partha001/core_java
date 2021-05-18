@@ -93,16 +93,16 @@ public class MedianOfTwoSortedArrays {
 			int low = 0;
 			int high = x;
 			while (low <= high) {
-				int partitionX = (low + high)/2;
-				int partitionY = (x + y + 1)/2 - partitionX;
+				int midX = (low + high)/2;
+				int midY = (x + y + 1)/2 - midX;
 
 				//if partitionX is 0 it means nothing is there on left side. Use -INF for maxLeftX
 				//if partitionX is length of input then there is nothing on right side. Use +INF for minRightX
-				int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : input1[partitionX - 1];
-				int minRightX = (partitionX == x) ? Integer.MAX_VALUE : input1[partitionX];
+				int maxLeftX = (midX == 0) ? Integer.MIN_VALUE : input1[midX - 1];
+				int minRightX = (midX == x) ? Integer.MAX_VALUE : input1[midX];
 
-				int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : input2[partitionY - 1];
-				int minRightY = (partitionY == y) ? Integer.MAX_VALUE : input2[partitionY];
+				int maxLeftY = (midY == 0) ? Integer.MIN_VALUE : input2[midY - 1];
+				int minRightY = (midY == y) ? Integer.MAX_VALUE : input2[midY];
 
 				if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
 					//We have partitioned array at correct place
@@ -114,9 +114,9 @@ public class MedianOfTwoSortedArrays {
 						return (double)Math.max(maxLeftX, maxLeftY);
 					}
 				} else if (maxLeftX > minRightY) { //we are too far on right side for partitionX. Go on left side.
-					high = partitionX - 1;
+					high = midX - 1;
 				} else { //we are too far on left side for partitionX. Go on right side.
-					low = partitionX + 1;
+					low = midX + 1;
 				}
 			}
 

@@ -20,6 +20,7 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	
 	/**
 	 * my solution based on level order traversal
+	 * this is the best solution since question can be for any level [it can be even grand-grand childern]
 	 * @author biswaspa
 	 *
 	 */
@@ -67,6 +68,7 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	}
 	
 	
+	//solution using recursion
 	private static class Solution2 {
 	    
 	    int sum = 0;
@@ -84,7 +86,6 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	        }
 	        
 	        if(root.val % 2 == 0){
-	            int a,b,c,d=0;
 	            if(root.left!=null && root.left.left!=null){
 	                sum = sum + root.left.left.val;
 	            }
@@ -103,6 +104,46 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	    }
 	    
 
+	}
+	
+	
+	//using level order traversal
+	private static class Solution3 {
+	    
+	    int result =0;
+	    
+	    public int sumEvenGrandparent(TreeNode root) {
+	        if(root==null)
+	            return result;
+	        Queue<TreeNode> queue = new LinkedList();
+	        queue.add(root);
+	        while(!queue.isEmpty()){
+	            TreeNode current = queue.poll();
+	            calculate(current);
+	            if(current.left!=null  )
+	                queue.add(current.left);
+	            if(current.right!=null)
+	                queue.add(current.right);
+	        }
+	        return result;
+	    }
+	    
+	    public void calculate(TreeNode node){
+	        // if(node.val%2!=0)
+	        //     return;
+	        if(node.left!=null){
+	            if(node.left.left!=null)
+	                result+=node.left.left.val;
+	            if(node.left.right!=null)
+	                result+=node.left.right.val;
+	        }
+	        if(node.right!=null){
+	            if(node.right.left!=null)
+	                result+=node.right.left.val;
+	            if(node.right.right!=null)
+	                result+=node.right.right.val;
+	        }
+	    }
 	}
 	
 	
