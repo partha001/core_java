@@ -17,6 +17,14 @@ list.sort((a,b) -> a-b);
 Random random = new Random();
 int generatedNumber = random.nextInt(range);
 
+//for traversing in 4 directions 
+int arrx[] = new int[]{-1,0,1,0};
+int arry[] = new int[]{0,-1,0,1};
+
+
+//for traversing in 8 directions 
+
+
 
 
 

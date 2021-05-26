@@ -42,5 +42,33 @@ public class NumberOfProvince {
 	    }
 	}
 	
+	
+	class Solution2 {
+	    public int findCircleNum(int[][] isConnected) {
+	        boolean [] visited = new boolean[isConnected.length];
+	        int count = 0;
+	        for(int i = 0;i < isConnected.length;i++) {
+	            if(!visited[i])  {
+	                visit(isConnected, visited, i);
+	                count++;
+	            }
+	        }
+	        return count;
+	    }
+	    
+	    public void visit(int [][] isConnected, boolean [] visited, int index) {
+	        visited[index] = true;
+	        for(int col = 0; col < isConnected.length;col++) {
+	            if(isConnected[index][col] == 1) {
+	                isConnected[index][col] = 0;
+	                isConnected[col][index] = 0;
+	                if(!visited[col]) {
+	                    visit(isConnected, visited, col);
+	                }
+	            }
+	        }
+	    }
+	}
+	
 
 }
