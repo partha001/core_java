@@ -15,7 +15,7 @@ public class NumberOfProvince {
 	    
 		public int findCircleNum(int[][] isConnected) {
 	        int n = isConnected.length;
-	        boolean[] visited = new boolean[n + 1];
+	        boolean[] visited = new boolean[n];
 	        int ans = 0;
 
 	        for (int i = 0; i < n; i++) {
@@ -43,27 +43,27 @@ public class NumberOfProvince {
 	}
 	
 	
-	class Solution2 {
+	private static class Solution2 {
 	    public int findCircleNum(int[][] isConnected) {
-	        boolean [] visited = new boolean[isConnected.length];
+	        boolean [] cities = new boolean[isConnected.length];
 	        int count = 0;
 	        for(int i = 0;i < isConnected.length;i++) {
-	            if(!visited[i])  {
-	                visit(isConnected, visited, i);
+	            if(!cities[i])  {
+	                visit(isConnected, cities, i);
 	                count++;
 	            }
 	        }
 	        return count;
 	    }
 	    
-	    public void visit(int [][] isConnected, boolean [] visited, int index) {
-	        visited[index] = true;
+	    public void visit(int [][] isConnected, boolean [] cities, int cityIndex) {
+	        cities[cityIndex] = true;
 	        for(int col = 0; col < isConnected.length;col++) {
-	            if(isConnected[index][col] == 1) {
-	                isConnected[index][col] = 0;
-	                isConnected[col][index] = 0;
-	                if(!visited[col]) {
-	                    visit(isConnected, visited, col);
+	            if(isConnected[cityIndex][col] == 1) {
+	                isConnected[cityIndex][col] = 0;
+	                isConnected[col][cityIndex] = 0;
+	                if(!cities[col]) {
+	                    visit(isConnected, cities, col);
 	                }
 	            }
 	        }
