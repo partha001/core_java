@@ -17,12 +17,20 @@ list.sort((a,b) -> a-b);
 Random random = new Random();
 int generatedNumber = random.nextInt(range);
 
+//string to interger
+int i= Integer.parseInt("10"); //wat we do usually
+int i= Integer.valueOf("10");  //this has better performance over previous
+
+
 //for traversing in 4 directions 
 int arrx[] = new int[]{-1,0,1,0};
 int arry[] = new int[]{0,-1,0,1};
-
+ int[][] directions = new int[][]{{0,-1},{-1,0},{0,1},{1,0}};
 
 //for traversing in 8 directions 
+int[] arri =  new int[]{0,-1,-1,-1,0,1,1,1};
+int[] arrj =  new int[]{-1,-1,0,1,1,1,0,-1};
+int[][] arr = new int[{}]
 
 
 
