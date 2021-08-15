@@ -14,26 +14,14 @@ public class RotateArray {
 	static class Solution1 {
 		
 		public void rotate(int[] nums, int k) {
-			if(nums.length<=1 ) {
-				//do nothing
-			}else {
-				if(nums.length==k) {
-					//do nothing 
-				}else {
-					int[] result = new int[nums.length];
-					for(int i=0;i<k;i++) {
-						result[i]= nums[nums.length-k+i];
-					}
-					
-					for(int i=0;i<nums.length-k;i++) {
-						result[k+i] = nums[i];
-					}
-					
-					nums = result ;
-										
-				}
-			}
-	    }
+			int[] a = new int[nums.length];
+		    for (int i = 0; i < nums.length; i++) {
+		      a[(i + k) % nums.length] = nums[i];
+		    }
+		    for (int i = 0; i < nums.length; i++) {
+		      nums[i] = a[i];
+		    }
+		}
 	}
 
 
