@@ -11,19 +11,44 @@ public class MoveZeroes {
 
 	}
 	
-	static class Solution1 {
-		
-		public void moveZeroes(int[] nums) {
-	        int pointer1=0;
-	        for(int a=0;a<nums.length;a++){
-	            if(nums[a]!=0){
-	                nums[pointer1] = nums[a];
-	                pointer1++;
-	            }
+	private static class Solution {
+	    public void moveZeroes(int[] nums) {
+	        if(nums.length<=1)
+	            return;
+	        
+	        int i=0;
+	        for(int m=0;m<nums.length;m++){
+	           if(nums[m]!=0){
+	               nums[i] = nums[m];
+	               i++;
+	           }
 	        }
 	        
-	        for(int i=pointer1;i<nums.length;i++){
-	            nums[i]=0;
+	        
+	        while(i<nums.length){
+	            nums[i++]=0;
+	        }              
+	    }
+	}
+	
+	
+	/**
+	 * its the same code written little differently using 'continue'. this has same runtime but takes lesser memory
+	 * @author partha
+	 *
+	 */
+	private static class Solution2 {
+	    public void moveZeroes(int[] nums) {
+	        int last = 0;
+	        for(int i=0;i<nums.length;i++){
+	            if(nums[i]==0)
+	                continue;
+	            nums[last] = nums[i];
+	            last++;
+	        }
+	        
+	        while(last<nums.length){
+	            nums[last++]=0;
 	        }
 	    }
 	}
