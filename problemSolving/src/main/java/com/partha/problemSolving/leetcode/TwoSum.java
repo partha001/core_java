@@ -14,7 +14,7 @@ import java.util.Map;
 public class TwoSum {
 
 	public static void main(String[] args) {
-		System.out.println(new Solution4().twoSum(new int[] {1,2,3,4}, 7));
+		//System.out.println(new SolutionTest().twoSum(new int[] {3,2,4}, 6));
 	}
 
 	/**
@@ -24,60 +24,16 @@ public class TwoSum {
 	 * @author biswaspa
 	 *
 	 */
-	static class Solution1 {
-		
-		public int[] twoSum(int[] nums, int target) {  
-
-			int[] result = new int[2];
-			boolean found= false;
-			for(int i=0;i<nums.length-1;i++) {
-				if(!found) {
-					for(int j=i+1;j<nums.length;j++) {
-						if(nums[i]+nums[j]== target) {
-							result[0]=i;
-							result[1]=j;
-							found = true;
-							break;
-						}
-					}
-
-				}else {
-					break;
-				}
-			}
-			return result;
-		}
-
-	}
-
-
-	/**
-	 * method: two pass
-	 * TimeComplexity : O(n)
-	 * spaceComplexity : O(n)
-	 * @author biswaspa
-	 *
-	 */
-	static class Solution2 {
-		
-		public int[] twoSum(int[] nums, int target) {  
-
-			Map<Integer, Integer> map = new HashMap<>();
-			for(int i=0;i<nums.length;i++) {
-				map.put(nums[i], i);
-			}
-			
-			for(int i=0;i<nums.length;i++) {
-				int current = nums[i];
-				Integer number = map.get(target - current);
-				if(number!=null) {
-					return new int[] {i,number.intValue()};
-				}
-			}
-			
-			throw new RuntimeException("not found");
-		}
-		
+	private static class Solution {
+	    public int[] twoSum(int[] nums, int target) {
+	       for(int i=0;i<nums.length-1;i++){
+	           for(int j=i+1;j<nums.length;j++){
+	               if(nums[i]+nums[j]==target)
+	                   return new int[]{i,j};
+	           }
+	       }
+	        return new int[2];
+	    }
 	}
 	
 	
