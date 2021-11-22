@@ -2,6 +2,11 @@ package com.partha.problemSolving.leetcode;
 
 import java.util.Stack;
 
+/**
+ * @source : https://leetcode.com/problems/daily-temperatures/submissions/
+ * @author biswaspa
+ *
+ */
 public class DaillyTemperatures {
 
 	public static void main(String[] args) {
