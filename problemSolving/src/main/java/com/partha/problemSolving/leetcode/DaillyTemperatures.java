@@ -45,6 +45,7 @@ public class DaillyTemperatures {
 	    public int[] dailyTemperatures(int[] T) {
 	        int n = T.length;
 	        int [] listOfTemp = new int [n];
+	        //note stack does not contain temperature but the index
 	        Stack<Integer> stack = new Stack<>();
 	        for (int i=n-1; i>=0; i--) {
 	            while (!stack.isEmpty() && T[i] >= T[stack.peek()])
