@@ -54,7 +54,12 @@ public class SlidingWindowMaximum {
 	}
 	
 	
-	
+
+	/**
+	 * https://www.youtube.com/watch?v=CZQGRp93K4k
+	 * @author partha
+	 *
+	 */
 	static class Solution3 {
 	    public int[] maxSlidingWindow(int[] nums, int k) {
 	        
