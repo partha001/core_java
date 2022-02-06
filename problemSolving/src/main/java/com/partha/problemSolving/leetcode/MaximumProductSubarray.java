@@ -25,11 +25,13 @@ public class MaximumProductSubarray {
 	             
 	             int val=nums[i];
 	             if(val<0){
+	            	 //if currentVal is -ve then swapping values
 	                 int temp1=mnp;
 	                 int temp2=mpp;
 	               mpp=Math.max(val,val*temp1);
 	               mnp=Math.min(val,val*temp2);    
 	             }else{
+	            	 //if current val is positive then no swapping
 	                mpp=Math.max(val,val*mpp);
 	                mnp=Math.min(val,val*mnp); 
 	             }

@@ -41,6 +41,13 @@ public class DaillyTemperatures {
 	}
 	
 	
+	/**
+	 * note1: that the stack is used to store the index of the next greater element and not actual temperature value.
+	 * 
+	 * thus when stack is not empty we find the difference between stack.peek() - currentIndex = difference of days
+	 * @author partha
+	 *
+	 */
 	static class Solution2 {
 	    public int[] dailyTemperatures(int[] T) {
 	        int n = T.length;
@@ -50,7 +57,7 @@ public class DaillyTemperatures {
 	        for (int i=n-1; i>=0; i--) {
 	            while (!stack.isEmpty() && T[i] >= T[stack.peek()])
 	                stack.pop();
-	            listOfTemp[i] = stack.isEmpty() ? 0 : stack.peek() - i;
+	            listOfTemp[i] = stack.isEmpty() ? 0 : stack.peek() - i; //finding difference of days
 	            stack.push(i);
 	        }
 	        return listOfTemp;
