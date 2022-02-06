@@ -29,6 +29,7 @@ public class NextLargerElement {
 	               stack.push(arr[i]);
 	               arr[i] = -1;
 	           }else{
+	        	   //replacing the value on top of stack using the current element
 	               long current = arr[i];
 	               arr[i] = stack.peek();
 	               stack.push(current);
