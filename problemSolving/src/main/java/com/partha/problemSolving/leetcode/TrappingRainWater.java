@@ -73,8 +73,8 @@ public class TrappingRainWater {
 			int leftMax = 0;
 			int rightMax = 0;
 			int answer = 0;
-			while (left < right) {
-				if (height[left] < height[right]) {
+			while (left <= right) {
+				if (height[left] <= height[right]) {
 					if (height[left] >= leftMax)
 						leftMax = height[left];
 					else 

@@ -53,6 +53,7 @@ public class FirstMissingPositive {
 	private static class Solution2 {
 		static int firstMissingPositive(int[] arr){
 		        int i=0;
+		        //note that while loop is used since increment happens only if there is no-swap. else loop starts from same index
 		        while(i<arr.length){
 		            // correct is the index where the ith element should actually be
 		            int correct = arr[i] - 1;

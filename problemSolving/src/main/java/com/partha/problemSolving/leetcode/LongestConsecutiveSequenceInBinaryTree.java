@@ -19,44 +19,31 @@ public class LongestConsecutiveSequenceInBinaryTree {
 	
 	//uses recursion on every Node
 	private static class GfG
-	{   
-	    int max = 0;
-	    
-	    public void path(Node root, int count, int data){
-	        
-	        if(root == null){
-	            return;
-	        }
-	        
-	        if(root.data == data){
-	            count++;
-	            max = Math.max(count, max);
-	        }
-	        
-	        if(root.data!=data){
-	            count = 1;
-	        }
-	        
-	        path(root.left, count, root.data + 1);
-	        path(root.right, count, root.data + 1);
-	        
-	    }
+	{
+		int result = 0;
+
 		public int longestConsecutive(Node root)
-	        {
-	          if(root == null){
-	              return -1;
-	          }
-	          
-	          int count = 0;
-	          
-	          path(root, count, root.data);
-	          
-	          if(max>1){
-	              return max;
-	          }
-	          else
-	          return -1;
-	        }
+		{
+			if(root==null)
+				return -1;
+			calculate(root,0,root.data);
+			return result>1 ? result : -1;
+		}
+
+		private void calculate(Node node, int currentLength,int expectedValue){
+			if(node.data==expectedValue){
+				currentLength++;
+				result = Math.max(result,currentLength);
+			}
+			if(node.data!=expectedValue){
+				currentLength = 1;
+			}
+			if(node.left != null)
+				calculate(node.left , currentLength , node.data +1);
+
+			if(node.right!= null)
+				calculate(node.right , currentLength , node.data + 1);
+		}
 	}
 	
 	

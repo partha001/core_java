@@ -15,6 +15,10 @@ public class BinaryTreeRightSideView {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		TreeNode node = new TreeNode(1);
+		node.right = new TreeNode(2);
+		node.left = new TreeNode(3);
+		System.out.println(new Solution2().rightSideView(node));
 
 	}
 	
