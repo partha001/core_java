@@ -28,10 +28,11 @@ public class MergeIntervals {
 	            list.add(new Element(intervals[i][0],intervals[i][1]));
 	        }
 	        
+	        //the below step is vital to ensure elements are sorter
 	        list.sort((a,b) -> a.start - b.start);
 	        
            int i=1;
-	       while(i<list.size()){
+	       while(i<list.size()){ //note while loop is being used since we are processing and removing current element
 	            if((list.get(i).start <= list.get(i-1).end)){
 	                list.get(i-1).end = Math.max(list.get(i).end, list.get(i-1).end);
 	                list.remove(i);
