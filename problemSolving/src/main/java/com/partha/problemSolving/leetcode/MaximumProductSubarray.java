@@ -48,34 +48,31 @@ public class MaximumProductSubarray {
 	
 	
 	
-	private static class  Solution2 {
+	private static class Solution {
+		
 	    public int maxProduct(int[] nums) {
-	        int mpp=nums[0]; // mpp: maximum Positive Product
-	         int mnp=nums[0]; // mnp: Minimum Negative Product
-	         int omax=nums[0]; // overall maximum Product
-	         
-	         
-	         for(int i=1;i<nums.length;i++){
-	             
-	             int val=nums[i];
-	             if(val<0){
-	            	 //if currentVal is -ve then swapping values
-	                 int temp1=mnp;
-	                 int temp2=mpp;
-	               mpp=Math.max(val,val*temp1);
-	               mnp=Math.min(val,val*temp2);    
-	             }else{
-	            	 //if current val is positive then no swapping
-	                mpp=Math.max(val,val*mpp);
-	                mnp=Math.min(val,val*mnp); 
-	             }
-	             omax=Math.max(mpp,omax);
-	             
-	         }
-	         
-	         return omax;
-	     }
-	 }
+	        int minProduct = nums[0];
+	        int maxProduct = nums[0];
+	        int max = nums[0];
+	        
+	        for(int i=1;i<nums.length;i++){
+	            int current = nums[i];
+	            if(current<0){
+	                //if current in -ve then swappng values
+	                int temp1 = minProduct; 
+	                int temp2 = maxProduct;
+	                maxProduct = Math.max(current, current * temp1);
+	                minProduct = Math.min(current, current * temp2);
+	                
+	            }else{
+	               maxProduct = Math.max(current, current * maxProduct);
+	               minProduct = Math.min(current, current * minProduct);
+	            }
+	            max = Math.max(maxProduct,max);
+	        }
+	        return max;
+	    }
+	}
 	
 	
 
