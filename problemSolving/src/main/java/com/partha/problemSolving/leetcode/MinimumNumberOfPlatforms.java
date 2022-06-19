@@ -54,6 +54,7 @@ public class MinimumNumberOfPlatforms {
 	/**
 	 * O(nlogn)
 	 * @author partha
+	 * explanation : https://www.youtube.com/watch?v=38JLfQGVlkw
 	 *
 	 */
 	private static class Solution2 {
@@ -66,12 +67,13 @@ public class MinimumNumberOfPlatforms {
 			Arrays.sort(dep);
 			int result=1;
 			int platforms=1;
-			int i=1;int j=0;
+			int i=1;  //pointer for arrival array
+			int j=0;  //pointer for departure array
 			while(i<n && j<n) {
 				if(arr[i]<=dep[j]) {
 					platforms++;
 					i++;
-				}else if(arr[i]>dep[j]) {
+				}else {
 					platforms--;
 					j++;
 				}
