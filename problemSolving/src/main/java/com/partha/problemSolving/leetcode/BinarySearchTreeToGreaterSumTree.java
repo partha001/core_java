@@ -19,8 +19,8 @@ public class BinarySearchTreeToGreaterSumTree {
 	        if(root==null)
 	            return root;
 	        bstToGst(root.right);
-	        root.val = sum + root.val;
-	        sum = root.val;
+	        sum = sum + root.val;
+	        root.val = sum;
 	        bstToGst(root.left);
 	        return root;
 	    }
