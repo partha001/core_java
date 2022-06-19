@@ -11,7 +11,7 @@ public class PlusOne {
 		new Solution1().plusOne(new int[] {9,8,7,6,5,4,3,2,1,0});
 
 	}
-	
+
 
 
 	/**
@@ -19,20 +19,19 @@ public class PlusOne {
 	 * @author biswaspa
 	 *
 	 */
-	static class Solution1 {
+	private static class Solution1 {
 		public int[] plusOne(int[] digits) {
-			int l = digits.length - 1;
 
-			for (int i = l; i >= 0; i--) {
-			
+			for (int i = digits.length - 1; i >= 0; i--) {
+
 				if (digits[i] != 9){
 					digits[i]++;
 					return digits;
 				} else {
 					digits[i] = 0;
-					
+
 					if (i == 0) {
-						digits = new int[l + 2];
+						digits = new int[digits.length + 1];
 						digits[i] = 1;
 					}
 				}                
@@ -40,6 +39,7 @@ public class PlusOne {
 			return digits;
 		}
 	}
-		
-	
+
+
+
 }
