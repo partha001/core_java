@@ -12,7 +12,12 @@ public class BinarySearchTreeToGreaterSumTree {
 	}
 	
 	
-	static class Solution {
+	/**
+	 * solution with class level attribute
+	 * @author partha
+	 *
+	 */
+	private static class Solution1 {
 	    int sum = 0;
 	   
 	    public TreeNode bstToGst(TreeNode root) {
@@ -23,6 +28,30 @@ public class BinarySearchTreeToGreaterSumTree {
 	        root.val = sum;
 	        bstToGst(root.left);
 	        return root;
+	    }
+	}
+	
+	
+	/**
+	 * solution without a class level attribute
+	 * @author partha
+	 *
+	 */
+	private static class Solution2 {
+	    public TreeNode bstToGst(TreeNode root) {
+	        search(root, 0);
+	        return root;
+	    }
+	    
+	    private int search(TreeNode node, int sum) {
+	        if (node == null) return sum;
+	        
+	        sum = search(node.right, sum);
+	        sum += node.val;
+	        node.val = sum;
+	        sum = search(node.left, sum);
+	        
+	        return sum;
 	    }
 	}
 	
