@@ -19,7 +19,9 @@ public class OddEvenLinkedList {
 	        if(head==null || head.next == null)
 	            return head;
 	        
-	        ListNode odd = head , even = odd.next , evenHead = even;
+	        ListNode odd = head ;
+	        ListNode even = odd.next ;
+	        ListNode evenHead = even;
 	        while(even!=null && even.next!=null){
 	            odd.next = even.next;
 	            odd = odd.next;
