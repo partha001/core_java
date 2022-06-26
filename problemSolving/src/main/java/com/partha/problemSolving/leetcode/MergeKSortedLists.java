@@ -69,38 +69,43 @@ public class MergeKSortedLists {
 
 	
 	private static class Solution2 {
-	    public ListNode mergeKLists(ListNode[] lists) {
-	        
-	        int n = lists.length;
-	        if(n == 1){    // case when list is null
-	            return lists[0];
-	        }
-	        PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b)->a.val - b.val);  //min_heap
-	        
-	        for(int i = 0;i<lists.length;i++){    //Time: O(k) + nlogk space:o(k)
-	            ListNode current = lists[i];
-	            if(current!=null){
-	            pq.add(current);
-	            }
-	        }
-	        
-	        ListNode head = new ListNode(0);
-	        ListNode current = head;
-	        
-	        while(!pq.isEmpty()){
-	            
-	            ListNode top = pq.remove();
-	            current.next = top;
-	            current = current.next;
-	            
-	            if(top.next!=null){
-	                pq.add(top.next);
-	            }
-	        }
-	        
-	        return head.next;
-	        
-	    }
+		public ListNode mergeKLists(ListNode[] lists) {
+
+			int n = lists.length;
+			if(n == 1){    // case when list is null
+				return lists[0];
+			}
+			
+			//it is to be noted that pq here contains only the first elements [i.e. contains only the heads]
+			PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b)->a.val - b.val);  //min_heap
+
+			for(int i = 0;i<lists.length;i++){    //Time: O(k) + nlogk space:o(k)
+				ListNode current = lists[i];
+				if(current!=null){
+					pq.add(current);
+				}
+			}
+
+			ListNode head= null;
+			ListNode current = null;
+			while(!pq.isEmpty()){
+				ListNode temp = pq.remove();
+				ListNode newNode = new ListNode(temp.val);
+				if(head==null){
+					head = newNode;
+					current = newNode;
+				}else{
+					current.next = newNode;
+					current = current.next;
+				}
+
+				if(temp.next!=null){
+					pq.add(temp.next);
+				}
+			}
+
+			return head;
+		}
 	}
 
 
