@@ -64,7 +64,7 @@ public class SearchInRotatedArray {
 
 
 	/**
-	 * timecomplexity :log(N) but log of binary search
+	 * timecomplexity :log(N) but lot of binary search
 	 * https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
 	 * @author biswaspa
 	 *
