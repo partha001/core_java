@@ -53,5 +53,60 @@ public class RottingOranges {
 	        return fresh==0 ? minute : -1;        
 	    }    
 	}
+	
+	
+	
+	
+	// same code as above written in different style . difference in condition in line98. [i.e. if condition]
+	private static class Solution2 {
+        
+	    public int orangesRotting(int[][] grid) {
+	        int m = grid.length;     
+	        int n=grid[0].length;
+	        int freshCount = 0;
+	        
+	        Queue<int[]> queue = new LinkedList<>();
+	        for(int row=0;row<m;row++){
+	            for(int column=0;column<n;column++){
+	                if(grid[row][column]==2) // adding rotten to queue
+	                    queue.add(new int[]{row,column});
+	                else if(grid[row][column]==1)
+	                    freshCount++;
+	            }
+	        }
+	        
+	        if(freshCount==0)
+	            return 0;
+	        
+	        int[][] arr = new int[][]{{0,-1},{-1,0},{0,1},{1,0}};
+	        
+	        int minutes =-1; //note that its iniitialized with -1
+	        int converted = 0; //keeps track of how many gets rotten
+	        
+	        while(!queue.isEmpty()){
+	            minutes++;
+	            int size = queue.size();
+	            //for loop also gives same result but execution time increases from 2ms to 12ms
+	            //for(int j=0;j<size;j++){ 
+	            while(size-- > 0){
+	                int[] current = queue.remove();
+	                int x = current[0];
+	                int y = current[1];
+	                for(int[] dir: arr){
+	                    int newx = x + dir[0];
+	                    int newy = y + dir[1];                    
+	                    if((newx>=0 && newx<m && newy>=0 && newy < n) && grid[newx][newy]==1){ 
+	                        converted++;
+	                        grid[newx][newy]=2;
+	                        queue.add(new int[]{newx,newy});
+	                    }
+	                }
+	            }              
+	        }
+	        return (converted==freshCount)? minutes:-1;     
+	    }
+	    
+	    
+	}
 
 }
