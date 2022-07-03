@@ -44,27 +44,25 @@ public class NumberOfProvince {
 	
 	
 	private static class Solution2 {
+	    
 	    public int findCircleNum(int[][] isConnected) {
-	        boolean [] cities = new boolean[isConnected.length];
-	        int count = 0;
-	        for(int i = 0;i < isConnected.length;i++) {
-	            if(!cities[i])  {
-	                visit(isConnected, cities, i);
-	                count++;
-	            }
+	        int row = isConnected.length;
+	        int col = isConnected[0].length;
+	        boolean[] vis = new boolean[row];
+	        int result = 0;
+	        for(int i=0;i<row;i++){
+	            if(!vis[i])
+	            result++; 
+	            dfs(isConnected,vis,i,row,col);
 	        }
-	        return count;
+	        return result;
 	    }
 	    
-	    public void visit(int [][] isConnected, boolean [] cities, int cityIndex) {
-	        cities[cityIndex] = true;
-	        for(int col = 0; col < isConnected.length;col++) {
-	            if(isConnected[cityIndex][col] == 1) {
-	                isConnected[cityIndex][col] = 0;
-	                isConnected[col][cityIndex] = 0;
-	                if(!cities[col]) {
-	                    visit(isConnected, cities, col);
-	                }
+	    public void dfs(int[][] isConnected,boolean[] vis,int i,int row,int col){
+	        vis[i] = true;
+	        for(int j=0;j<col;j++){
+	            if(!vis[j] && isConnected[i][j]==1){
+	                dfs(isConnected,vis,j,row,col);
 	            }
 	        }
 	    }
