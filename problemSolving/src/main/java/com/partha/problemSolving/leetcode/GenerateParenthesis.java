@@ -62,7 +62,7 @@ public class GenerateParenthesis {
 	        if(low>0){
 	            generate(low-1, high,str+'(', list);
 	        }
-	        if(high>low){
+	        if(high>low){ // here is the catch i.e its not high>0 , rather its high > low 
 	            generate(low, high-1, str+')', list);
 	        }
 	    }
