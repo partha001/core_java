@@ -30,11 +30,11 @@ public class Permutations {
 				return;
 			}
 			for (int i=start; i<nums.length; i++) {
-				if (current.contains(nums[i])) continue;
-				current.add(nums[i]);
-				findPermutations(result, current, nums, 0);
-				current.remove(current.size()-1);
-
+				if (!current.contains(nums[i])) {
+					current.add(nums[i]);
+					findPermutations(result, current, nums, 0);
+					current.remove(current.size()-1);
+				}
 			}
 		}
 	}
