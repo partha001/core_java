@@ -11,38 +11,42 @@ public class HouseRobber2 {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
-	private static class Solution {
-	    public int rob(int[] nums) {
-	        
-	        if(nums.length == 1)
-	            return nums[0];
-	        if(nums.length == 2)
-	            return Math.max(nums[0],nums[1]);
-	        if(nums.length == 3)
-	            return Math.max(Math.max(nums[0],nums[1]),Math.max(nums[1],nums[2]));
-	       
-	        int x = robLogic(nums,0,nums.length-2);
-	        int y = robLogic(nums,1,nums.length-1);
-	        return Math.max(x,y);
-	    }
-	    
-	    
-	    private int robLogic(int[] nums, int st, int end){
-	        int even = 0,odd = 0;
-	        
-	        for(int i = st;i<=end;i++){
-	            if(i % 2 == 0){
-	                even = even + nums[i];
-	                even = Math.max(even,odd);
-	            }else{
-	                 odd = odd + nums[i];
-	                 odd = Math.max(even,odd);
-	            }
-	        }
-	        return Math.max(even,odd);
-	    }
+
+
+	/**
+	 * reff: https://www.youtube.com/watch?v=rWAJCfYYOvM
+	 * resusing the helper function from last solution of house-robber1
+	 * @author partha
+	 *
+	 */
+	private static class Solution1 {
+
+		public int rob(int[] nums) {
+
+			if(nums.length==1) // when only one house
+				return nums[0];
+			if(nums.length==2) // when there are 2 houses
+				return Math.max(nums[0],nums[1]);
+
+			int x = rob(nums,0,nums.length-2);
+			int y = rob(nums,1,nums.length-1);
+			return Math.max(x,y);
+
+		}
+
+
+		private int rob(int[] nums,int start,int end){
+			int odd=0;
+			int even=0;
+			for(int i=start;i<=end;i++){
+				if(i%2==0){
+					even = Math.max(even + nums[i] , odd);
+				}else{
+					odd = Math.max(odd + nums[i] , even);
+				}
+			}
+			return Math.max(odd,even);
+		}
 	}
 
 }

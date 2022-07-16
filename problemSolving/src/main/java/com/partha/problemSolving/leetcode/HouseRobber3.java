@@ -58,6 +58,7 @@ public class HouseRobber3 {
 	/**
 	 * T.C : O(n)
 	 * S.C. : O(n)
+	 * note how the map is used for memoization
 	 * @author biswaspa
 	 *
 	 */
@@ -89,36 +90,38 @@ public class HouseRobber3 {
 			return ans;
 		}
 	}
-	
+
 	/**
 	 * T.C. : O(n)
-     * S.C. : O(1)
+	 * S.C. : O(1)
 	 * @author biswaspa
-	 *
+	 * @explanation every node returns an array of size 2 . 
+	 * here arr[0] contains the max without including the node itself. [case1 : without including the node itself]
+	 * while arr[1] contains the max value including the node itself.  [case2 : with the node itelf]
 	 */
 	private class Solution3 {
-		
-	    public int rob(TreeNode root) {
-	        int[] ans = robHouse(root);
-	        return Math.max(ans[0],ans[1]);
-	    }
-	    
-	    public int[] robHouse(TreeNode root){
-	        if(root==null){
-	            return new int[2];
-	        }
-	        
-	        int left[] = robHouse(root.left);
-	        int right[] = robHouse(root.right);
-	        
-	        int ans[] = new int[2];
-	        
-	        ans[0] = Math.max(left[0],left[1])+Math.max(right[0],right[1]);
-	        ans[1] = root.val+left[0]+right[0];
-	        
-	        return ans;
-	    }
+
+		public int rob(TreeNode root) {
+			int[] ans = robHouse(root);
+			return Math.max(ans[0],ans[1]);
+		}
+
+		public int[] robHouse(TreeNode root){
+			if(root==null){
+				return new int[2];
+			}
+
+			int left[] = robHouse(root.left);
+			int right[] = robHouse(root.right);
+
+			int ans[] = new int[2];
+
+			ans[0] = Math.max(left[0],left[1])+Math.max(right[0],right[1]);
+			ans[1] = root.val+left[0]+right[0];
+
+			return ans;
+		}
 	}
-	
+
 
 }
