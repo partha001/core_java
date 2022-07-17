@@ -30,13 +30,13 @@ public class EditDistance {
 		   
 		   private int memo (String s1,String s2, int[][] dp){
 		       
-		       if(s1.length() == 0)
+		       if(s1.length() == 0) //case1
 		           return s2.length();
 		       
 		       if(s2.length() == 0)
-		           return s1.length();
+		           return s1.length(); //case2
 		       
-		       if(dp[s1.length()][s2.length()] != 0){
+		       if(dp[s1.length()][s2.length()] != 0){ //case3: if the value is already calculated then return the value
 		           return dp[s1.length()][s2.length()];
 		       }
 		       
