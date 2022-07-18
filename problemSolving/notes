@@ -25,3 +25,25 @@ https://www.udemy.com/master-the-coding-interview-data-structures-algorithms/lea
 
 
 https://neetcode.io/ -- another important site to do limited questions 
+
+
+***********************************************************************
+0-1 knapsack problem : 
+either pick the item or dont . 
+no fractional picking . no 
+repeatation allowed 
+approach: [dp]
+ 
+unbounder knapsack problem : 
+items can repeat
+approach: 
+https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
+
+
+fraction knapsack : 
+no repeatation . 
+can take fraction of one element . i.e. we can take x quantity of an element where 0<=x<=1 
+approach : [greedy]
+code : https://www.codespeedy.com/knapsack-problem-using-greedy-method-in-java/
+
+**********************************************************************
