@@ -21,7 +21,8 @@ public class ClimbingStrairs {
 			ways[0] = 1; //ways to climb 0 stairs is 1 . since we are already there
 			ways[1] = 1; //ways to climb 1 stairs is 1 .
 
-			//starting the loop from 2 since we have already stored 2 base case results
+			//starting the loop from 2 as given the step constraint a stair can be reached and only from its previous and previous.previous 
+			//thus from ways[2] the previous two values are already found. hence we can build upon them.
 			for(int i = 2; i <= n; i++){
 				ways[i] = ways[i - 1] + ways[i - 2];
 			}
