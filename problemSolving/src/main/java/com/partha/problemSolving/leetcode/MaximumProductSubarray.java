@@ -51,6 +51,8 @@ public class MaximumProductSubarray {
 	private static class Solution {
 		
 	    public int maxProduct(int[] nums) {
+	    	// it is important to initialize the below 3 variables with nums[0] and not 1.
+	    	// and then run the loop from index 1.
 	        int minProduct = nums[0];
 	        int maxProduct = nums[0];
 	        int max = nums[0];

@@ -21,7 +21,7 @@ public class NextLargerElement {
 	      Stack<Long> stack = new Stack<Long>();
 	      for(int i=n-1;i>=0;i--){
 	           
-	           while( !stack.isEmpty() && stack.peek()<arr[i]){
+	           while( !stack.isEmpty() && stack.peek()<=arr[i]){
 	               stack.pop();
 	           }
 	           
@@ -36,7 +36,7 @@ public class NextLargerElement {
 	           }
 	           
 	      }
-	      return arr;
+	      return arr;	
 	    } 
 	}
 
