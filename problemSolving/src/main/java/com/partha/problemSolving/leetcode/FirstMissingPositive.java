@@ -11,7 +11,7 @@ import java.util.Set;
 public class FirstMissingPositive {
 
 	public static void main(String[] args) {
-		 System.out.println(new Solution().firstMissingPositive(new int[]{3,4,-1,1}));
+		 System.out.println(new Solution2().firstMissingPositive(new int[]{-1,1,2,3}));
 
 	}
 	
@@ -53,7 +53,8 @@ public class FirstMissingPositive {
 	private static class Solution2 {
 		static int firstMissingPositive(int[] arr){
 		        int i=0;
-		        //note that while loop is used since increment happens only if there is no-swap. else loop starts from same index
+		        //note that while loop is used since increment happens only if there is no-swap. 
+		        // else loop starts from same index thereby reattempting to newly swaped value to be placed in the correct place
 		        while(i<arr.length){
 		            // correct is the index where the ith element should actually be
 		            int correct = arr[i] - 1;
