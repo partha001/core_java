@@ -18,14 +18,12 @@ public class SerializeDeserializeBinaryTree {
 	private static  class Codec {
 
 	    // Encodes a tree to a single string.
-	    public String serialize(TreeNode root) {
+		public String serialize(TreeNode root) {
 	        if(root == null) return "null";
 	        StringBuilder ser = new StringBuilder();
 	        Queue<TreeNode> q = new LinkedList<>();
 	        q.add(root);
 	        while(!q.isEmpty()){
-	            int size = q.size();
-	            for(int i=0; i < size; i++){
 	                TreeNode node = q.remove();
 	                if(node == null){
 	                    ser.append("null ");
@@ -34,8 +32,6 @@ public class SerializeDeserializeBinaryTree {
 	                    q.add(node.left);
 	                    q.add(node.right);
 	                }
-	               
-	            }
 	        }
 	        return ser.toString();
 	        
@@ -50,8 +46,6 @@ public class SerializeDeserializeBinaryTree {
 	        q.add(root);
 	        int idx=1;// idx of value of nodes
 	        while(!q.isEmpty()){
-	            int size = q.size();
-	            for(int i=0; i< size; i++){
 	                TreeNode node = q.remove();
 	                if(!values[idx].equals("null")){
 	                    TreeNode left = new TreeNode(Integer.valueOf(values[idx]));
@@ -65,8 +59,6 @@ public class SerializeDeserializeBinaryTree {
 	                    q.add(node.right);
 	                }
 	                idx++;
-
-	            }
 	        }
 	        
 	        return root;
