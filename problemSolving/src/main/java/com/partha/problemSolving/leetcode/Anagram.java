@@ -47,7 +47,7 @@ public class Anagram {
 	 *
 	 */
 	static class Solution2 {
-	    public boolean isAnagram(String s, String t) {
+		public boolean isAnagram(String s, String t) {
 			if(s.length()==t.length()){
 
 				int[] countArr=new int[256];
@@ -56,27 +56,17 @@ public class Anagram {
 					countArr[t.charAt(i)]--;
 				}
 
-
-				boolean flag=true;
 				for(int i=0;i<256;i++){
 					if(countArr[i]!=0){
-						flag=false;
-						break;
+						return false;
 					}
 				}
-
-				if(flag){
-					return true;
-				}else{
-					return false;
-				}
-
+				return true;
 
 			}else{
 				return false;
-			}
-
-	    }
+			}    
+		}
 	}
 
 
