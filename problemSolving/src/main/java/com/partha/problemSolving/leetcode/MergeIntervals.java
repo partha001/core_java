@@ -2,6 +2,7 @@ package com.partha.problemSolving.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * https://leetcode.com/problems/merge-intervals
@@ -64,6 +65,34 @@ public class MergeIntervals {
 	            this.start = start;
 	            this.end = end;
 	        }
+	    }
+	}
+	
+	
+	
+	
+	//same algo but without taking extra class
+	class Solution {
+	    public int[][] merge(int[][] intervals) {
+	        List<int[]> list = new ArrayList<int[]>();
+	        IntStream.range(0, intervals.length).forEach(i -> list.add(intervals[i]));
+	        list.sort((a,b)->a[0] -b[0]);
+
+	        int i=1;
+	        while(i<list.size()){
+	            int[] previous = list.get(i-1);
+	            int[] current = list.get(i);
+	            if(current[0]<= previous[1]){
+	                previous[1] = Math.max( previous[1], current[1] );
+	                list.remove(i);
+	            }else{
+	                i++;
+	            }
+	        }
+
+	        int[][] result = new int[ list.size()][2];
+	        IntStream.range(0,list.size()).forEach(index -> result[index]= list.get(index));
+	        return result;
 	    }
 	}
 
