@@ -11,22 +11,26 @@ public class ProductOfArraysExceptSelf {
 
 	}
 	
-	class Solution {
+	private static class Solution1 {
 	    public int[] productExceptSelf(int[] nums) {
-	    int[] result = new int[nums.length];
-	    int left = 1, right = 1;
-	    //The left side nums' product
-	    for (int i = 0; i < nums.length; i++) {
-	      result[i] = left;
-	      left *= nums[i];
+	        int[] result = new int[nums.length];
+	        int leftProduct=1;
+	        int rightProduct=1;
+	        for(int i=0;i<nums.length;i++){
+	            result[i] = leftProduct;
+	            leftProduct = leftProduct * nums[i];
+	        }
+
+
+	        for(int i=nums.length-1;i>=0;i--){
+	            result[i] = result[i]* rightProduct;
+	            rightProduct = rightProduct * nums[i];
+	        }
+
+	        return result;
+
 	    }
-	    //The right side nums' product
-	    for (int i = nums.length - 1; i >= 0; i--) {
-	      result[i] *= right;
-	      right *= nums[i];
-	    }
-	    return result;
-	  }
 	}
 
+	
 }
