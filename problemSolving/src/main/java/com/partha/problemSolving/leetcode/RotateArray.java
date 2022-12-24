@@ -43,12 +43,14 @@ public class RotateArray {
 	static class Solution1 {
 
 		public void rotate(int[] nums, int k) {
-			int[] a = new int[nums.length];
+			int[] temparr = new int[nums.length];
 			for (int i = 0; i < nums.length; i++) {
-				a[(i + k) % nums.length] = nums[i];
+				temparr[(i + k) % nums.length] = nums[i];
 			}
+			
+			//just copying from the temp array
 			for (int i = 0; i < nums.length; i++) {
-				nums[i] = a[i];
+				nums[i] = temparr[i];
 			}
 
 			IntStream.range(0, nums.length).forEach(i -> System.out.println(nums[i]));
