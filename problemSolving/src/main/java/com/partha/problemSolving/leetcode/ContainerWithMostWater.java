@@ -1,10 +1,17 @@
 package com.partha.problemSolving.leetcode;
 
 /**
- * problemDescription: https://leetcode.com/problems/container-with-most-water/
- * referrence : https://www.youtube.com/watch?v=TI3e-17YAlc
+ * @problemDescription https://leetcode.com/problems/container-with-most-water/
+ * @tutorial <a href="https://www.youtube.com/watch?v=TI3e-17YAlc">link</a>
  * @author biswaspa
- *
+ * 
+ * @note 
+ * 1.also note the difference with trapping-rain-water. notice in trappingRainWater first 
+ * index also holds water . however here we are just interesting in finding the two boundaries
+ * which can contain most water. 
+ * 
+ * 2.since here we are interested only in the water that the max container can hold hence 
+ * we are not adding to max. rather replacing max whenever we encounter a new max
  */
 public class ContainerWithMostWater {
 

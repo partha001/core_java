@@ -1,8 +1,8 @@
 package com.partha.problemSolving.leetcode;
 
 /**
- * @description: <a>https://leetcode.com/problems/trapping-rain-water/</a>
- * @exaplanation: <a href="https://www.youtube.com/watch?v=ZI2z5pq0TqA">solution</a> 
+ * @description <a>https://leetcode.com/problems/trapping-rain-water/</a>
+ * @exaplanation <a href="https://www.youtube.com/watch?v=ZI2z5pq0TqA">tutorial</a> 
  * @author biswaspa
  *
  */
