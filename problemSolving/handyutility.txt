@@ -33,6 +33,16 @@ int[] arrj =  new int[]{-1,-1,0,1,1,1,0,-1};
 int[][] arr = new int[{}]
 
 
+//min and max heap in java
+PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+useful method in heap
+add --> to add element to the queue. O(log n)
+remove --> to get and remove the min/max. O(log n)
+peek --> to get, but not remove the min/max. O(1)
+poll --> to get and remove the min/max. O(log n)
+
+
 
 
 
