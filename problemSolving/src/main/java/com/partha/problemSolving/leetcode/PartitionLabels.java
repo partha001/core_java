@@ -20,7 +20,7 @@ public class PartitionLabels {
 	/**
 	 * 
 	 * @author biswaspa
-	 *
+	 * https://www.youtube.com/watch?v=B7m8UmZE-vw
 	 */
 	class Solution {
 		public List<Integer> partitionLabels(String S) {
@@ -35,7 +35,8 @@ public class PartitionLabels {
 				return list;
 			}
 
-			HashMap<Character, Integer> map = new HashMap<>(); // HashMap filled 
+			HashMap<Character, Integer> map = new HashMap<>();
+			//this hashmap is to store the last occurance of each character
 			for(int i = 0;i<S.length();i++){
 				map.put(S.charAt(i), i);
 			}
