@@ -50,6 +50,7 @@ public class ContainerWithMostWater {
 			 while(i<j) {
 				 int min = Math.min(height[i], height[j]);
 				 max = Math.max(max, min * (j-i));
+				 // increasing/decreasing the index from the side which is small
 				 if(height[i]<height[j]) {
 					 i++;
 				 }else {
