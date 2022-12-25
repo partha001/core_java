@@ -47,16 +47,20 @@ public class MergeTripletstoFormTargetTriplet {
 	//this is a better solution
 	private static class Solution2 {
 	    public boolean mergeTriplets(int[][] triplets, int[] target) {
-	        Set<Integer> set = new HashSet();
+	        Set<Integer> set = new HashSet(); //to hold the indice where a match is found within a good/eligible triplet
 	        for(int i=0;i< triplets.length;i++){
-	            if(triplets[i][0]> target[0] || triplets[i][1]> target[1] ||  triplets[i][2]> target[2] )
+	            if(triplets[i][0]> target[0] || triplets[i][1]> target[1] ||  triplets[i][2]> target[2] ) //discarding the non-eligible triplets
 	                continue;
 	            
+	            //iterating each element within eligible triplet and adding to set the index where a match is found within a triplet
 	            for(int j=0;j<3;j++){
 	                if(triplets[i][j]== target[j])
 	                    set.add(j);
 	            }
 	        }
+	        
+	        //for a full match to happen set should have 3 elements. 
+	        // since we are condisering a triplet to max 3 elements can be there and using set insures no duplicates
 	        if(set.size()==3)
 	            return true;
 	        return false;
