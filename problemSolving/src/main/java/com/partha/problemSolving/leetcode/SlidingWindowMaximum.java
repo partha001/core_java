@@ -37,24 +37,6 @@ public class SlidingWindowMaximum {
 	}
 	
 	
-	static class Solution2 {
-		public int[] maxSlidingWindow(int[] nums, int k) {
-			if(k==1) //case : when k =1 
-				return nums;
-			
-			int length = nums.length - k +1 ;
-			if(length==1) //case when nums has only one element
-				return nums;
-			
-			int[] result = new int[length];
-			
-			
-			return result;
-		}
-	}
-	
-	
-
 	/**
 	 * https://www.youtube.com/watch?v=CZQGRp93K4k
 	 * @author partha
