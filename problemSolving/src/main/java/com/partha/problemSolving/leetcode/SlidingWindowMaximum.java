@@ -54,20 +54,23 @@ public class SlidingWindowMaximum {
 			}
 			
 			int n = nums.length;
-			int[] result = new int[n-k+1];
+			int[] result = new int[n-k+1]; //thus result will contain n-k+1 elements
 			int right = 0;
 			Deque<Integer> queue = new ArrayDeque<>(); //used to store index
 			for (int i = 0; i < nums.length; i++) {
-				// remove numbers out of range k
+				// removing out of range indices from queue from left side
 				while (!queue.isEmpty() && queue.peek() < i - k + 1) {
 					queue.poll();
 				}
-				// remove smaller numbers in k range as they are useless
+				// removing indexes from right which contains small values than currrent
 				while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
 					queue.pollLast();
 				}
-				// q contains index... r contains content
-				queue.offer(i);
+				//thus at this point queue will only contain indexes that contains larger value than current.
+				
+				queue.offer(i); //adding the current index
+				
+				//populating result from k-1 index
 				if (i >= k - 1) {
 					result[right++] = nums[queue.peek()];
 				}
