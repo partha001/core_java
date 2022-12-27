@@ -39,17 +39,17 @@ public class BinarySearchTreeToGreaterSumTree {
 	 */
 	private static class Solution2 {
 	    public TreeNode bstToGst(TreeNode root) {
-	        search(root, 0);
+	        build(root, 0);
 	        return root;
 	    }
 	    
-	    private int search(TreeNode node, int sum) {
+	    private int build(TreeNode node, int sum) {
 	        if (node == null) return sum;
 	        
-	        sum = search(node.right, sum);
+	        sum = build(node.right, sum);
 	        sum += node.val;
 	        node.val = sum;
-	        sum = search(node.left, sum);
+	        sum = build(node.left, sum);
 	        
 	        return sum;
 	    }
