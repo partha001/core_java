@@ -18,48 +18,46 @@ public class PathSum3 {
 	//this logic is correct but doesnt clear all test case 
 	//since for 1 test case the values are larger than what integer can support. 
 	//so take currentSum as long 
-	private static class Solution1 {
-		int result =0;
-
-		public int pathSum(TreeNode root, int sum) {
-			if(root==null)
-				return result;
-			Queue<TreeNode> queue = new LinkedList<TreeNode>();
-			queue.add(root);
-			while(!queue.isEmpty()){
-				TreeNode current = queue.poll();
-				pathSum(current,sum,current.val);
-
-				if(current.left!=null)
-					queue.add(current.left);
-
-				if(current.right!=null)
-					queue.add(current.right);
+	private static class Solution {
+		int count=0;
+		public int pathSum(TreeNode root, int targetSum) {
+			if(root==null){
+				return count;
 			}
-			return result;
+			Queue<TreeNode> q=new LinkedList<>();
+			q.add(root);
+			while(!q.isEmpty()){
+				TreeNode temp=q.poll();
+				check(temp,0,targetSum);
+				if(temp.left!=null){
+					q.add(temp.left);
+				}
+				if(temp.right!=null){
+					q.add(temp.right);
+				}
+			}
+			return count;
 		}
 
-
-		private void pathSum(TreeNode node, int target, long currentSum){
-			if((long)currentSum==target){
-				result++;
+		//note: no condition for null since we are doing null check before adding to processing queue above
+		public void check(TreeNode root,long sum,int target){
+			if(sum+root.val==(long)target){
+				count++;
 			}
+			if(root.left!=null)
+				check(root.left,sum+root.val,target);
 
-			if(node.left!=null)
-				pathSum(node.left , target, currentSum + node.left.val);
-
-			if(node.right!=null)
-				pathSum(node.right , target , currentSum + node.right.val);
+			if(root.right!=null)
+				check(root.right,sum+root.val,target);
 		}
-
 	}
 
 
 	// this is the recursive solution without taking a queue
 	private static class Solution2 {
-		
+
 		int count=0;
-		
+
 		public int pathSum(TreeNode root, int targetSum) {
 			if(root==null){
 				return 0;
@@ -69,7 +67,7 @@ public class PathSum3 {
 			pathSum(root.right,targetSum);
 			return count;
 		}
-		
+
 		public void check(TreeNode root,long sum,int target){
 			if(root==null){
 				return;
