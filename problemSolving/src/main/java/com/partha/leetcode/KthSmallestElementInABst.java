@@ -8,14 +8,14 @@ import java.util.List;
  * @author biswaspa
  *
  */
-public class KthSmallestElement {
+public class KthSmallestElementInABst {
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(3);
 		root.left = new TreeNode(1);
 		root.left.right = new TreeNode(2);
 		root.right = new TreeNode(4);
-		int result = new KthSmallestElement.Solution2().kthSmallest(root, 1);
+		int result = new KthSmallestElementInABst.Solution2().kthSmallest(root, 1);
 		System.out.println(result);
 	}
 	
