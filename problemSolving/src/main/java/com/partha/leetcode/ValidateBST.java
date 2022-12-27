@@ -12,7 +12,32 @@ public class ValidateBST {
 		new Solution1().isValidBST(root);
 	}
 
-	static class TreeNode {
+	
+	// this is the official solution
+	private static class Solution1 {
+		
+		public boolean isValidBST(TreeNode root) {
+	        return validate(root, null, null);
+	    }
+		
+	    public boolean validate(TreeNode root, Integer low, Integer high) {
+	        // Empty trees are valid BSTs.
+	        if (root == null) {
+	            return true;
+	        }
+	        // The current node's value must be between low and high.
+	        if ((low != null && root.val <= low) || (high != null && root.val >= high)) {
+	            return false;
+	        }
+	        // The left and right subtree must also be valid.
+	        return validate(root.right, root.val, high) && validate(root.left, low, root.val);
+	    }
+
+	    
+	}
+	
+	
+	private static class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
@@ -23,25 +48,6 @@ public class ValidateBST {
 			this.left = left;
 			this.right = right;
 		}
-	}
-
-	static class Solution1 {
-
-		public boolean isValidBST(TreeNode root) {
-			return isValid(root,Long.MIN_VALUE, Long.MAX_VALUE);
-		}
-
-
-		public boolean isValid(TreeNode root ,long min, long max){
-			if(root==null){
-				return true;
-			}
-			if(root.val<=min || root.val>=max){
-				return false;
-			}
-			return isValid(root.left,min,root.val) && isValid(root.right,root.val,max);
-		}
-
 	}
 
 }
