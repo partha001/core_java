@@ -1,4 +1,4 @@
-package com.partha.binarySearchTree;
+package com.partha.leetcode;
 
 
 /**
