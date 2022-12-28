@@ -68,6 +68,7 @@ public class MergeKSortedLists {
 	}
 
 	
+	//this is the recommended solution
 	private static class Solution2 {
 		public ListNode mergeKLists(ListNode[] lists) {
 
