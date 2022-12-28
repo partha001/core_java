@@ -33,6 +33,11 @@ int[] arrj =  new int[]{-1,-1,0,1,1,1,0,-1};
 int[][] arr = new int[][]{{0,-1}{-1,-1},{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1}};
 
 
+
+**  it is to be noted that within a queue elements not might be in the sorted order. because the priority queue
+is basically a heap. but it guarantees the order in which the elements are polled. as whenever an element is
+popped . the heap will rearrge itself using heapify
+
 //min and max heap in java
 PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
 PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
