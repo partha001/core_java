@@ -19,7 +19,7 @@ public class ImplementTriePrefixTreeMyImplementation {
 	 *	in the earlier example [i.e ImplementTriePrefixTree the method ImplementTriePrefixTree.searchPrefix()
 	 *have been reused to reduce reduntant code. however all methods are self-suffecient.  else all are same.]
 	 */
-	class Trie {
+	private static class Trie {
 
 	    private TrieNode root;
 
@@ -71,13 +71,13 @@ public class ImplementTriePrefixTreeMyImplementation {
 	           }
 	        }
 	       //checking if now node.isEnd after completion of iteraring the word is standing at end node or not
-	        return node.isEnd;
+	        return node.isEnd();
 	    }
 	    
 	}
 	
 	
-	class TrieNode {
+	private static class TrieNode {
 
 	    // R links to node children
 	    private TrieNode[] links;
