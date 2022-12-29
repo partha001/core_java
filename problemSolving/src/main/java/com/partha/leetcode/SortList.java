@@ -22,60 +22,51 @@ public class SortList {
 	}
 
 
-	static class Solution {
-		public ListNode sortList(ListNode head) {
-			//Using priority queue ; O(nlogn) time and O(N) space 
-			// OR : using merge sort O(nlogn) time, and almost constant space ; 
-			if(head == null || head.next == null) return head ; 
-			ListNode mid = getMid(head) ; 
-			ListNode left = sortList(head) ;
-			ListNode right = sortList(mid);
-			return merge(left , right); 
+	/**
+	 * using a priorityQueue has a TC: nlog  but also has a SC:O(n)
+	 * however using merge sort TC: O(nlogn) but SC(1);
+	 * @author partha
+	 *
+	 */
+	private static class  Solution1 {
+	    public ListNode sortList(ListNode head) {
+	        if (head == null || head.next == null)
+	            return head;
+	        ListNode mid = getMid(head);
+	        ListNode left = sortList(head);
+	        ListNode right = sortList(mid);
+	        return merge(left, right);
+	    }
 
-		}
+	    ListNode merge(ListNode list1, ListNode list2) {
+	        ListNode dummyHead = new ListNode();
+	        ListNode tail = dummyHead;
+	        while (list1 != null && list2 != null) {
+	            if (list1.val < list2.val) {
+	                tail.next = list1;
+	                list1 = list1.next;
+	                tail = tail.next;
+	            } else {
+	                tail.next = list2;
+	                list2 = list2.next;
+	                tail = tail.next;
+	            }
+	        }
+	        tail.next = (list1 != null) ? list1 : list2;
+	        return dummyHead.next;
+	    }
 
-		ListNode merge(ListNode left , ListNode right){
-			ListNode merged =new ListNode() ; 
-			ListNode head2= merged ; 
-			while(left!= null && right != null){
-				if(left.val <= right.val){  // '<=' to maintain stability
-					head2.next = left ; 
-					left = left.next ; 
-					head2=head2.next ; 
-				}
-				else {
-					head2.next = right; 
-					right = right.next ; 
-					head2=head2.next ;
-				}
-			}
-			head2.next = left != null ? left : right ; 
-			return merged.next ; 
-		}
-
-		ListNode getMid(ListNode head){
-			ListNode slow = null ; 
-			ListNode fast = head ; 
-			while(fast != null && fast.next !=null){
-				slow = (slow == null )? fast : slow.next ; 
-				fast = fast.next.next ; 
-			}
-			ListNode mid = slow.next ; 
-			slow.next = null ;  // to split the lists 
-			return mid ; 
-
-			// if(head==null)
-			//     return null;
-			// ListNode fast = head;
-			// ListNode slow = head;
-			// while(fast!=null && fast.next!=null){
-			//     fast = fast.next.next;
-			//     slow = slow.next;
-			// }
-			// ListNode mid = slow.next;
-			// slow.next = null;
-			// return mid;
-		}
+	    ListNode getMid(ListNode head) {
+	        ListNode midPrev = null;
+	        while (head != null && head.next != null) {
+	            midPrev = (midPrev == null) ? head : midPrev.next;
+	            head = head.next.next;
+	        }
+	        ListNode mid = midPrev.next;
+	        midPrev.next = null;
+	        return mid;
+	    }
 	}
+
 
 }
