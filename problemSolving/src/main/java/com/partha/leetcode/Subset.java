@@ -28,7 +28,7 @@ public class Subset {
 	                          List<List<Integer>> result,
 	                          List<Integer> sublist,
 	                          int start){
-	        List<Integer> validSubset = new ArrayList<Integer>(sublist);
+	        List<Integer> validSubset = new ArrayList<Integer>(sublist); //here is the catch in this prob
 	        result.add(validSubset);        
 	        for(int i = start; i < nums.length; i++){
 	            sublist.add(nums[i]);
