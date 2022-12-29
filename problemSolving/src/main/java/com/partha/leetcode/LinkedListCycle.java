@@ -15,6 +15,7 @@ public class LinkedListCycle {
 	}
 
 
+	// https://www.youtube.com/watch?v=agkyC-rbgKM
 	//takes less memory and less execution time than the previous solution
 	// practice this solution
 	private static class Solution2 {
