@@ -32,7 +32,9 @@ public class Permutations {
 			for (int i=start; i<nums.length; i++) {
 				if (!current.contains(nums[i])) {
 					current.add(nums[i]);
-					findPermutations(result, current, nums, 0);
+					findPermutations(result, current, nums, 0); 
+					//note here since we want to find every permumation so we are sending the start as 0 always 
+					//and to avoid duplicate elements we have the condition !current.contains(nums[i])
 					current.remove(current.size()-1);
 				}
 			}
