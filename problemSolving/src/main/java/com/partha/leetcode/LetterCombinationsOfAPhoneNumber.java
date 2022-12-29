@@ -53,7 +53,8 @@ public class LetterCombinationsOfAPhoneNumber {
 
 			String current = remainingList.get(index);
 			for(char c: current.toCharArray()){
-				generate(remainingList,result,temp + c,index+1,maxLength);
+				generate(remainingList,result,temp + c,index+1,maxLength); 
+				//note how the index is increased to read character to next list within question.
 			}
 
 
