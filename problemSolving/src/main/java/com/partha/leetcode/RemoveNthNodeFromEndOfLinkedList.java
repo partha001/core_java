@@ -10,7 +10,39 @@ public class RemoveNthNodeFromEndOfLinkedList {
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+	/**
+	 * two pointer approach : practice this solution
+	 * @author partha
+	 * @explanation https://www.youtube.com/watch?v=XVuQxVej6y8
+	 */
+	private static class Solution5 {
+	    public ListNode removeNthFromEnd(ListNode head, int n) {
+	        //creating a dummy node who next point to head.
+	        ListNode dummy = new ListNode(0, head);
+	        ListNode left = dummy;
+	        ListNode right = head;
 
+	        //proceeding the right ahead of left by n nodes
+	        while(n>0 && right!=null){
+	            right = right.next;
+	            n--;
+	        }
+
+	        //traverse one by one to end of the list proceeding the left and right by 1
+	        while(right!=null){
+	            left = left.next;
+	            right = right.next;
+	        }
+
+
+	        left.next = left.next.next;
+	        return dummy.next;
+
+
+	    }
+	}
 
 
 
@@ -156,7 +188,7 @@ public class RemoveNthNodeFromEndOfLinkedList {
 	
 	
 
-	public class ListNode {
+	private static class ListNode {
 		int val;
 		ListNode next;
 		ListNode() {}
