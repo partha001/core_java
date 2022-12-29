@@ -15,7 +15,8 @@ public class CombinationSum3 {
 	}
 
 
-	static class Solution {
+	private static class Solution {
+
 		public List<List<Integer>> combinationSum3(int k, int n) {
 			List<List<Integer>> result = new ArrayList<List<Integer>>();
 			List<Integer> sublist = new ArrayList();
@@ -33,15 +34,13 @@ public class CombinationSum3 {
 				result.add(new ArrayList<Integer>(sublist));
 				return;
 			}
-			
-			if(k==0 || target==0){
-				return;
-			}
 
 			for(int i=start;i<=9;i++){
-				sublist.add(i);
-				combination(k-1,target-i,result,sublist,i+1);
-				sublist.remove(sublist.size()-1);
+				if(target-i >=0){
+					sublist.add(i);
+					combination(k-1,target-i,result,sublist,i+1);
+					sublist.remove(sublist.size()-1);
+				}
 			}
 		}
 	}
