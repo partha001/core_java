@@ -3,6 +3,11 @@ package com.partha.leetcode;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
+/**
+ * 
+ * @author partha
+ *
+ */
 public class RedundantConnections {
 
 	public static void main(String[] args) {
@@ -21,7 +26,7 @@ public class RedundantConnections {
 	        int[] parents = new int[numberOfNodes+1];
 	        IntStream.range(0,numberOfNodes+1).forEach(i-> parents[i]=i);
 	        int[] ranks = new int[numberOfNodes+1];
-	        Arrays.fill(ranks,-1);
+	        Arrays.fill(ranks,1); //by default rank is 1 since it connect to only one other node i.e itself
 
 
 	        for(int[] edge : edges){
