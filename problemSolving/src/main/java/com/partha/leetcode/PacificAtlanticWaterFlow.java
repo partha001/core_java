@@ -17,6 +17,11 @@ public class PacificAtlanticWaterFlow {
 	}
 	
 	
+	/**
+	 * https://www.youtube.com/watch?v=s-VkcjHqkGI
+	 * @author partha
+	 *
+	 */
 	private static class Solution {
 
 	    int rows = 0;
@@ -42,7 +47,7 @@ public class PacificAtlanticWaterFlow {
 	            dfs(i,cols-1, atlantic, heights[i][cols-1], heights);
 	        }
 
-
+	        //finally preparing the result seeing in the coordates are present in both set or not
 	        List<List<Integer>> result = new ArrayList();
 	        for(int i=0;i<rows;i++){
 	            for(int j=0;j<cols;j++){
