@@ -72,7 +72,7 @@ public class CourseSchedule {
 	/**
 	 * Abhisheks solution
 	 * @author partha
-	 *
+	 * usues topological sorting [this approach can also be used in CourseSchedule2]
 	 */
 	private static class Solution1 {
 		public boolean canFinish(int numCourses, int[][] prerequisites) {
