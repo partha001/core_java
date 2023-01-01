@@ -58,7 +58,7 @@ public class ValidParanthesisString {
 	 * then hi++, otherwise we must write a right bracket, so hi--. If hi < 0, then the current prefix can't be made valid no matter what our choices are. Also, we can
 	 *  never have less than 0 open left brackets. At the end, we should check that we can have exactly 0 open left brackets.
 	 */
-	private static class Solution {
+	private static class Solution2 {
 	    public boolean checkValidString(String s) {
 	       int lo = 0, hi = 0;
 	       for (char c: s.toCharArray()) {
