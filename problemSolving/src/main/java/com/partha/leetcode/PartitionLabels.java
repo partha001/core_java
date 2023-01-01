@@ -44,12 +44,12 @@ public class PartitionLabels {
 
 			for(int i = 0;i<S.length();i++){
 
-				if(i > max){
+				if(i > max){ // adding count to the resultList and then resetting it
 					list.add(count);
 					count = 0;
 				}
 
-				if(map.get(S.charAt(i))>=max){
+				if(map.get(S.charAt(i))>=max){ //also if the lastOccurrance of the current character is > max then updating max
 					max  = map.get(S.charAt(i));
 				}
 
