@@ -39,55 +39,11 @@ public class SlidingWindowMaximum {
 
 
 	/**
-	 * https://www.youtube.com/watch?v=DfljaUwZsOk
-	 * note1:using queue to store index and not actual values
-	 * note2: the algo is used to stored the values in descending order in queue. 
-		 * [not actually descending of indexes. but descending order of values in nums]
-		 * that is why we always poll from right and the index of the element with the highest value 
-		 * is always present at the first of the queue.
-	 */
-	private static class Solution2{
-		public int[] maxSlidingWindow(int[] nums, int k) {		
-
-			if (nums == null || k <= 0) {
-				return new int[0];
-			}
-			
-			int n = nums.length;
-			int[] result = new int[n-k+1]; //thus result will contain n-k+1 elements
-			int right = 0;
-			Deque<Integer> queue = new ArrayDeque<>(); //used to store index
-			for (int i = 0; i < nums.length; i++) {
-				// removing out of range indices from queue from left side
-				while (!queue.isEmpty() && queue.peek() < i - k + 1) {
-					queue.poll();
-				}
-				// removing indexes from right which contains small values than currrent
-				while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
-					queue.pollLast();
-				}
-				//thus at this point queue will only contain indexes that contains larger value than current.
-				
-				queue.offer(i); //adding the current index
-				
-				//populating result from k-1 index
-				if (i >= k - 1) {
-					result[right++] = nums[queue.peek()];
-				}
-			}
-			return result;
-		}
-
-	}	
-	
-	
-	
-	/**
 	 * https://www.youtube.com/watch?v=CZQGRp93K4k
 	 * @author partha
 	 *
 	 */
-	static class Solution3 {
+	static class Solution2 {
 		public int[] maxSlidingWindow(int[] nums, int k) {
 
 			if(nums.length == 0 || nums.length < k){
@@ -122,6 +78,54 @@ public class SlidingWindowMaximum {
 			return res;
 		}
 	}
+
+
+
+	/**
+	 * https://www.youtube.com/watch?v=DfljaUwZsOk
+	 * same algo as above written in much crisp style.
+	 * note1:using queue to store index and not actual values
+	 * note2: the algo is used to stored the values in descending order in queue. 
+	 * [not actually descending of indexes. but descending order of values in nums]
+	 * that is why we always poll from right and the index of the element with the highest value 
+	 * is always present at the first of the queue.
+	 */
+	private static class Solution3{
+		public int[] maxSlidingWindow(int[] nums, int k) {		
+
+			if (nums == null || k <= 0) {
+				return new int[0];
+			}
+
+			int n = nums.length;
+			int[] result = new int[n-k+1]; //thus result will contain n-k+1 elements
+			int right = 0;
+			Deque<Integer> queue = new ArrayDeque<>(); //used to store index
+			for (int i = 0; i < nums.length; i++) {
+				// removing out of range indices from queue from left side
+				while (!queue.isEmpty() && queue.peek() < i - k + 1) {
+					queue.poll();
+				}
+				// removing indexes from right which contains small values than currrent
+				while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
+					queue.pollLast();
+				}
+				//thus at this point queue will only contain indexes that contains larger value than current.
+
+				queue.offer(i); //adding the current index
+
+				//populating result from k-1 index
+				if (i >= k - 1) {
+					result[right++] = nums[queue.peek()];
+				}
+			}
+			return result;
+		}
+
+	}	
+
+
+
 
 
 }
