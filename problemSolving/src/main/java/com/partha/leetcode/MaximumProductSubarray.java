@@ -48,6 +48,9 @@ public class MaximumProductSubarray {
 	
 	
 	
+	/** 
+	* dynamica programming approach 
+	**/
 	private static class Solution {
 		
 	    public int maxProduct(int[] nums) {
@@ -75,6 +78,9 @@ public class MaximumProductSubarray {
 	        return max;
 	    }
 	}
+	
+	
+	
 	
 	
 
