@@ -23,95 +23,62 @@ public class LongestIncreasingPathInAMatrix {
 	
 	
 	//this solution though theoretically correct but for large dataset as input2 it keeps running since there is no memoisation
-	private static class Solution2 {
-	    int result =0;
-	    int directions[][] = new int[][]{{0,1},{1,0},{-1,0},{0,-1}}; 
-	    
-	    public int longestIncreasingPath(int[][] matrix) {
-	        int rows = matrix.length;
-	        int columns = matrix[0].length;
-	        System.out.println("rows:"+rows+ " columns:"+columns);
-	        for(int i=0;i<rows;i++){
-	            for(int j=0;j<columns;j++){
-	            	System.out.println("calculating for i="+i+ "  j:"+j);
-	                int[][] visited = new int[rows][columns];
-	                visited[i][j] = 1;
-	                dfs(matrix,visited,i,j,1);
-	            }
-	        }
-	        return result;
-	    }
-	    
-	    private void dfs(int[][] matrix,int[][] visited,int i,int j,int currentLength){
-	        result = Math.max(result,currentLength);
-	        int rows = matrix.length;
-	        int columns = matrix[0].length;
-	        for(int[] direction : directions){
-	            int newi = i+ direction[0];
-	            int newj = j+ direction[1];
-	            if(newi>=0 && newi<rows && newj>=0 && newj<columns && visited[newi][newj]==0 && matrix[i][j]<matrix[newi][newj]){
-	                visited[newi][newj] = 1;
-	                dfs(matrix,visited,newi,newj,currentLength+1); 
-	                visited[newi][newj] = 0; //for a simple dfs making it unvisited is important
-	            }
-	            else{
-	                continue;
-	            }
-	        }
-	    }  
+	// Naive DFS Solution
+	// Time Limit Exceeded
+	// source : leetcode official
+	private static  class Solution {
+	  private static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+	  private int m, n;
+
+	  public int longestIncreasingPath(int[][] matrix) {
+	      if (matrix.length == 0) return 0;
+	      m = matrix.length;
+	      n = matrix[0].length;
+	      int ans = 0;
+	      for (int i = 0; i < m; ++i)
+	          for (int j = 0; j < n; ++j)
+	              ans = Math.max(ans, dfs(matrix, i, j));
+	      return ans;
+	  }
+
+	  private int dfs(int[][] matrix, int i, int j) {
+	      int ans = 0;
+	      for (int[] d : dirs) {
+	          int x = i + d[0], y = j + d[1];
+	          if (0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j])
+	              ans = Math.max(ans, dfs(matrix, x, y));
+	      }
+	      return ++ans;
+	  }
 	}
 	
 	
-	private static class Solution1 {
-	    
-	    int rows ;
-	    int columns;
-	    int[] arri = new int[]{0,-1,0,1};
-	    int[] arrj = new int[]{-1,0,1,0}; 
-	   
-	    
+	// DFS + Memoization Solution
+	// Accepted and Recommended
+	// source : leetcode official solution
+	private static  class Solution2 {
+	    private static final int[][] dirs = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+	    private int m, n;
+
 	    public int longestIncreasingPath(int[][] matrix) {
-	        rows = matrix.length;
-	        int result = 0;
-	        if(rows==0)
-	            return result;
-	        
-	        columns = matrix[0].length;
-	        int[][] dp = new int[rows][columns];
-	        for(int i=0;i<rows;i++){
-	            for(int j=0;j<columns;j++){
-	                if(dp[i][j]==0){
-	                    dp[i][j] = dfs(matrix,i,j,dp);
-	                    result = Math.max(result,dp[i][j]);
-	               }
-	            }
-	        }
-	        return result;
-	        
+	        if (matrix.length == 0) return 0;
+	        m = matrix.length; n = matrix[0].length;
+	        int[][] cache = new int[m][n];
+	        int ans = 0;
+	        for (int i = 0; i < m; ++i)
+	            for (int j = 0; j < n; ++j)
+	                ans = Math.max(ans, dfs(matrix, i, j, cache));
+	        return ans;
 	    }
-	    
-	    
-	   private int dfs(int[][] matrix,int i,int j,int[][] dp){
-	       if(dp[i][j]!=0)
-	           return dp[i][j];
-	       int length = 1;
-	       for(int m=0;m<4;m++){
-	           int a = i + arri[m];
-	           int b = j + arrj[m];
-	           
-	           if( checkBoundary(a,b) && matrix[i][j]<matrix[a][b])
-	               length = Math.max(length,1+dfs(matrix,a,b,dp));          
-	       }
-	       dp[i][j] = length;
-	       return length;
-	   }
-	    
-	    private boolean checkBoundary(int i,int j){
-	        if(i>=0 && i<rows && j>=0 && j<columns)
-	            return true;
-	        return false;
-	    }    
-	    
-	    
+
+	    private int dfs(int[][] matrix, int i, int j, int[][] cache) {
+	        if (cache[i][j] != 0) return cache[i][j];
+	        for (int[] d : dirs) {
+	            int x = i + d[0], y = j + d[1];
+	            if (0 <= x && x < m && 0 <= y && y < n && matrix[x][y] > matrix[i][j])
+	                cache[i][j] = Math.max(cache[i][j], dfs(matrix, x, y, cache));
+	        }
+	        return ++cache[i][j];
+	    }
 	}
 }

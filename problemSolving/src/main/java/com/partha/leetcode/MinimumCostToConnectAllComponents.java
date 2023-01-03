@@ -6,6 +6,11 @@ import java.util.PriorityQueue;
 
 import javafx.util.Pair;
 
+/**
+ * https://leetcode.com/problems/min-cost-to-connect-all-points/
+ * @author biswaspa
+ *
+ */
 public class MinimumCostToConnectAllComponents {
 
 	public static void main(String[] args) {

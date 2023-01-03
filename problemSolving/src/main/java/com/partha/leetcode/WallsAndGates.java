@@ -27,7 +27,7 @@ public class WallsAndGates {
 	 * @TC: O(MN)
 	 * @SC: O(MN)
 	 */
-	private static class Solution1{
+	private static class LeetcodeOfficialSolution {
 		private static final int EMPTY = Integer.MAX_VALUE;
 		private static final int GATE = 0;
 		private static final List<int[]> DIRECTIONS = Arrays.asList(
