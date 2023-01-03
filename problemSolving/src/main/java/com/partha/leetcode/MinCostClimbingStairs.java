@@ -80,7 +80,7 @@ public class MinCostClimbingStairs {
 	 * @TC: O(N)
 	 * @SC O(1)
 	 */
-	private static class LeetcodeOfficialSolution {
+	private static class LeetcodeOfficialSolution3 {
 	    public int minCostClimbingStairs(int[] cost) {
 	        int downOne = 0;
 	        int downTwo = 0;
