@@ -21,6 +21,7 @@ public class SwimInRisingWater {
 
 	/**
 	 * https://www.youtube.com/watch?v=amvrKlMLuGY
+	 * Dijkstras algorithm
 	 */
 	private static class Solution1{
 		public int swimInWater(int[][] grid) {
