@@ -13,96 +13,150 @@ public class PalindromicSubstring {
 	}
 
 
+
 	/**
-	 * naive approach
-	 * @author biswaspa
+	 * https://youtu.be/4RACzI5-du8
+	 * this is same as LeetcodeSolution3 just that the code is much more condensed.
+	 * @author partha
 	 *
 	 */
-	class Solution {
+	class Solution1 {
+
 		public int countSubstrings(String s) {
 			int count=0;
-			for(int i=0;i<=s.length()-1;i++) {
-				count+=odd(s,i)+even(s,i);
+			for(int i=0;i<s.length();i++) {
+				count+= countPalindrome(s,i,i); //odd length palindromes around current index
+				count+= countPalindrome(s,i,i+1); //even even length palindromes around current index
 			}
 			return count;
 		}
-		int even(String s,int idx) {
-			int ret=0;
-			int i=idx;
-			int j=idx+1;
-			while(i>=0 && j<s.length()) {
-				if(s.charAt(i)==s.charAt(j))
-					ret++;
-				else
-					break;
-				i--;
-				j++;
+
+		private int countPalindrome(String s, int start, int end){
+			int result =0;
+			while(start>=0 && end<s.length() && s.charAt(start)==s.charAt(end)){
+				result++;
+				start--;
+				end++;
 			}
-			return ret;
+			return result;
 		}
 
-		int odd(String s,int idx) {
-			int ret=1;
-			int i=idx-1;
-			int j=idx+1;
-			while(i>=0 && j<s.length()) {
-				if(s.charAt(i)==s.charAt(j))
-					ret++;
-				else
-					break;
-				i--;
-				j++;
+	}
+
+
+	/***************************** leedcode official solutions ***********************/
+
+	/**
+	 * approach: naive approach
+	 * source : leetcode premium
+	 * tc :O(n^3)
+	 * SC O(1)
+	 * @author partha
+	 *
+	 */
+	private static class LeetcodeOfficialSolution1 {
+		private boolean isPalindrome(String s, int start, int end) {
+			while (start < end) {
+				if (s.charAt(start) != s.charAt(end)) 
+					return false;
+
+				++start;
+				--end;
 			}
-			return ret;
+
+			return true;
+		}
+
+		public int countSubstrings(String s) {
+			int ans = 0;
+
+			for (int start = 0; start < s.length(); ++start)
+				for (int end = start; end < s.length(); ++end) 
+					ans += isPalindrome(s, start, end) ? 1 : 0;
+
+			return ans;
 		}
 	}
 
 
 
 
-	//using dp
-	private static class Solution2 {
+	/**
+	 * @approach dynamic programming approach
+	 * @source leetcode premium
+	 * TC N^2
+	 * SC N^2
+	 * @author partha
+	 * @usefulLink https://www.youtube.com/watch?v=XmSOWnL6T_I
+	 */
+	private static class LeetcodeOfficialSolution2 {
 		public int countSubstrings(String s) {
-			int count=0;
+			int n = s.length(), ans = 0;
 
-			//First of all we create a 2-D boolean DP array and fill true on all the pallindromic substrings.
+			if (n <= 0) 
+				return 0;
 
-			//This array is filled using "Gap Strategy" or diagonal traversal.
-			boolean[][] dp1 = new boolean[s.length()][s.length()];
-			for (int g = 0; g < dp1.length; g++) {
-				for (int i = 0, j = g; j < dp1.length; i++, j++) {
+			boolean[][] dp = new boolean[n][n];
 
-					if (g==0) {
-						dp1[i][j] = true;
-						count++;
-					}
+			// Base case: single letter substrings //populating diagonal cells where start=end represnting single character
+			for (int i = 0; i < n; ++i, ++ans) 
+				dp[i][i] = true;
 
-					else if (g == 1) {
-						if (s.charAt(i) == s.charAt(j)) {
-							dp1[i][j] = true;
-							count++;
-						}
-					}
+			// Base case: double letter substrings //populating diagonal to the right of center-diagonal representing 2 char strings
+			for (int i = 0; i < n - 1; ++i) {
+				dp[i][i + 1] = (s.charAt(i) == s.charAt(i + 1));
+				ans += (dp[i][i + 1] ? 1 : 0);
+			}
 
-					else {
-						if (s.charAt(i) == s.charAt(j)) {
-							if (dp1[i + 1][j - 1] == true) {
-								dp1[i][j] = true;
-								count++;
-							}
-						}
-						else {
-							dp1[i][j] = false;
-
-						}
-					}
-
+			// All other cases: substrings of length 3 to n
+			for (int len = 3; len <= n; ++len)
+				for (int i = 0, j = i + len - 1; j < n; ++i, ++j) {
+					dp[i][j] = dp[i + 1][j - 1] && (s.charAt(i) == s.charAt(j));
+					ans += (dp[i][j] ? 1 : 0);
 				}
-			}
-			return count;
 
+			return ans;
+		}
+	}
+
+
+	/**
+	 * @approach odd even approach around center
+	 * @source leetcode premium
+	 * TC N^2
+	 * SC O(1)
+	 */
+	private static class LeetcodeSolution3 {
+		public int countSubstrings(String s) {
+			int ans = 0;
+
+			for (int i = 0; i < s.length(); ++i) {
+				// odd-length palindromes, single character center
+				ans += countPalindromesAroundCenter(s, i, i);
+
+				// even-length palindromes, consecutive characters center
+				ans += countPalindromesAroundCenter(s, i, i + 1);
+			}
+
+			return ans;
 		}
 
+		private int countPalindromesAroundCenter(String ss, int lo, int hi) {
+			int ans = 0;
 
+			while (lo >= 0 && hi < ss.length()) {
+				if (ss.charAt(lo) != ss.charAt(hi))
+					break;      // the first and last characters don't match!
+
+				// expand around the center
+				lo--;
+				hi++;
+
+				ans++;
+			}
+
+			return ans;
+		}
 	}
+
 }
