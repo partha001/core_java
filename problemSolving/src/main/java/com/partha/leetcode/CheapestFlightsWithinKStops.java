@@ -24,7 +24,7 @@ public class CheapestFlightsWithinKStops {
 	 * Depending on improvements in the shortest distance for each node, we may process each edge multiple times. 
 	 * However, the maximum number of times an edge can be processed is limited by K 
 	 */
-	private static class Solution {
+	private static class LeetcodeOfficialSolution1 {
 	    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
 	        Map<Integer, List<int[]>> adj = new HashMap<>();
 	        for (int[] i : flights)
@@ -72,7 +72,7 @@ public class CheapestFlightsWithinKStops {
 	 * @TC O((N+E)*K)
 	 * @SC O(N)
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 	    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
 	        // Distance from source to all other nodes.
 	        int[] dist = new int[n];
@@ -103,7 +103,7 @@ public class CheapestFlightsWithinKStops {
 	 * @TC: 
 	 * @SC: 
 	 */
-	private static class Solution3 {
+	private static class LeetcodeOfficialSolution3 {
 	    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
 	        Map<Integer, List<int[]>> adj = new HashMap<>();
 	        for (int[] i : flights)
