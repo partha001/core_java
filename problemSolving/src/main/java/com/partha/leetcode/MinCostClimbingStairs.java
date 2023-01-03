@@ -21,7 +21,7 @@ public class MinCostClimbingStairs {
 	 * @TC: O(N)
 	 * @SC O(N)
 	 */
-	private static class Solution1 {
+	private static class LeetcodeOfficialSolution1 {
 	    public int minCostClimbingStairs(int[] cost) {
 	        // The array's length should be 1 longer than the length of cost
 	        // This is because we can treat the "top floor" as a step to reach
@@ -46,7 +46,7 @@ public class MinCostClimbingStairs {
 	 * @TC: O(N)
 	 * @SC O(N)
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 	    private HashMap<Integer, Integer> memo = new HashMap<Integer, Integer>();
 
 	    public int minCostClimbingStairs(int[] cost) {
@@ -80,7 +80,7 @@ public class MinCostClimbingStairs {
 	 * @TC: O(N)
 	 * @SC O(1)
 	 */
-	class Solution {
+	private static class LeetcodeOfficialSolution {
 	    public int minCostClimbingStairs(int[] cost) {
 	        int downOne = 0;
 	        int downTwo = 0;
