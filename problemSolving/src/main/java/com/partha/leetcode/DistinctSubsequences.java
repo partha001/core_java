@@ -25,7 +25,7 @@ public class DistinctSubsequences {
 	 * @author biswaspa
 	 *
 	 */
-	private static class Solution1 {
+	private static class LeetcodeOfficialSolution1 {
 	    
 	    // Dictionary that we will use for memoization
 	    private HashMap<Pair<Integer, Integer>, Integer> memo;
@@ -79,7 +79,7 @@ public class DistinctSubsequences {
 	 * @author biswaspa
 	 *
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 	    
 	    public int numDistinct(String s, String t) {
 
@@ -128,7 +128,7 @@ public class DistinctSubsequences {
 	 * @author biswaspa
 	 *
 	 */
-	private static class Solution3 {
+	private static class LeetcodeOfficialSolution3 {
 	    
 	    public int numDistinct(String s, String t) {
 
