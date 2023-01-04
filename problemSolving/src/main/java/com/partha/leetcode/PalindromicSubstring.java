@@ -47,7 +47,8 @@ public class PalindromicSubstring {
 	/**
 	 * dp my code
 	 * @author partha
-	 *
+	 * TC N^2
+	 * SC N^2
 	 */
 	private static class Solution2 {
 	    public int countSubstrings(String s) {
