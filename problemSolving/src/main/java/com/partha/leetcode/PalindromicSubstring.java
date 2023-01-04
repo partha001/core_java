@@ -18,7 +18,8 @@ public class PalindromicSubstring {
 	 * https://youtu.be/4RACzI5-du8
 	 * this is same as LeetcodeSolution3 just that the code is much more condensed.
 	 * @author partha
-	 *
+	 * TC N^2
+	 * SC O(1)
 	 */
 	class Solution1 {
 
