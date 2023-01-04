@@ -58,6 +58,23 @@ addFirst();
 addLast();
 
 
+    	
+//    	Set<int[]> set = new HashSet();
+//    	set.add(new int[] {1,1});
+//    	 System.out.println( set.contains(new int[] {1,1})); //prints false
+    	
+//    	 Set<Pair> set = new HashSet<Pair>();
+//    	Pair<Integer, Integer> pair = new Pair(1,2);
+//    	set.add(pair);
+//    	System.out.println(set.contains(new Pair(1,2))); //prints true;
+    	
+    	 Map<Pair,Integer> map = new HashMap<Pair,Integer>();
+     	Pair<Integer, Integer> pair = new Pair(1,2);
+     	map.put(pair,1);
+     	System.out.println(map.containsKey(new Pair(1,2))); //prints true;
+    	
+
+
 
 
 
