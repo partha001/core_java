@@ -69,7 +69,7 @@ public class HouseRobber {
 	 * another strategy can be using even/odd . but here we need a helper function.  
 	 * this helper function is easy to be used for house-robber2
 	 */
-	private static class Solution {
+	private static class Solution3 {
 	    public int rob(int[] nums) {
 	        return rob(nums,0,nums.length-1);
 	    }

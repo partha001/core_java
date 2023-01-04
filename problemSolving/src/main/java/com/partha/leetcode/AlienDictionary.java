@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+/**
+ * https://leetcode.com/problems/alien-dictionary/
+ * @author partha
+ *
+ */
 public class AlienDictionary {
 
 	public static void main(String[] args) {
@@ -23,7 +28,7 @@ public class AlienDictionary {
 	 * @TC: O(C) where C is the total length of all the words in the input.
 	 * @SC: O(1) or O(U+min⁡(U^2,N))  where N=total number of strings in the input list. and U=Total number of letters in alphabet series alphabets 
 	 */
-	private static class Solution1 {
+	private static class LeetcodeOfficialSolution1 {
 		public String alienOrder(String[] words) {
 
 			// Step 0: Create data structures and find all unique letters.
@@ -89,7 +94,7 @@ public class AlienDictionary {
 	 * @TC: O(C) where C is the total length of all the words in the input.
 	 * @SC: O(1) or O(U+min⁡(U^2,N))  where N=total number of strings in the input list. and U=Total number of letters in alphabet series alphabets 
 	 */
-	 private static class Solution2 {
+	 private static class LeetcodeOfficialSolution2 {
 		    
 		    private Map<Character, List<Character>> reverseAdjList = new HashMap<>();
 		    private Map<Character, Boolean> seen = new HashMap<>();

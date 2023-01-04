@@ -11,12 +11,12 @@ public class ClimbingStrairs {
 		// TODO Auto-generated method stub
 
 	}
-	
-	static class Solution {
-	    public int climbStairs(int n) {
-	       // Initializing ways array
+
+	static class Solution1 {
+		public int climbStairs(int n) {
+			// Initializing ways array
 			int[] ways = new int[n + 1];
-			
+
 			//setting the values for base cases
 			ways[0] = 1; //ways to climb 0 stairs is 1 . since we are already there
 			ways[1] = 1; //ways to climb 1 stairs is 1 .
@@ -26,9 +26,29 @@ public class ClimbingStrairs {
 			for(int i = 2; i <= n; i++){
 				ways[i] = ways[i - 1] + ways[i - 2];
 			}
-			
+
 			return ways[n];
-	    }
+		}
+	}
+
+	//the above code is also same but written in a smarter way. 
+	class Solution2 {
+		public int climbStairs(int n) {		    
+			if(n==1)
+				return 1;
+
+			int[] dp= new int[n+1];
+			
+			//defining base cases to build upon
+			dp[0] = 0; //ways to climb zero stairs since we are already there .
+			dp[1] = 1; //ways to climb 1 stair
+			dp[2] = 2; //ways to climb 2 stairs
+			
+			for(int i=3;i<=n;i++){
+				dp[i] = dp[i-1] + dp[i-2];
+			}
+			return dp[n];
+		}
 	}
 
 }

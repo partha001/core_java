@@ -29,7 +29,7 @@ public class MinimumCostToConnectAllComponents {
 	 * @SC: O(N2)
 	 *
 	 */
-	private static class Solution1 {
+	private static class LeetcodeOfficialSolution1 {
 	    public int minCostConnectPoints(int[][] points) {
 	        int n = points.length;
 	        ArrayList<int[]> allEdges = new ArrayList<>();
@@ -120,7 +120,7 @@ public class MinimumCostToConnectAllComponents {
 	 * @SC: O(N^2)
 	 *
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 	    public int minCostConnectPoints(int[][] points) {
 	        int n = points.length;
 	        
@@ -174,7 +174,7 @@ public class MinimumCostToConnectAllComponents {
 	 * @TC: O(N^2)
 	 * @SC: O(N)
 	 */
-	private static class Solution3 {
+	private static class LeetcodeOfficialSolution3 {
 	    public int minCostConnectPoints(int[][] points) {
 	        int n = points.length;
 	        int mstCost = 0;
