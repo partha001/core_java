@@ -41,7 +41,7 @@ public class TaskScheduler {
 	        int f_max = frequencies[25];
 	        int idle_time = (f_max - 1) * n;
 	        
-	        for (int i = frequencies.length - 2; i >= 0 && idle_time > 0; --i) {
+	        for (int i = frequencies.length - 2; i >= 0 && idle_time > 0; i--) {
 	            idle_time -= Math.min(f_max - 1, frequencies[i]); 
 	        }
 	        idle_time = Math.max(0, idle_time);
