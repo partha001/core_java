@@ -6,6 +6,11 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * https://leetcode.com/problems/task-scheduler
+ * @author partha
+ *
+ */
 public class TaskScheduler {
 
 	public static void main(String[] args) {
@@ -13,6 +18,39 @@ public class TaskScheduler {
 		char[] arr = new char[] {'A','A','A','B','B','B'};
 		System.out.println(new TaskScheduler.Solution1().leastInterval(arr, 2));
 	}
+	
+	
+	/**
+	 * @source: leetcode official solution
+	 * @author partha
+	 * @TC O(N) where N is the total number of tasks to be executed
+	 * @SC O(1)
+	 */
+	private static class LeetcodeOfficialSolution1 {
+	    public int leastInterval(char[] tasks, int n) {
+	        // frequencies of the tasks
+	        int[] frequencies = new int[26];
+	        for (int t : tasks) {
+	            frequencies[t - 'A']++;
+	        }
+
+	        // max frequency
+	        int f_max = 0;
+	        for (int f : frequencies) {
+	            f_max = Math.max(f_max, f);
+	        }
+	        
+	        // count the most frequent tasks
+	        int n_max = 0;
+	        for (int f : frequencies) {
+	            if (f == f_max) n_max++;
+	        }
+	        
+	        return Math.max(tasks.length, (f_max - 1) * (n + 1) + n_max);
+	    }
+	}
+	
+	
 
 
 	private static class Solution1 {
