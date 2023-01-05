@@ -39,9 +39,9 @@ public class TaskScheduler {
 
 	        // max frequency
 	        int f_max = frequencies[25];
-	        int idle_time = (f_max - 1) * n;
+	        int idle_time = (f_max - 1) * n; //for k tasks there would be k-1 intervals . hence total interval (k-1) * n
 	        
-	        for (int i = frequencies.length - 2; i >= 0 && idle_time > 0; --i) {
+	        for (int i = frequencies.length - 2; i >= 0 && idle_time > 0; i--) { //note the boundary condition here
 	            idle_time -= Math.min(f_max - 1, frequencies[i]); 
 	        }
 	        idle_time = Math.max(0, idle_time);
