@@ -1,5 +1,6 @@
 package com.partha.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -27,6 +28,37 @@ public class TaskScheduler {
 	 * @SC O(1)
 	 */
 	private static class LeetcodeOfficialSolution1 {
+	    public int leastInterval(char[] tasks, int n) {
+	        // frequencies of the tasks
+	        int[] frequencies = new int[26];
+	        for (int t : tasks) {
+	            frequencies[t - 'A']++;
+	        }
+
+	        Arrays.sort(frequencies);
+
+	        // max frequency
+	        int f_max = frequencies[25];
+	        int idle_time = (f_max - 1) * n;
+	        
+	        for (int i = frequencies.length - 2; i >= 0 && idle_time > 0; --i) {
+	            idle_time -= Math.min(f_max - 1, frequencies[i]); 
+	        }
+	        idle_time = Math.max(0, idle_time);
+
+	        return idle_time + tasks.length;
+	    }
+	}
+	
+	
+	/**
+	 * @approach mathematical solution
+	 * @source: leetcode official solution
+	 * @author partha
+	 * @TC O(N) where N is the total number of tasks to be executed
+	 * @SC O(1)
+	 */
+	private static class LeetcodeOfficialSolution2 {
 	    public int leastInterval(char[] tasks, int n) {
 	        // frequencies of the tasks
 	        int[] frequencies = new int[26];
