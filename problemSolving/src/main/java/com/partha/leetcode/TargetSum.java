@@ -20,7 +20,7 @@ public class TargetSum {
 
 
 	/**
-	 * 
+	 * approach: bottomup Tablulation. 
 	 * https://www.youtube.com/watch?v=g0npyaQtAQM
 	 * @author partha
 	 *
@@ -48,6 +48,7 @@ public class TargetSum {
 	}
 	
 	/**
+	 * approach: topDown recursion
 	 * same algo as above just index is moving frm high to low. 
 	 * also not using currentTotal, rather doing +/-1 target 
 	 * checking if target is 0 or not.
