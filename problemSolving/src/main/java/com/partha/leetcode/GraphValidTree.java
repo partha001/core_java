@@ -29,7 +29,7 @@ public class GraphValidTree {
 	 * @author partha
 	 * @source: leetcode premium
 	 */
-	private static class Solution1{
+	private static class LeetcodeOfficialSolution1{
 		public boolean validTree(int n, int[][] edges) {
 
 			List<List<Integer>> adjacencyList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class GraphValidTree {
 	 * @source: leetcode official solution
 	 * @link : https://leetcode.com/problems/graph-valid-tree/solutions/539585/graph-valid-tree/
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 
 		private List<List<Integer>> adjacencyList = new ArrayList<>();
 		private Set<Integer> seen = new HashSet<>();
@@ -117,7 +117,7 @@ public class GraphValidTree {
 	 * @spaceComplexity: O(N) 
 	 * 
 	 */
-	private static class Solution3 {
+	private static class LeetcodeOfficialSolution3 {
 		public boolean validTree(int n, int[][] edges) {
 
 			if (edges.length != n - 1) return false;
@@ -160,7 +160,7 @@ public class GraphValidTree {
 	 * @timeComplexity: Time Complexity : O(N⋅α(N)) .  where α(N) is Inverse Ackerman Function 
 	 * @spaceComplexity: O(N).
 	 */
-	private static class Solution4 {
+	private static class LeetcodeOfficialSolution4 {
 
 		public boolean validTree(int n, int[][] edges) {
 

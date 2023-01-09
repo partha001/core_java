@@ -42,18 +42,15 @@ public class DistinctSubsequences {
 	        
 	        Pair<Integer, Integer> key = new Pair<Integer, Integer>(i, j);
 	        
-	        // Check to see if the result for this recursive
-	        // call is already cached
+	        // Check to see if the result for this recursive  call is already cached
 	        if (this.memo.containsKey(key)) {
 	            return this.memo.get(key);
 	        }
 	        
-	        // Always calculate this result since it's
-	        // required for both the cases
+	        // Always calculate this result since it's required for both the cases
 	        int ans = this.recurse(s, t, i + 1, j);
 	        
-	        // If the characters match, then we make another
-	        // recursion call and add the result to "ans"
+	        // If the characters match, then we make another recursion call and add the result to "ans"
 	        if (s.charAt(i) == t.charAt(j)) {
 	            ans += this.recurse(s, t, i + 1, j + 1);
 	        }
@@ -98,17 +95,14 @@ public class DistinctSubsequences {
 	            dp[i][N] = 1;
 	        }
 	        
-	        // Iterate over the strings in reverse so as to
-	        // satisfy the way we've modeled our recursive solution
+	        // Iterate over the strings in reverse so as to satisfy the way we've modeled our recursive solution
 	        for (int i = M - 1; i >= 0; i--) {
 	            for (int j = N - 1; j >= 0; j--) {
 	                
 	                // Remember, we always need this result
 	                dp[i][j] = dp[i + 1][j];
 
-	                // If the characters match, we add the
-	                // result of the next recursion call (in this
-	                // case, the value of a cell in the dp table
+	                // If the characters match, we add the result of the next recursion call (in this case, the value of a cell in the dp table
 	                if (s.charAt(i) == t.charAt(j)) {
 	                    dp[i][j] += dp[i + 1][j + 1];
 	                }
@@ -139,24 +133,19 @@ public class DistinctSubsequences {
 	        
 	        int prev = 1;
 	        
-	        // Iterate over the strings in reverse so as to
-	        // satisfy the way we've modeled our recursive solution
+	        // Iterate over the strings in reverse so as to satisfy the way we've modeled our recursive solution
 	        for (int i = M - 1; i >= 0; i--) {
 	                
-	                // At each step we start with the last value in
-	                // the row which is always 1. Notice how we are
-	                // starting the loop from N - 1 instead of N like
-	                // in the previous solution.
+	                // At each step we start with the last value in the row which is always 1. Notice how we are
+	                // starting the loop from N - 1 instead of N like in the previous solution.
 	                prev = 1;
 
 	                for (int j = N - 1; j >= 0; j--) {
 
-	                    // Record the current value in this cell so that
-	                    // we can use it to calculate the value of dp[j - 1]
+	                    // Record the current value in this cell so that we can use it to calculate the value of dp[j - 1]
 	                    int old_dpj = dp[j];
 
-	                    // If the characters match, we add the
-	                    // result of the next recursion call (in this
+	                    // If the characters match, we add the result of the next recursion call (in this
 	                    // case, the value of a cell in the dp table
 	                    if (s.charAt(i) == t.charAt(j)) {
 	                        dp[j] += prev;

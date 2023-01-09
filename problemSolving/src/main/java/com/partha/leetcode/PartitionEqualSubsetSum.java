@@ -14,7 +14,7 @@ public class PartitionEqualSubsetSum {
 	
 	
 	//my solution . 
-	private static class Solution {
+	private static class Solution1 {
 		
 		public boolean canPartition(int[] nums) {
 	        int sum=0;
@@ -42,7 +42,7 @@ public class PartitionEqualSubsetSum {
 	
 	///below solutions are taken from leetcode
     //Brute Force : naive solution
-	private static class Solution1 {
+	private static class LeetcodeOfficialSolution1 {
 	    public boolean canPartition(int[] nums) {
 	        int totalSum = 0;
 	        // find sum of all array elements
@@ -73,7 +73,7 @@ public class PartitionEqualSubsetSum {
 	 * @TC O(m*n)
 	 * @SC O(m*n)
 	 */
-	private static class Solution2 {
+	private static class LeetcodeOfficialSolution2 {
 	    public boolean canPartition(int[] nums) {
 	        int totalSum = 0;
 	        // find sum of all array elements
@@ -113,7 +113,7 @@ public class PartitionEqualSubsetSum {
 	 * @TC O(m*n)
 	 * @SC O(m*n)
 	 */
-	private static class Solution3 {
+	private static class LeetcodeOfficialSolution3 {
 	    public boolean canPartition(int[] nums) {
 	        int totalSum = 0;
 	        // find sum of all array elements
@@ -147,7 +147,7 @@ public class PartitionEqualSubsetSum {
 	 * @TC O(m*n)
 	 * @SC O(m)
 	 */
-	private static class Solution4 {
+	private static class LeetcodeOfficialSolution4 {
 	    public boolean canPartition(int[] nums) {
 	        if (nums.length == 0)
 	            return false;

@@ -42,40 +42,25 @@ public class CountGoodNodesInBinaryTree {
 	 * @author partha
 	 *
 	 */
-	private static class Solution2
-	{
-		public int goodNodes(TreeNode root)
-		{
-			if(root==null)
-				return 0;
-			return dfs(root,root.val);
-		}
+	private static class Solution2 {
+		
+	    public int goodNodes(TreeNode root) {
+	        return goodNode(root, root.val);
+	    }
 
 
-		private int dfs(TreeNode root,int maxVal)
-		{
-			if(root==null)
-				return 0;
-			if(root.left==null&&root.right==null)
-			{
-				if(root.val>=maxVal)
-					return 1;
-				return 0;
-			}
-			
-			int c=0;
-			if(root.val>=maxVal)
-			{
-				maxVal=root.val;
-				c++;
-			}
-			
-			int l=dfs(root.left,maxVal);
-			int r=dfs(root.right,maxVal);
-			return l+c+r;
-		}
-
-
+	    public int goodNode(TreeNode node, int currentMax){
+	        if(node==null)
+	            return 0;
+	        
+	        int count= 0;
+	        if(node.val >= currentMax)
+	            count++;
+	        
+	        count += goodNode(node.left, Math.max(currentMax, node.val));
+	        count += goodNode(node.right, Math.max(currentMax, node.val));
+	        return count;
+	    }
 	}
 
 

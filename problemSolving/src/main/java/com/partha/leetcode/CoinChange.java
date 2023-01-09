@@ -22,7 +22,7 @@ public class CoinChange {
 	 * @SC O(n)
 	 *
 	 */
-	private class Solution1 {
+	private class LeetcodeOfficialSolution1 {
 
 		  public int coinChange(int[] coins, int amount) {
 		    return coinChange(0, coins, amount);
@@ -56,7 +56,7 @@ public class CoinChange {
 	 * @TC O(S*n)
 	 * @TC O(S)
 	 */
-	private static  class Solution2 {
+	private static  class LeetcodeOfficialSolution2 {
 
 		  public int coinChange(int[] coins, int amount) {
 		    if (amount < 1) return 0;
@@ -84,8 +84,9 @@ public class CoinChange {
 	 * @source leetcode official solution
 	 * @TC O(S*n)
 	 * @TC O(S)
+	 * @referrenceVideo https://www.youtube.com/watch?v=H9bfqozjoqs
 	 */
-	private static  class Solution {
+	private static  class LeetcodeOfficialSolution3 {
 		  public int coinChange(int[] coins, int amount) {
 		    int max = amount + 1;
 		    int[] dp = new int[amount + 1];
