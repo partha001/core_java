@@ -18,6 +18,52 @@ public class MinimumCostToConnectAllComponents {
 
 	}
 	
+	/**
+	 * approach: prims algorithm 
+	 * @author partha . same as LeetcodeOfficialSolution2 with little code refactoring to improve readability
+	 * @TC: O(N^2⋅log⁡(N))
+	 * @SC: O(N^2)
+	 *
+	 */
+	private static class Solution1 {
+	    public int minCostConnectPoints(int[][] points) {
+	        int n = points.length;
+	        
+	        // Min-heap to store minimum weight edge at top.
+	        PriorityQueue<Pair<Integer, Integer>> queue = new PriorityQueue<>((a, b) -> (a.getKey() - b.getKey())); //PairKey=distance PairValue=pointIndex
+	        
+	        // Track nodes which are included in MST.
+	        boolean[] visited = new boolean[n];
+	        
+	        queue.add(new Pair(0, 0));
+	        int mstCost = 0;
+	        int visitCount = 0;
+	        
+	        while (visitCount < n) {
+	            Pair<Integer, Integer> topElement = queue.poll();
+	            
+	            int weight = topElement.getKey();
+	            int currNode = topElement.getValue();
+	            
+	            if (visited[currNode]) { //if already visited
+	                continue;
+	            }
+	            
+	            visited[currNode] = true;
+	            mstCost += weight;
+	            visitCount++;
+	            
+	            for (int nextNode = 0; nextNode < n; ++nextNode) {
+	                if (!visited[nextNode]) { //this condition also takes care of not visiting itself or other visited nodes
+	                    int nextWeight = Math.abs(points[currNode][0] - points[nextNode][0]) + Math.abs(points[currNode][1] - points[nextNode][1]);
+	                    queue.add(new Pair(nextWeight, nextNode));
+	                }
+	            }
+	        }
+	        
+	        return mstCost;
+	    }
+	}
 	
 
 	/**
