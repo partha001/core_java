@@ -23,20 +23,25 @@ public class SwimInRisingWater {
 	 * https://www.youtube.com/watch?v=amvrKlMLuGY
 	 * Dijkstras algorithm
 	 */
-	private static class Solution1{
+	private static class Solution{
 		public int swimInWater(int[][] grid) {
 			int n = grid.length;
 			int[][] visited = new int[grid.length][grid[0].length];
 			int[][] dirs = new int[][] {{0,-1},{0,1},{1,0},{-1,0}};
-			PriorityQueue<int[]> queue = new PriorityQueue<int[]>((a,b) -> a[0] - b[0]);//in this queue: arr[0] = time or height    a[1]=row a[2]=col
+			PriorityQueue<int[]> queue = new PriorityQueue<int[]>((a,b) -> a[0] - b[0]);//arr.length=3. arr[0] = time or height. a[1]=row. a[2]=col
 			queue.add(new int[] {grid[0][0], 0,0});
-			visited[0][0]=1;
 			while(!queue.isEmpty()) {
 				int[] arr= queue.remove();
 				int height=arr[0], row=arr[1] , col=arr[2];
 
-				if(row==n-1 && col==n-1) //condition when it reaches the bottom right corner
+				if(row==n-1 && col==n-1) //baseCase1: has reached destination
 					return height;
+
+				if(visited[row][col]==1) //baseCase2: if already visited
+					continue;
+				
+				visited[row][col]=1;
+
 
 				for(int[] dir: dirs) {
 					int neighR = row+ dir[0];
@@ -46,7 +51,7 @@ public class SwimInRisingWater {
 							|| visited[neighR][neighC]==1)
 						continue;
 
-					visited[neighR][neighC] = 1;
+					
 					queue.add(new int[] {Math.max(height, grid[neighR][neighC]),neighR, neighC});		
 
 				}			
@@ -55,6 +60,7 @@ public class SwimInRisingWater {
 			return 0;
 		}
 	}
+
 
 
 	/**
