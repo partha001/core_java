@@ -18,42 +18,49 @@ public class BurstBalloons {
 	}
 
 
-	//this uses recursion
+	/**
+	 * https://www.youtube.com/watch?v=VFskby7lUbw
+	 * @author partha
+	 * this is the recursive approach
+	 */
+	
 	private static class Solution1 {
-		public int maxCoins(int[] nums) {
-			int n = nums.length;
-			//creating dp and populating with default
-			int[][] dp = new int[n+1][n+1]; 
-			for(int i = 0 ; i <= n ; i++) 
-				Arrays.fill(dp[i], -1);
+		
+		  public int maxCoins(int[] nums) {
+				int n = nums.length;
+				int[][] dp = new int[n+1][n+1];  //creating the dp array
+				for(int i = 0 ; i <= n ; i++) 
+					Arrays.fill(dp[i], -1); //filling each row with default -1
 
-			//creating a copy of input array and copying values from initial array
-			int[] arr = new int[n+2]; 
-			arr[0] = arr[n+1] = 1;
-			for(int i = 0 ; i < n ; i++)
-	            arr[i+1] = nums[i];
+				//creating a copy of input array and copying values from initial array
+				int[] arr = new int[n+2]; 
+				arr[0] = arr[n+1] = 1;
+				for(int i = 0 ; i < n ; i++)
+		            arr[i+1] = nums[i];
 
-			return dfs(arr , 1 , n , dp);
-		}
-
-		int dfs(int[] arr , int left , int right , int[][] dp){
-			if(left > right)   //baseCase1: if invalid bounds
-				return 0;
-
-			if(dp[left][right] != -1)  //baseCase2: if value is already cached
-				return dp[left][right];
-
-			for(int k = left ; k <= right ; k++)
-			{
-				dp[left][right] = (int)Math.max(dp[left][right] , arr[left-1]*arr[right+1]*arr[k] + dfs(arr , left , k-1 , dp) + dfs(arr , k+1 , right , dp));
+				return dfs(arr , 1 , n , dp);
 			}
 
-			return dp[left][right];
-		}
+			int dfs(int[] arr , int left , int right , int[][] dp){
+				if(left > right)   //baseCase1: if invalid bounds
+					return 0;
+
+				if(dp[left][right] != -1)  //baseCase2: if value is already cached
+					return dp[left][right];
+
+				for(int k = left ; k <= right ; k++)
+				{
+					int leftResult =  dfs(arr , left , k-1 , dp);
+					int rightResult = dfs(arr , k+1 , right , dp);
+					dp[left][right] = (int)Math.max(dp[left][right] , arr[left-1]*arr[right+1]*arr[k] + leftResult + rightResult);
+				}
+
+				return dp[left][right];
+			}
 	}
 
 
-	//same algo as below written in crisp way
+	//same algo as LeetcodeOfficialSolution1  written in crisp way
 	private static class Solution2 {
 		public int maxCoins(int[] nums) {
 			int[] dummy_num = new int[nums.length + 2];
