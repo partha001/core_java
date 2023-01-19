@@ -86,6 +86,7 @@ public class InterleavingStrings {
 	 * @source Leetcode official solution
 	 * TC O (M * N)
 	 * SC O(M * N)
+	 * video: https://www.youtube.com/watch?v=3Rw3p9LrgvE
 	 */
 	public class LeetcodeOfficialSolution3 {
 	    public boolean isInterleave(String s1, String s2, String s3) {
