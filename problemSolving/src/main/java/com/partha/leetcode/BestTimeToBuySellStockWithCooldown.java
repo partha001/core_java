@@ -1,9 +1,47 @@
 package com.partha.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BestTimeToBuySellStockWithCooldown {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println(new Solution1().maxProfit(new int[] {1,2,4}));
+	}
+	
+	
+	/**
+	 * solution not working . there is some bug which has to be debugged and fixed
+	 * @video https://www.youtube.com/watch?v=I7j0F7AHpb8
+	 * 
+	 */
+	private static class Solution1 {
+	    public int maxProfit(int[] prices) {
+	        Map<String,Integer> map = new HashMap(); //key:dayIndex+canBuy 
+	        return dfs(prices, 0, true, map);
+	    }
+
+
+	    private int dfs(int[] prices, int index, boolean canBuy,Map<String,Integer> map ){
+	        if(index >= prices.length)
+	            return 0;
+	        
+	        String currentKey="day:"+index+"canBuy:"+canBuy;
+	        if(map.containsKey(currentKey))
+	            return map.get(currentKey);
+	        
+	        if(canBuy){
+	            int buy = dfs(prices, index+1, false, map) - prices[index];
+	            int cooldown = dfs(prices, index+1, true, map);
+	            map.put(currentKey, Math.max(buy, cooldown));
+	        }else{
+	            int sell = dfs(prices, index+2, false, map) + prices[index];
+	            int cooldown = dfs(prices, index+1, true, map);
+	            map.put(currentKey, Math.max(sell, cooldown));
+	        }
+	        return map.get(currentKey);
+	    }
 
 	}
 
