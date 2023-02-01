@@ -55,5 +55,40 @@ public class MaximalSquare {
 	        
 	    }
 	}
+	
+	
+	
+	/**
+	 * same algo as above written in a different way
+	 * TC : O(m*n)
+	 * SC: O(m*n)
+	 * @author partha
+	 *
+	 */
+	private static class Solution2 {
+	    public int maximalSquare(char[][] matrix) {
+	        int rows = matrix.length;
+	        if(rows==0)
+	            return 0;
+	        int cols = matrix[0].length;
+	        int[][] result = new int[rows][cols];
+	        int max = 0;
+	        for(int i=0;i<rows;i++){
+	            for(int j=0;j<cols;j++){
+	                if(matrix[i][j]=='1'){
+	                    if(i==0){ //for first row
+	                        result[i][j]=1;
+	                    }else if(j==0){ //first column
+	                        result[i][j] = 1;
+	                    }else{ //other cells
+	                        result[i][j] = Math.min( Math.min(result[i][j-1], result[i-1][j-1]), result[i-1][j])+1;
+	                    }
+	                    max = Math.max(max, result[i][j]);
+	                }
+	            }
+	        }
+	        return max*max;
+	    }
+	}
 
 }
