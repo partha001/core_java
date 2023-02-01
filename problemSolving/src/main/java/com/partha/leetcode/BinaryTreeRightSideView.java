@@ -58,34 +58,25 @@ public class BinaryTreeRightSideView {
 	 *
 	 */
 	private static class Solution2 {
+	    List<Integer> rightside = new ArrayList();
 	    
-        int level = 0;
-	    List<Integer> list = new ArrayList<>();
-	    
-	    public List<Integer> rightSideView(TreeNode root) {	     
-	        if(root == null)
-	            return list;      //Time O(n) and space O(1)
+	    public void helper(TreeNode node, int level) {
+	        if (level == rightside.size()) 
+	            rightside.add(node.val);
 	        
-	        int count = 1;	        
-	        populateList(root, count);
-	        return list;
+	        if (node.right != null) 
+	            helper(node.right, level + 1);  
+	        if (node.left != null) 
+	            helper(node.left, level + 1);
+	    }    
+	    
+	    public List<Integer> rightSideView(TreeNode root) {
+	        if (root == null) return rightside;
+	        
+	        helper(root, 0);
+	        return rightside;
 	    }
-	    
-	    private void populateList(TreeNode root, int count){
-	        
-	        if(root == null){
-	            return;
-	        }
-	        
-	        if(count > level){  // case when level is greater than Index 
-	            level = count;
-	            list.add(root.val);
-	        }
-	        
-	        if(root.right!=null) populateList(root.right, count+1);
-	        if(root.left!=null)  populateList(root.left, count+1);
-	    }
-}
+	}
 	
 	
 	
