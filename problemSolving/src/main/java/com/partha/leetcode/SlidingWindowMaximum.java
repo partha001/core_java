@@ -87,7 +87,7 @@ public class SlidingWindowMaximum {
 	 * note1:using queue to store index and not actual values
 	 * note2: the algo is used to stored the values in descending order in queue. 
 	 * [not actually descending of indexes. but descending order of values in nums]
-	 * that is why we always poll from right and the index of the element with the highest value 
+	 * that is why we always poll from left to populate our result array 
 	 * is always present at the first of the queue.
 	 */
 	private static class Solution3{
