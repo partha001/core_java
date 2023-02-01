@@ -21,9 +21,7 @@ public class SameTree {
 	            return true;
 	        if(p==null  || q==null) //i.e. if any is not null while the other is null
 	            return false;
-	        if(p.val==q.val && isSameTree(p.left,q.left) && isSameTree(p.right, q.right))
-	            return true;
-	        return false;
+	        return p.val==q.val && isSameTree(p.left,q.left) && isSameTree(p.right, q.right);
 	    }
 
 	}
