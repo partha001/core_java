@@ -27,7 +27,7 @@ public class WallsAndGates {
 	 * @TC: O(MN)
 	 * @SC: O(MN)
 	 */
-	private static class LeetcodeOfficialSolution {
+	 static class LeetcodeOfficialSolution {
 		private static final int EMPTY = Integer.MAX_VALUE;
 		private static final int GATE = 0;
 		private static final List<int[]> DIRECTIONS = Arrays.asList(
@@ -74,7 +74,7 @@ public class WallsAndGates {
 	 * @author partha
 	 *
 	 */
-	private static class Solution2 {
+	static class Solution2 {
 		       
 	    public static int[][] wallsAndGates(int[][] a, int n, int m) {
 	        int[][] directions = new int[][]{{0,-1},{-1,0},{0,1},{1,0}};
