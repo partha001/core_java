@@ -29,7 +29,8 @@ public class NextLargerElement {
 	               stack.push(arr[i]);
 	               arr[i] = -1;
 	           }else{
-	        	   //replacing the value on top of stack using the current element since not using extra space
+	        	   //replacing the value on top of stack using the current element 
+			   //since not using extra space rather doing in memory replacement
 	               long current = arr[i];
 	               arr[i] = stack.peek();
 	               stack.push(current);
