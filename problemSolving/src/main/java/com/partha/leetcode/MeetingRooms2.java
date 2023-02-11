@@ -15,6 +15,9 @@ public class MeetingRooms2 {
 	
 	private static class Solution1 {
 	    public int minMeetingRooms(int[][] intervals) {
+		if(intervals.length==0) return 0; //case1: when no meetings
+     		if(intervals.length==1) return 1; //case2: when only one meeting
+		    
 	        int[] starts = new int[intervals.length];
 	        int[] ends = new int[intervals.length];
 	        for(int i=0;i<intervals.length;i++){
