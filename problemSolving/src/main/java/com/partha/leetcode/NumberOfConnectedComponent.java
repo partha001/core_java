@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
- * 
+ * https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
  * @author partha
  *
  */
@@ -24,7 +24,7 @@ public class NumberOfConnectedComponent {
 	 *	this code is absolutely same as RedundantConnectonProblem . since both use UnionFind algorith.
 	 *	just that the return type of the union() method has been changed from boolean to int as per requiment
 	 */
-	private static class Solution {
+	 static class Solution {
 	    public int findRedundantConnection(int[][] edges, int numberOfNodes) {
 	        //int numberOfNodes = edges.length;
 	        int[] parents = new int[numberOfNodes+1];
@@ -77,7 +77,7 @@ public class NumberOfConnectedComponent {
 	
 	
 	//dfs soluion
-	private static class Solution2 {
+	static class Solution2 {
 	    private static void dfs(ArrayList<ArrayList<Integer>> adj,boolean[] visited,int src,int v){
 	        visited[src]=true;
 	        for(int i=0;i<v;i++){
