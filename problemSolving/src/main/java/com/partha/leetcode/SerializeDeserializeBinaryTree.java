@@ -14,7 +14,13 @@ public class SerializeDeserializeBinaryTree {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		TreeNode node = new TreeNode(1);
+		node.left = new TreeNode(2);
+		node.right = new TreeNode(3);
+		node.right.left = new TreeNode(4);
+		node.right.right = new TreeNode(5);
+		System.out.println(new SerializeDeserializeBinaryTree.Codec2().serialize(node));
+		System.out.println(new SerializeDeserializeBinaryTree.Codec().serialize(node));
 	}
 
 
@@ -24,7 +30,7 @@ public class SerializeDeserializeBinaryTree {
 	 * @author partha
 	 *
 	 */
-	public class Codec2 {
+	private static class Codec2 {
 
 		// Encodes a tree to a single string.
 		public String serialize(TreeNode root) {
