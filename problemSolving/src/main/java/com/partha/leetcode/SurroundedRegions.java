@@ -12,7 +12,54 @@ public class SurroundedRegions {
 	}
 	
 	
+	/**
+	 * TC: mn
+	 * sc: mn
+	 * this solution uses extra space i.e. the vis array
+	 * @author biswaspa
+	 *
+	 */
 	private static class Solution1 {
+	    public void solve(char[][] board) {
+	       int[][] dirs = new int[][]{{0,1},{0,-1},{-1,0},{1,0}};
+	       int rows = board.length;
+	       int cols = board[0].length;
+	       int[][] vis = new int[rows][cols];
+	       for(int row=0;row<rows;row++){
+	           for(int col=0;col<cols;col++){
+	               if( (row==0 || row==rows-1 || col==0 || col==cols-1 ) && board[row][col]=='O' && vis[row][col]==0){
+	                    dfs(row, col , rows, cols, board, vis, dirs);
+	               }
+	           }
+	       }
+
+	       for(int row=0;row<rows;row++){
+	           for(int col=0;col<cols;col++){
+	               if(board[row][col]=='O' && vis[row][col]==0)
+	                   board[row][col]='X';
+	           }
+	       }
+	       
+	    }
+
+
+	    private void dfs(int row, int col, int rows, int cols, char[][] board, int[][] vis,int[][] dirs){
+	        vis[row][col]=1;
+	        for(int[] dir : dirs){
+	            int x = row + dir[0] ; int y = col + dir[1];
+	            if( x>=0 && y>=0 && x<rows-1 && y<col-1 && vis[x][y]==0 && board[row][col]=='O')
+	                dfs(x, y , rows, cols, board, vis, dirs);
+	        }
+	    }
+	}
+	
+	
+	/**
+	 * constant space . solution
+	 * @author biswaspa
+	 *
+	 */
+	private static class Solution2 {
 	    int rows;
 	    int columns;
 	    
@@ -80,9 +127,7 @@ public class SurroundedRegions {
 	        if(i>=0 && i<rows && j>=0 && j<columns)
 	            return true;
 	        return false;
-	    }
-	    
-	    
+	    }  
 	    
 	}
 

@@ -1,11 +1,12 @@
 package com.partha.leetcode;
 
-import static org.junit.Assert.assertArrayEquals;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.github.javafaker.Faker;
 import com.partha.leetcode.TestUtil.TestArray;
