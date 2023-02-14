@@ -82,7 +82,7 @@ public class LongestIncreasingPathInAMatrix {
 
 				}
 			}
-			cache[i][j]= max+1;
+			cache[i][j]= max+1; //+1 is for the currentElement
 			return cache[i][j];
 		}
 	}
