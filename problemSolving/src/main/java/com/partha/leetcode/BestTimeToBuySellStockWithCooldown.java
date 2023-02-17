@@ -12,18 +12,17 @@ public class BestTimeToBuySellStockWithCooldown {
 	
 	
 	/**
-	 * solution not working . there is some bug which has to be debugged and fixed
 	 * @video https://www.youtube.com/watch?v=I7j0F7AHpb8
 	 * 
 	 */
 	private static class Solution1 {
 	    public int maxProfit(int[] prices) {
-	        Map<String,Integer> map = new HashMap(); //key:dayIndex+canBuy 
+	        Map<String,Integer> map = new HashMap(); //key:dayIndex+canBuy value:maxProfit
 	        return dfs(prices, 0, true, map);
 	    }
 
 
-	    private int dfs(int[] prices, int index, boolean canBuy,Map<String,Integer> map ){
+	    private int dfs(int[] prices, int index, boolean canBuy, Map<String,Integer> map ){
 	        if(index >= prices.length)
 	            return 0;
 	        
@@ -32,17 +31,16 @@ public class BestTimeToBuySellStockWithCooldown {
 	            return map.get(currentKey);
 	        
 	        if(canBuy){
-	            int buy = dfs(prices, index+1, false, map) - prices[index];
-	            int cooldown = dfs(prices, index+1, true, map);
+	            int buy = dfs(prices, index+1, !canBuy, map) - prices[index];
+	            int cooldown = dfs(prices, index+1, canBuy, map);
 	            map.put(currentKey, Math.max(buy, cooldown));
 	        }else{
-	            int sell = dfs(prices, index+2, false, map) + prices[index];
-	            int cooldown = dfs(prices, index+1, true, map);
+	            int sell = dfs(prices, index+2, !canBuy, map) + prices[index];
+	            int cooldown = dfs(prices, index+1, canBuy, map);
 	            map.put(currentKey, Math.max(sell, cooldown));
 	        }
 	        return map.get(currentKey);
 	    }
-
 	}
 
 	/**
