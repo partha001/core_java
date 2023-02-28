@@ -1,5 +1,10 @@
 package com.partha.leetcode;
 
+/**
+ * https://leetcode.com/problems/maximum-product-of-word-lengths
+ * @author biswaspa
+ *
+ */
 public class MaximumProductWordLength {
 
 	public static void main(String[] args) {
