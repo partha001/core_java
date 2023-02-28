@@ -15,7 +15,7 @@ list.sort((a,b) -> a-b);
 
 //to generate integer within a range
 Random random = new Random();
-int generatedNumber = random.nextInt(range);
+int generatedNumber = random.nextInt(range); //this is 0 inclusive and range exclusive
 
 //string to interger
 int i= Integer.parseInt("10"); //wat we do usually
