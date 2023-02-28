@@ -2,6 +2,11 @@ package com.partha.leetcode;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/h-index
+ * @author biswaspa
+ *
+ */
 public class HIndex {
 
 	public static void main(String[] args) {
