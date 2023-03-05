@@ -1,5 +1,10 @@
 package com.partha.leetcode;
 
+/**
+ * https://leetcode.com/problems/nth-digit
+ * @author partha
+ *
+ */
 public class NthDigit {
 
 	public static void main(String[] args) {
