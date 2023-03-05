@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * 
+ * @author partha
+ *
+ */
 public class QueueReconstructionByHeight {
 
 	public static void main(String[] args) {
