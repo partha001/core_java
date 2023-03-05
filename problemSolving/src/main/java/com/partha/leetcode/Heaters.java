@@ -2,6 +2,11 @@ package com.partha.leetcode;
 
 import java.util.Arrays;
 
+/**
+ * https://leetcode.com/problems/heaters/
+ * @author partha
+ *
+ */
 public class Heaters {
 
 	public static void main(String[] args) {
