@@ -64,7 +64,7 @@ public class HIndex {
 	 * @author biswaspa
 	 *
 	 */
-	private static class Solution {
+	private static class Solution3 {
 	    public int hIndex(int[] citations) {
 	        int n = citations.length;
 	        int left = 0;
