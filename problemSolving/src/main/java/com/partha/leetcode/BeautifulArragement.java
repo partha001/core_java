@@ -18,7 +18,7 @@ public class BeautifulArragement {
 	 * @author partha
 	 *
 	 */
-	class Solution {
+	private static class Solution1 {
 	    int res = 0;
 	    public int countArrangement(int n) {
 	        helper(new boolean[n+1],0,n);
@@ -57,7 +57,7 @@ public class BeautifulArragement {
 	 * @author partha
 	 *
 	 */
-	class Solution2 {
+	private static class Solution2 {
 	    public int countArrangement(int n) {
 	        int[] nums = new int[n + 1];
 
