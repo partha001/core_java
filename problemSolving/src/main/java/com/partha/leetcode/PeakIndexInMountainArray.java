@@ -12,20 +12,26 @@ public class PeakIndexInMountainArray {
 
 	}
 	
-
-	private static class Solution {
+	/**
+	 * same algo as find peak element
+	 * @author partha
+	 *
+	 */
+	private static class Solution1 {
 	    public int peakIndexInMountainArray(int[] arr) {
-	        int left = 0;
-	        int right = arr.length-1;
-	        while(left<right){
-	            int mid =( left + right)/2;
-	            if(arr[mid]<arr[mid+1]){
-	                left = mid +1;
-	            }else{
-	                right = mid;
+	        int start = 0;
+	        int end =  arr.length - 1;
+	        while(start < end){
+	            int mid = (start + end)/2;
+	            if(arr[mid] > arr[mid+1] ){
+	                //we are in dec part of the array
+	                end = mid;
+	            }
+	            else{//we are in inc part of array
+	                start = mid + 1;
 	            }
 	        }
-	        return right;
+	        return start;
 	    }
 	}
 
