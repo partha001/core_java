@@ -64,7 +64,7 @@ public class HIndex {
 	 * @author biswaspa
 	 *
 	 */
-	private static class Solution3 {
+	private static class Solution {
 	    public int hIndex(int[] citations) {
 	        int n = citations.length;
 	        int left = 0;
@@ -72,7 +72,7 @@ public class HIndex {
 	        Arrays.sort(citations);
 
 	        while(left <= right){
-	            int mid = left + (right - left)/2;
+	            int mid = (left + right) /2;
 
 	            if(citations[mid] == n - mid){
 	                return citations[mid];
