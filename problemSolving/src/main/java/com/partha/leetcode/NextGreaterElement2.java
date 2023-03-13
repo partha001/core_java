@@ -47,21 +47,23 @@ public class NextGreaterElement2 {
 	 * https://www.youtube.com/watch?v=ARkl69eBzhY
 	 */
 	private static class Solution2 {
-	    public int[] nextGreaterElements(int[] nums) {
-	        int len = 2 * nums.length - 1;
+    public int[] nextGreaterElements(int[] nums) {
+	        int len = nums.length;
 	        int[] result = new int[nums.length];
 	        Arrays.fill(result, -1);
 	        Stack<Integer> stack = new Stack<>(); //the stack will hold the index of the elements
-	        for (int i = 0; i < len; i++) {
-	            int index = i % nums.length;
+	        for (int i = 0; i < len*2; i++) {
+	            int index = i % len;
 	            while(!stack.isEmpty() && nums[stack.peek()] < nums[index]) {
 	                int pop = stack.pop();
 	                result[pop] = nums[index];
 	            }
-	            stack.push(index);
+
+                if(i<len) //this condition is optional but stack.push() has to be done
+	                 stack.push(index);
 	        }
 	        return result;
 	    }
-	}
+}
 
 }
