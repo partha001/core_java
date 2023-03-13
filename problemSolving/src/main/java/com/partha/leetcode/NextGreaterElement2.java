@@ -44,13 +44,14 @@ public class NextGreaterElement2 {
      * Time complexity:O(N)
      * Space complexity:O(N)
 	 * @author partha
+	 * https://www.youtube.com/watch?v=ARkl69eBzhY
 	 */
 	private static class Solution2 {
 	    public int[] nextGreaterElements(int[] nums) {
 	        int len = 2 * nums.length - 1;
 	        int[] result = new int[nums.length];
 	        Arrays.fill(result, -1);
-	        Stack<Integer> stack = new Stack<>();
+	        Stack<Integer> stack = new Stack<>(); //the stack will hold the index of the elements
 	        for (int i = 0; i < len; i++) {
 	            int index = i % nums.length;
 	            while(!stack.isEmpty() && nums[stack.peek()] < nums[index]) {
