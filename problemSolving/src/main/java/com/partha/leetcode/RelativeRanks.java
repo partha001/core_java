@@ -52,6 +52,43 @@ public class RelativeRanks {
 	        return arr;
 	    }
 	}
+	
+	
+	/**
+	 * TC O(N log N)
+	 * SC O(N) 
+	 * @author partha
+	 *
+	 */
+	private static class Solution2 {
+	    public String[] findRelativeRanks(int[] score) {
+	        PriorityQueue<int[]> queue = new PriorityQueue<int[]>((a,b)-> b[0] - a[0]);
+	        for(int i=0;i<score.length;i++){
+	            int[] arr = new int[]{score[i],i};
+	            queue.add(arr);
+	        }
+	        String[] result = new String[score.length];
+
+	        int i=1;
+	        while(!queue.isEmpty()){
+	            int[] arr= queue.remove();
+	            int position = arr[1];
+	            result[position] = getAward(i);
+	            i++;
+	        }
+	        return result;
+	    }
+
+	    private String getAward(int i){
+	        if(i==1)
+	            return "Gold Medal";
+	        if(i==2)
+	            return "Silver Medal";
+	        if(i==3)
+	            return "Bronze Medal";
+	        return String.valueOf(i);
+	    }
+	}
 
 
 }
