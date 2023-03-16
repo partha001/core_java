@@ -43,5 +43,30 @@ public class StudentAttendance1 {
 			return true;
 		}
 	}
+	
+	
+	
+	
+	private static class Solution2 {
+	    public boolean checkRecord(String s) {
+	        int absent=0;
+	        String temp ="";
+	       for(char c:s.toCharArray()){
+	           if(c=='A')
+	                absent++;
+	            
+	            if(c=='L'){
+	                temp += 'L';
+	            }else{
+	                temp="";
+	            }
+
+	            if(absent>=2 || temp.length()>=3)
+	                return false;
+	       } 
+	       return true;
+	    }
+	}
+
 
 }
