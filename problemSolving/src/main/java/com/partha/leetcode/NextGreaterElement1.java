@@ -14,6 +14,9 @@ public class NextGreaterElement1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		int[] nums1 = new int[]{1};
+		int[] nums2 = new int[] {1,3};
+		System.out.println(new NextGreaterElement1.Solution2().nextGreaterElement(nums1, nums2));
 
 	}
 	
@@ -58,7 +61,7 @@ public class NextGreaterElement1 {
 	 * @author partha
 	 *	here the stack always contains element in the ascendng order
 	 */
-	private static class Solution {
+	private static class Solution2 {
 	    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
 	        Map<Integer, Integer> map = new HashMap<Integer, Integer>(); //key=number value=index
 	        int[] result = new int[nums1.length];
