@@ -12,7 +12,9 @@ public class NextGreaterElement2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int[] input = new int[] {1,2,1};
+		int[] result = new NextGreaterElement2.Solution2().nextGreaterElements(input);
+		System.out.println(result);
 	}
 	
 	
