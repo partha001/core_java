@@ -122,10 +122,14 @@ public class SortCharactersByFrequency {
 			for (char c : s.toCharArray())  //putting all characters with their frequency
 				map.put(c, map.getOrDefault(c, 0) + 1);
 
-			List<Character> [] bucket = new List[s.length() + 1]; // formed an array of type arraylist
+			List<Character> [] bucket = new List[s.length() + 1]; // formed an array of type arraylist.
+			//in this Array the frequency in the index of the array . thus if s=aacc then arr[2]= {a,c}
+			
+			
 			for (char key : map.keySet()) { //traversing map to get frquency.
 				int frequency = map.get(key);  //getting freq. of char
-				if (bucket[frequency] == null) bucket[frequency] = new ArrayList<>(); //in place of freq.  in bucket initializing arraylist
+				if (bucket[frequency] == null) 
+					bucket[frequency] = new ArrayList<>(); //in place of freq.  in bucket initializing with empty arraylist
 				bucket[frequency].add(key); // and adding char at freq. position
 			}
 
