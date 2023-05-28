@@ -28,9 +28,9 @@ public class IslandPerimeter {
 					if (grid[i][j] == 1) 
 					{
 						count += 4;
-						if (j - 1 >= 0 && grid[i][j-1] == 1)
+						if (j - 1 >= 0 && grid[i][j-1] == 1) // if adjacent left cell is land
 							count -= 2;
-						if (i - 1 >= 0 && grid[i-1][j] == 1)
+						if (i - 1 >= 0 && grid[i-1][j] == 1) // if adjacent top cell is land
 							count -= 2;
 					}
 				}
