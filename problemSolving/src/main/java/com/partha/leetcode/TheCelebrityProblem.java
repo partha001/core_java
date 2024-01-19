@@ -44,7 +44,7 @@ public class TheCelebrityProblem {
 			
 			int potential = stack.pop();
 			for(int i=0;i<input.length;i++) {
-				if(i!=potential) {
+				if(i!=potential) { // to skip checking whether potential knows itself or not . but only to check for others
 					if(input[i][potential]==0 || input[potential][i]==1) {
 						System.out.println("none");
 						return;
