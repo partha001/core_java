@@ -51,8 +51,8 @@ public class GasStation {
 	 */
 	private static class Solution2 {
 	    public int canCompleteCircuit(int[] gas, int[] cost) {
-	        int currentGaining = 0;
-			int totalGaining = 0;
+	    	int currentGaining = 0;
+	    	int totalGaining = 0;
 			int candidate = 0;
 			for (int i = 0; i < gas.length; i++) {
 				currentGaining += gas[i] - cost[i];
