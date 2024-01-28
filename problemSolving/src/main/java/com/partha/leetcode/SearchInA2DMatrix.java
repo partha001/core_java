@@ -44,6 +44,11 @@ public class SearchInA2DMatrix {
 	}
 	
 	
+	/**
+	 * identifies row and then does a linear search within the row where the target can occur
+	 * @author biswa
+	 *
+	 */
 	private static class Solution2 {
 	    public boolean searchMatrix(int[][] matrix, int target) {
 	       int row = 0;
@@ -72,6 +77,42 @@ public class SearchInA2DMatrix {
 	    }
 	}
 	
+	
+	
+	/**
+	 * does binary search only within the row where the element can occur
+	 * @author biswa
+	 *
+	 */
+	private static class Solution3 {
+	    public boolean searchMatrix(int[][] matrix, int target) {
+	        int row =0;
+	        int col = matrix[0].length-1;
+	        while(row<matrix.length && row>=0 && col>=0 && col< matrix[0].length){
+	            if(target== matrix[row][col])
+	                return true;
+	            else if(target> matrix[row][col])
+	                row++;
+	            else
+	                return searchInRow(matrix[row], target, 0 ,  col);
+	        }
+	        return false;
+	    }
+
+	    private boolean searchInRow(int[] row, int target,int start, int end){
+	        if(start>end)
+	            return false;
+	        int mid = (start + end)/2;
+	        if(row[mid]== target)
+	            return true;
+	        else if(target< row[mid])
+	            return searchInRow(row, target, start, mid-1);
+	        return searchInRow(row, target, mid+1, end);
+	        
+	    }
+	}
+	
+
 	
 
 }

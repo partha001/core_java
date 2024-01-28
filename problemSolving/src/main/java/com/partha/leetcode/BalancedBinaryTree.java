@@ -25,9 +25,9 @@ public class BalancedBinaryTree {
 			this.right = right;
 		}
 	}
-	
-	
-	
+
+
+
 	/**
 	 * O(nxn)
 	 * @author biswaspa
@@ -51,8 +51,8 @@ public class BalancedBinaryTree {
 		}
 
 	}
-	
-	
+
+
 	/**
 	 * TimeComplexity O(n)
 	 * @author biswaspa
@@ -101,7 +101,39 @@ public class BalancedBinaryTree {
 		} 
 
 	}
-	
+
+
+	/**
+	 * Not using  repeatative calls like in solution1 nor additional class as used in Solution2 is required.
+	 * @author biswa
+	 *
+	 */
+	private static class Solution3 {
+
+		boolean result = true;
+
+		public boolean isBalanced(TreeNode root) {
+			height(root);
+			return result;
+		}
+
+		private int height(TreeNode node){
+			if(result == false) //to avoid furthur processing
+				return 0; //return value in this case doesnt matter since we are interested in the flag
+
+			if(node==null)
+				return 0;
+
+			int left = height(node.left);
+			int right = height(node.right);
+
+			if(Math.abs(left - right) >1)
+				result = false;
+
+			return Math.max(left , right) +1;
+		}
+	}
+
 
 
 }
