@@ -7,7 +7,11 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.stream.IntStream;
 
-
+/**
+ * https://www.youtube.com/watch?v=5hQ5WWW5awQ
+ * @author biswa
+ *
+ */
 public class MinimumIntervalToIncludeEachQuery {
 
 	public static void main(String[] args) {

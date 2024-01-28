@@ -15,7 +15,7 @@ public class EncodeDecodeStrings {
 		String[] arr = new String[] {"partha",""};
 		String encodedString = new EncodeDecodeStrings.Solution1().encode(arr);
 		String[] decodedArr = new EncodeDecodeStrings.Solution1().decode(encodedString);
-		System.out.println("");
+		System.out.println(encodedString);
 	}
 	
 	
