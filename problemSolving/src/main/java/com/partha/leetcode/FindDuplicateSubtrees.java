@@ -23,7 +23,7 @@ public class FindDuplicateSubtrees {
 	 */
 	private static class Solution1 {
 	    public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-	        HashMap<String,Integer>map=new HashMap<>();
+	        HashMap<String,Integer> map=new HashMap<>();
 	        List<TreeNode>ans=new ArrayList<>();
 	        traverse(map,ans,root);
 	        return ans;
