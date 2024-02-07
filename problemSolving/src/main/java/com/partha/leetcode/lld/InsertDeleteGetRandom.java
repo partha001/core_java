@@ -1,4 +1,4 @@
-package com.partha.leetcode;
+package com.partha.leetcode.lld;
 
 import java.util.HashMap;
 import java.util.HashSet;
