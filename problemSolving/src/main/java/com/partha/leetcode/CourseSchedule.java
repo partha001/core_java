@@ -81,14 +81,11 @@ public class CourseSchedule {
 			}
 
 			//acyclic directed graph [DAG]
-
 			List<List<Integer>> list = new ArrayList<>();  // list of list
-
 			int Indegree[] = new int[numCourses];  // Indegree array
+			int course[] = new int[numCourses];  // order array of courses
 
-			int course[] = new int[numCourses];  int index = 0; // order array of courses
 
-			Queue<Integer> queue = new LinkedList<>(); // queue 
 
 			for(int i = 0;i<numCourses;i++){ // bilding a new array List for each Node
 				list.add(new ArrayList<>());
@@ -111,7 +108,7 @@ public class CourseSchedule {
 			}
 
 
-
+			Queue<Integer> queue = new LinkedList<>(); // queue 
 			for(int i = 0;i<Indegree.length;i++){
 				//  System.out.println(i+":  "+Indegree[i]); 
 				if(Indegree[i] == 0){  // added 0 dependency's node to queue
@@ -121,6 +118,7 @@ public class CourseSchedule {
 
 			int count_course = 0;
 
+			int index = 0; 
 			while(!queue.isEmpty()){   //BFS algorithm
 				int node = queue.poll();
 				count_course++;
@@ -134,14 +132,7 @@ public class CourseSchedule {
 				}
 			}
 
-			System.out.println(count_course);
-
-			if(count_course == numCourses){  // condition of returning the order
-				return true;
-			}
-			else
-
-				return false;	        
+			return count_course == numCourses;
 		}
 	}
 }
