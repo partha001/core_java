@@ -101,6 +101,12 @@ public class LongestPalindromicSubstring {
 		}
 	}
 	
+	/**
+	 * just like below 2 solutions . even the above solution can be shortened a little by not capturing 
+	 * the start and maxLendth, but instead capture the result itself. the core logic remains the same in
+	 * either case. 
+	 */
+	
 	
 	private static class Solution3 {
 		int start =0;
@@ -127,5 +133,30 @@ public class LongestPalindromicSubstring {
 		        }
 		    }
 		}
+	
+	/**
+	 * same as above written in a crisper way. here instead of capturing the start and maxLength,
+	 * we are capturing the palidone word itself. however the core logic remains the same as
+	 */
+	private static class Solution4 {
+
+	    String result = "";
+
+	    public String longestPalindrome(String s) {
+	        for(int i=0;i<s.length();i++){
+	            findPalindrome(s,i,i);
+	            findPalindrome(s,i,i+1);
+	        }
+	        return result;
+	    }
+
+	    public void findPalindrome(String s, int start, int end){
+	        while(start>=0 && end<s.length() && s.charAt(start)== s.charAt(end)){
+	            result = result.length() < (end-start)+1 ?  s.substring(start,end+1): result;
+	            start--;
+	            end++;
+	        }
+	    }
+	}
 
 }
