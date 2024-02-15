@@ -52,6 +52,12 @@ public class PalindromePartitioning {
 		}
 	}
 
+	/**
+	 * backtracking + dp
+	 * https://www.youtube.com/watch?v=3jvWodd7ht0
+	 * @author biswa
+	 *
+	 */
 	//backtracking + dp
 	private static class Solution2 {
 		public List<List<String>> partition(String s) {
