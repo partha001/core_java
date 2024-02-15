@@ -42,9 +42,7 @@ public class ZeroOneKnapSackProblem {
 			// (1) nth item included
 			// (2) not included
 			else
-				return Math.max(val[n - 1]
-						+ knapSack(W - wt[n - 1], wt,
-								val, n - 1),
+				return Math.max(val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1),
 						knapSack(W, wt, val, n - 1));
 		}
 
@@ -62,30 +60,29 @@ public class ZeroOneKnapSackProblem {
 		// be put in a knapsack of capacity W
 		public static int knapSack(int W, int wt[],int val[], int n)
 		{
-			int i, w;
-			int K[][] = new int[n + 1][W + 1];
+			int[][] dp = new int[n + 1][W + 1];
 
 			// Build table K[][] in bottom up manner
-			for (i = 0; i <= n; i++)
-			{
-				for (w = 0; w <= W; w++)
-				{
-					if (i == 0 || w == 0)
-						K[i][w] = 0;
-					else if (wt[i - 1] <= w)
-						K[i][w]
-								= Math.max(val[i - 1]
-										+ K[i - 1][w - wt[i - 1]],
-										K[i - 1][w]);
-					else
-						K[i][w] = K[i - 1][w];
+			for (int i = 0; i <= n; i++){
+				for (int w = 0; w <= W; w++) {
+					if (i == 0 || w == 0) { //case1:  when either item or weight is zero. this will fill up the first row and first col
+						dp[i][w] = 0;
+					} else if (wt[i - 1] <= w) { //caae2: when more weight can be added . then pick max( (currentWeight + dp[previousRow][remainingWeight]  or dp[adjacentTopCellValue]
+						dp[i][w] = Math.max(val[i - 1] + dp[i - 1][w - wt[i - 1]], dp[i - 1][w]);
+					} else { //case3: dp[adjacentTopCellValue]
+						dp[i][w] = dp[i - 1][w];
+					}
 				}
 			}
 
-			return K[n][W];
+			return dp[n][W];
 		}
 
 	}
+	/**
+	 * it is also to be noted that in the above solution we have taken the dp size as n+1,w+1 as to accomodate 0 elements and 0 capacity 
+	 * it is because of this while reading current weight we are doing wt[i-1]
+	 */
 
 
 	// A Dynamic Programming based solution
@@ -99,28 +96,26 @@ public class ZeroOneKnapSackProblem {
 		// complexity
 		public static int knapSack(int W, int wt[], int val[], int n)
 		{
-			int i, w;
-			int [][]K = new int[2][W + 1];
+
+			int[][] dp = new int[2][W + 1];
 
 			// We know we are always using the the current row or
 			// the previous row of the array/vector . Thereby we can
 			// improve it further by using a 2D array but with only
 			// 2 rows i%2 will be giving the index inside the bounds
 			// of 2d array K
-			for (i = 0; i <= n; i++) {
-				for (w = 0; w <= W; w++) {
+			for (int i = 0; i <= n; i++) {
+				for (int w = 0; w <= W; w++) {
 					if (i == 0 || w == 0)
-						K[i % 2][w] = 0;
+						dp[i % 2][w] = 0;
 					else if (wt[i - 1] <= w)
-						K[i % 2][w] = Math.max(
-								val[i - 1]
-										+ K[(i - 1) % 2][w - wt[i - 1]],
-										K[(i - 1) % 2][w]);
+						dp[i % 2][w] = Math.max(	val[i - 1]	+ dp[(i - 1) % 2][w - wt[i - 1]]
+								, dp[(i - 1) % 2][w]);
 					else
-						K[i % 2][w] = K[(i - 1) % 2][w];
+						dp[i % 2][w] = dp[(i - 1) % 2][w];
 				}
 			}
-			return K[n % 2][W];
+			return dp[n % 2][W];
 		}
 
 	}
@@ -135,22 +130,22 @@ public class ZeroOneKnapSackProblem {
 
 
 		public static int knapSack(int W, int wt[], int val[], int n)
-		  {
-		    // making and initializing dp array
-		    int []dp = new int[W + 1];
-		 
-		 
-		    for (int i = 1; i < n + 1; i++) {
-		      for (int w = W; w >= 0; w--) {
-		 
-		        if (wt[i - 1] <= w)
-		           
-		          // finding the maximum value
-		          dp[w] = Math.max(dp[w],   dp[w - wt[i - 1]] + val[i - 1]);
-		      }
-		    }
-		    return dp[W]; // returning the maximum value of knapsack
-		  }
+		{
+			// making and initializing dp array
+			int []dp = new int[W + 1];
+
+
+			for (int i = 1; i < n + 1; i++) {
+				for (int w = W; w >= 0; w--) {
+
+					if (wt[i - 1] <= w)
+
+						// finding the maximum value
+						dp[w] = Math.max(dp[w],   dp[w - wt[i - 1]] + val[i - 1]);
+				}
+			}
+			return dp[W]; // returning the maximum value of knapsack
+		}
 	}
 
 
