@@ -23,7 +23,7 @@ public class NextGreaterElement2 {
 	 * Space complexity:O(N)
 	 * @author partha
 	 */
-	private static class Solution {
+	private static class Solution1 {
 		public int[] nextGreaterElements(int[] nums) {
 			int[] result = new int[nums.length];
 			int n = nums.length;
