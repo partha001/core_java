@@ -63,8 +63,9 @@ public class ValidParanthesisString {
 	       int lo = 0, hi = 0;
 	       for (char c: s.toCharArray()) {
 	           lo += c == '(' ? 1 : -1;
-	           hi += c != ')' ? 1 : -1;
-	           if (hi < 0) break;  //breaking out since it cant be recovered
+	           hi += c != ')' ? 1 : -1;  //note the condition here
+	           if (hi < 0) //breaking out since it cant be recovered
+	        	   break;  
 	           lo = Math.max(lo, 0);
 	       }
 	       return lo == 0;
