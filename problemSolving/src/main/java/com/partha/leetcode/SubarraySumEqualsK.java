@@ -17,11 +17,12 @@ public class SubarraySumEqualsK {
 	
 	
 	/**
+	 *  <a href="https://www.w3schools.com">Visit W3Schools</a> 
 	 * https://www.youtube.com/watch?v=fFVZt-6sgyo
 	 * @author partha
 	 *
 	 */
-	private static class Solution1 {
+	 static class Solution1 {
 	    public int subarraySum(int[] nums, int k) {
 	        int result =0;
 	        int currentSum =0;
