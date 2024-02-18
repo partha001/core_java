@@ -17,7 +17,6 @@ public class SubarraySumEqualsK {
 	
 	
 	/**
-	 *  @see <a href="https://docs.oracle.com/en/java/">Java Dcoumentation</a>
 	 * https://www.youtube.com/watch?v=fFVZt-6sgyo
 	 * @author partha
 	 *
