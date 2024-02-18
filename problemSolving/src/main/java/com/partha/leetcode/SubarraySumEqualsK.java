@@ -25,7 +25,7 @@ public class SubarraySumEqualsK {
 	    public int subarraySum(int[] nums, int k) {
 	        int result =0;
 	        int currentSum =0;
-	        Map<Integer, Integer> map = new HashMap<Integer,Integer>(); //this map contains the prefixSum
+	        Map<Integer, Integer> map = new HashMap<Integer,Integer>(); //key: prefixSum and value:count [as the prefix sum can occur in multiple subarrays in the prefix]
 	        map.put(0,1);
 	        for(int i : nums){
 	            currentSum += i;
