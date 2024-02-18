@@ -114,7 +114,7 @@ public class SlidingWindowMaximum {
 
 				queue.offer(i); //adding the current index
 
-				//populating result from k-1 index
+				//populating result from k-1 index by readig from the head of the queue.
 				if (i >= k - 1) {
 					result[right++] = nums[queue.peek()];
 				}
