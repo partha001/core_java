@@ -88,6 +88,11 @@ public class RottingOranges {
 	            int size = queue.size();
 	            //for loop also gives same result but execution time increases from 2ms to 12ms
 	            //for(int j=0;j<size;j++){ 
+	            
+	            //also it is to be noted that since we are adding elements to the queue in the inner loop 
+	            //so we should read the queue size first and take it into a variable as shown above and not use forLopp as shown below
+	            //for(int j=0;j<queue.size();j++){ 
+	            
 	            while(size-- > 0){
 	                int[] current = queue.remove();
 	                int x = current[0];
