@@ -21,6 +21,9 @@ int generatedNumber = random.nextInt(range); //this is 0 inclusive and range exc
 int i= Integer.parseInt("10"); //wat we do usually
 int i= Integer.valueOf("10");  //this has better performance over previous
 
+//substring
+someString.substring(beginIndex, endIndex)  //op: //beginIndex inclusive and endIndex exclusive
+
 
 //for traversing in 4 directions 
 int arrx[] = new int[]{-1,0,1,0};
