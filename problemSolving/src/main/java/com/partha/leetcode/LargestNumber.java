@@ -17,7 +17,8 @@ public class LargestNumber {
 
 
 	private static class Solution1 {
-		// Custom sort numbers: Ot(n * log2(n)), Os(n)
+
+        // Custom sort numbers: Ot(n * log2(n)), Os(n)
 		public static String largestNumber(int[] nums) {
 			//assert nums != null && nums.length > 0;
 
@@ -25,26 +26,22 @@ public class LargestNumber {
 			for (int i = 0; i < nums.length; i++) {
 				strs[i] = String.valueOf(nums[i]);
 			}
-
-			//sorting with string concatenated comparison
-			Arrays.sort(strs, (s1,s2) -> {
-				return (s2 + s1).compareTo(s1 + s2);
-			});    // With concatenated comparison
-
-			// Skip leading zeroes
-			if (strs[0].equals("0")) {
+			
+			Arrays.sort(strs, (a,b) -> (b + a).compareTo(a + b));   //sorting with string concatenated comparison
+			
+			if (strs[0].equals("0")) { // Skip leading zeroes
 				return "0";
 			}
 
-			// Concatenate number strings
+			
 			StringBuilder sb = new StringBuilder();
-			for (String s : strs) {
+			for (String s : strs) // Concatenating the sorted array 
 				sb.append(s);
-			}
-
+			
 			return sb.toString();
 		}
-	}
+
+}
 
 
 
