@@ -45,23 +45,22 @@ public class SlidingWindowMaximum {
 	 */
 	static class Solution2 {
 		public int[] maxSlidingWindow(int[] nums, int k) {
-
 			if(nums.length == 0 || nums.length < k){
 				return new int[0];
 			}
 
-			int index = 0;
+
 			int res[] = new int[nums.length - k+1];
 			Deque<Integer> dq = new ArrayDeque<Integer>();
-			dq.offer(0);
 
-			for(int i = 1;i<k;i++){
+			for(int i = 0;i<k;i++){
 				while(!dq.isEmpty() && nums[i] > nums[dq.peekLast()]){
 					dq.pollLast();
 				}
 				dq.offerLast(i);
 			}
 
+			int index = 0;
 			res[index++] = nums[dq.peek()];
 
 			for(int i = k;i<nums.length;i++){
@@ -75,7 +74,7 @@ public class SlidingWindowMaximum {
 				res[index++] = nums[dq.peek()];
 			}
 
-			return res;
+			return res;  
 		}
 	}
 
