@@ -16,28 +16,24 @@ public class CombinationSum {
 	}
 
 	static class Solution1 {
-		List<List<Integer>> listOfCombinations = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList();
 
 		public List<List<Integer>> combinationSum(int[] candidates, int target) {
-			List<Integer> combination = new ArrayList<Integer>();
-			backtrack(candidates, target, combination, 0, 0);
-			return listOfCombinations;
+			backtrack(candidates, 0, 0, target, new ArrayList<Integer>());
+			return result;
 		}
 
-		private void backtrack(int[] candidates,int target,List<Integer> combination,int sum,int start){
-			if(sum == target){
-				List<Integer> validCombination = new ArrayList<Integer>(combination);
-				listOfCombinations.add(validCombination);
+		private void backtrack(int[] candidates, int index, int currentSum,int target, List<Integer> list){
+			if(currentSum == target){
+				result.add(new ArrayList(list));
 				return;
 			}
-
-			for(int i = start; i < candidates.length; i++){
-				if(sum + candidates[i]<=target){
-					combination.add(candidates[i]);
-					backtrack(candidates, target, combination, sum + candidates[i], i);
-					combination.remove(combination.size() - 1);
+			for(int i=index; i< candidates.length;i++){
+				if(currentSum + candidates[i] <= target){
+					list.add(candidates[i]);
+					backtrack(candidates, i , currentSum + candidates[i], target, list);
+					list.remove(list.size()-1);
 				}
-
 			}
 		}
 	}
