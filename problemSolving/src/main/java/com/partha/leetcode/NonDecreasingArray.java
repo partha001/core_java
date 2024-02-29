@@ -49,19 +49,20 @@ public class NonDecreasingArray {
 	 *
 	 */
 	private static class Solution2{
-		public boolean checkPossibility(int[] nums) {
-			for (int i=1, modified=0; i<nums.length; i++) {
-				if (nums[i-1] > nums[i]) { //if violates increasing order
-					if (modified++ == 1) 	//if number of modification reaches threshold
-						return false;
-					if (i<2 || nums[i-2] <= nums[i]) //if its for first 2 element or 
-						nums[i-1] = nums[i];   //making the modification at i-1th index
-					else 
-						nums[i] = nums[i-1];   //making the modification at i-th index
+	    public boolean checkPossibility(int[] nums) {
+				for (int i=1, modified=0; i<nums.length; i++) {
+					if (nums[i-1] > nums[i]) { //if violates increasing order
+	                    modified++;
+						if (modified == 2) 	//if number of modification reaches threshold
+							return false;
+						if (i<2 || nums[i-2] <= nums[i]) //if its for first 2 element or i-2th element<=ith element
+							nums[i-1] = nums[i];   //making the modification at i-1th index
+						else 
+							nums[i] = nums[i-1];   //making the modification at i-th index
+					}
 				}
+				return true;
 			}
-			return true;
-		}
 	}
 
 }
