@@ -24,27 +24,24 @@ public class NextGreaterElement2 {
 	 * @author partha
 	 */
 	private static class Solution1 {
-		public int[] nextGreaterElements(int[] nums) {
-			int[] result = new int[nums.length];
-			int n = nums.length;
-			Stack<Integer> stack = new Stack();
-			for(int i=2* nums.length-1;i>=0;i--){
-				int current = nums[i %n];
+	    public int[] nextGreaterElements(int[] nums) {
+	        int n = nums.length;
+	        int[] result = new int[n];
+	        Stack<Integer> stack = new Stack<Integer>();
+	        for(int i=(n* 2)-1;i>=0;i--){
+	            int current = nums[i%n];
 
-				while(!stack.isEmpty() && stack.peek()<=current) //popping all elements lesser than current
-					stack.pop();
+	            while(!stack.isEmpty() && stack.peek()<=current) ////popping all elements lesser than current
+	                stack.pop();
 
-				if(i<n){ //updating result array
-					if(!stack.isEmpty())
-						result[i] = stack.peek();
-					else
-						result[i] = -1;               
-				}
+	            if(i<n) ////updating result array
+	                result[i] = stack.isEmpty() ? -1 : stack.peek();
+	            
 
-				stack.push(current); //putting current element in the stack again
-			}
-			return result;
-		}
+	            stack.push(current); ////putting current element in the stack again
+	        }
+	        return result;
+	    }
 	}
 
 	/**
