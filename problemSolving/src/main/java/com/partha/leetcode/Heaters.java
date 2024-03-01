@@ -43,6 +43,7 @@ public class Heaters {
 	 * TC: nlogn
 	 * @author partha
 	 * sort + 2 pointer approach
+	 * referrence video: https://www.youtube.com/watch?v=xR2SzAmiUpM
 	 *
 	 */
 	private static class Solution2 {
