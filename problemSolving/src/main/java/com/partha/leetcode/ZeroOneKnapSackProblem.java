@@ -1,17 +1,20 @@
 package com.partha.leetcode;
 
 /**
- * https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+ * problem link : https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0945/1
+ * solution link:  https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
  * @author biswaspa
  *
  */
 public class ZeroOneKnapSackProblem {
 
+	//special note: it is to be remembered that the weight array need to be in ascending order
+	//if its not in ascending order then sort it first.
 	public static void main(String[] args) {
-		int val[] = new int[] { 60, 100, 120 };
-		int wt[] = new int[] { 10, 20, 30 };
-		int W = 50;
-		int n = val.length;
+		int val[] = new int[] { 60, 100, 120 }; //value or pofit
+		int wt[] = new int[] { 10, 20, 30 };  //weight of item
+		int W = 50; //total capacity of the bag
+		int n = val.length; //number of items and not index
 		System.out.println(KnapsackSolution2.knapSack(W, wt, val, n));
 
 	}
@@ -42,8 +45,8 @@ public class ZeroOneKnapSackProblem {
 			// (1) nth item included
 			// (2) not included
 			else
-				return Math.max(val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1),
-						knapSack(W, wt, val, n - 1));
+				return Math.max(val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1), //knapsack for current element
+						knapSack(W, wt, val, n - 1)); //knapsack for previous element
 		}
 
 	}
