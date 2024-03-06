@@ -104,7 +104,7 @@ public class WordBreak {
 	 */
 	private static class Solution4 {
 	    public boolean wordBreak(String s, List<String> wordDict) {
-	       return dfs(s,wordDict,new HashSet<String>()); 
+	       return dfs(s,wordDict,new HashSet<String>()); //here the hashSet contains the substrig which is already checked doesnt fit the criteria.
 	    }
 	    
 	    public boolean dfs(String s,List<String> dict,Set<String> checked){
