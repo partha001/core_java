@@ -12,9 +12,9 @@ public class EditDistance {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
-	
+
+
+
 	/**
 	 * memoisation  using top down
 	 * @author biswaspa
@@ -59,11 +59,13 @@ public class EditDistance {
 	 *
 	 */
 	private static class Solution2 {
+		
 		public int minDistance(String s1, String s2) {
-
-			int[][] dp =  new int[s1.length()+1][s2.length()+1];
-			for(int i = 0; i<=s1.length(); i++){
-				for(int j =0; j<=s2.length(); j++){
+			int rows = s1.length()+1;
+			int cols = s2.length()+1;
+			int[][] dp =  new int[rows][cols];
+			for(int i = 0; i<rows; i++){
+				for(int j =0; j<cols; j++){
 					if(i == 0) //fills up the first row in dp
 						dp[i][j] =  j;
 					else if(j == 0)  //fills up the first column in dp
