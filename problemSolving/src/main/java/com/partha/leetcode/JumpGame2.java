@@ -18,7 +18,7 @@ public class JumpGame2 {
 			int result =0;
 			int left =0;
 			int right =0;
-			while(right < nums.length -1){
+			while(right < nums.length -1){ //note here we are doing n-1 since thats mentioned in question
 				int farthest = 0;
 				for(int i=left;i<=right;i++){
 					farthest = Math.max(farthest, i + nums[i] );
