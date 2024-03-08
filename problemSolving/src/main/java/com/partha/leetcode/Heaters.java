@@ -99,7 +99,7 @@ public class Heaters {
 	        int right = Integer.MAX_VALUE;
 	        int answer = 0;
 	        while (left <= right) {
-	            int mid = left + (right - left) / 2;
+	            int mid = (left + right) / 2;
 	            if (canHeat(houses, heaters, mid)) {
 	                answer = mid;
 	                right = mid - 1;
