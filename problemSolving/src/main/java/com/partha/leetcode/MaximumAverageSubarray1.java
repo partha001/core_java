@@ -36,6 +36,27 @@ public class MaximumAverageSubarray1 {
 	        return max / k;
 	    }
 	}
+	
+	//same algo but written in differeent way.
+	private static class Solution2 {
+	    public double findMaxAverage(int[] nums, int k) {
+	        int n = nums.length;
+	        int currentSum = 0;
+	        int maxSum = Integer.MIN_VALUE;
+	        for(int i=0;i<nums.length;i++){
+	            if(i<k-1){
+	                currentSum += nums[i];
+	            }else if(i==k-1){
+	                currentSum += nums[i];
+	                maxSum = Math.max(maxSum, currentSum);
+	            }else{
+	                currentSum += -nums[i-k] + nums[i];
+	                maxSum = Math.max(maxSum, currentSum);
+	            }
+	        }
+	        return (double)maxSum/k;
+	    }
+	}
 
 
 }
