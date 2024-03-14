@@ -13,25 +13,25 @@ public class IntersectionOfTwoLinkedList {
 		ListNode head1 = new ListNode(10);
 		head1.next = new ListNode(20);
 		//head1.next.next = new ListNode(30);
-		
+
 		ListNode head2 = new ListNode(30);
 		//head2.next = new ListNode(50);
-		
+
 		System.out.println(new Solution3().getIntersectionNode(head1, head2));
 	}
-	
-	
 
-	  //Definition for singly-linked list.
-	  static  class ListNode {
-	      int val;
-	      ListNode next;
-	      ListNode(int x) {
-	          val = x;
-	          next = null;
-	      }
-	  }
-	 
+
+
+	//Definition for singly-linked list.
+	static  class ListNode {
+		int val;
+		ListNode next;
+		ListNode(int x) {
+			val = x;
+			next = null;
+		}
+	}
+
 	/**
 	 * naive solution with complexity
 	 * timecomplexity O(mxn)
@@ -39,56 +39,67 @@ public class IntersectionOfTwoLinkedList {
 	 * @author biswaspa
 	 *
 	 */
-	  static  class Solution1 {
-		    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-		       ListNode a=headA,b;
-		        while(a!=null){
-		            b = headB;
-		            while(b!=null){
-		              if(a == b) return a;
-		              b = b.next;
-		            }
-		            a = a.next;
-		        }
-		        return null;
-		    }
+	static  class Solution1 {
+		public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+			ListNode a=headA,b;
+			while(a!=null){
+				b = headB;
+				while(b!=null){
+					if(a == b) return a;
+					b = b.next;
+				}
+				a = a.next;
+			}
+			return null;
 		}
-	  
-	  
-	  static class Solution2 {
-		    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-		        ListNode a=headA,b=headB;
-		        Set<ListNode> seen  = new HashSet<>();
-		        while(a!=null){
-		            seen.add(a);
-		            a=a.next;
-		        }
-		     
-		        while(b!=null){
-		            if(!seen.add(b)) return b;
-		            b=b.next;
-		        }
-		        return null;
-		     }
-		 }
-	  
-	  
-	  static class  Solution3 {
-		    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-		        ListNode a=headA, b=headB;
-		        while(a!=b){
-		            if(a==null) 
-		            	a=headB;
-		            else  
-		            	a=a.next;
-		            
-		            if(b==null) 
-		            	b=headA;
-		            else 
-		            	b=b.next;
-		        }
-		        return a;
-		    }
+	}
+
+
+	static class Solution2 {
+		public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+			ListNode a=headA,b=headB;
+			Set<ListNode> seen  = new HashSet<>();
+			while(a!=null){
+				seen.add(a);
+				a=a.next;
+			}
+
+			while(b!=null){
+				if(!seen.add(b)) return b;
+				b=b.next;
+			}
+			return null;
 		}
+	}
+
+
+	static class  Solution3 {
+		public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+			ListNode a=headA, b=headB;
+			while(a!=b){
+				if(a==null) 
+					a=headB;
+				else  
+					a=a.next;
+
+				if(b==null) 
+					b=headA;
+				else 
+					b=b.next;
+			}
+			return a;
+		}
+	}
+
+	private static class Solution4 {
+		public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+			ListNode ptrA = headA, ptrB = headB;
+			while (ptrA != ptrB) { // loop until we found the first common node
+				ptrA = ptrA == null ? headB : ptrA.next; // once we're done with A, move to B
+				ptrB = ptrB == null ? headA : ptrB.next; // once we're done with B, move to A
+			}
+			return ptrA;
+		}
+	}
 
 }
