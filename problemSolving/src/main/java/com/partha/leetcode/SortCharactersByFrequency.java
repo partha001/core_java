@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javafx.util.Pair;
 
+/**
+ * problem statement: https://leetcode.com/problems/sort-characters-by-frequency/
+ */
 public class SortCharactersByFrequency {
 
 	public static void main(String[] args) {
@@ -74,7 +76,7 @@ public class SortCharactersByFrequency {
 
 
 	/**
-	 * bucketSort using the pair class
+	 * using Map.Entry instead of the pair class
 	 * @author partha
 	 *
 	 */
@@ -86,11 +88,11 @@ public class SortCharactersByFrequency {
 			for(int i=0;i<s.length();i++)
 				hm.put(s.charAt(i), hm.getOrDefault(s.charAt(i), 0)+1);
 
-			Pair<Character,Integer>[] arr = new  Pair[hm.size()];
+			Map.Entry<Character,Integer>[] arr = new  Map.Entry[hm.size()];
 			int k=0;
 			for (Map.Entry<Character, Integer> entry : hm.entrySet())
 			{
-				arr[k] = new Pair(entry.getKey(), entry.getValue());
+				arr[k] = Map.entry(entry.getKey(), entry.getValue());
 				k++;
 			}
 
@@ -105,8 +107,8 @@ public class SortCharactersByFrequency {
 			return sb.toString();
 
 		}
-
 	}
+	
 
 
 
@@ -124,8 +126,8 @@ public class SortCharactersByFrequency {
 
 			List<Character> [] bucket = new List[s.length() + 1]; // formed an array of type arraylist.
 			//in this Array the frequency in the index of the array . thus if s=aacc then arr[2]= {a,c}
-			
-			
+
+
 			for (char key : map.keySet()) { //traversing map to get frquency.
 				int frequency = map.get(key);  //getting freq. of char
 				if (bucket[frequency] == null) 
