@@ -53,7 +53,6 @@ public class KthSmallestElementInSortedMatrix {
 			int left = matrix[0][0];
 			int right = matrix[n-1][n-1];
 
-			int result = 0;
 			while (left <= right){
 				int mid = (left + right )/ 2;
 				int count = countSmallerThanMid(mid, matrix);
