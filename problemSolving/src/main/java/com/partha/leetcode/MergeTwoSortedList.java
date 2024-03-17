@@ -27,7 +27,7 @@ public class MergeTwoSortedList {
 	 * @author partha
 	 * practice this 
 	 */
-	private static class Solution2 {
+	private static class Solution1 {
 	    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 	     ListNode dummy = new ListNode();
 	     ListNode tail = dummy;
@@ -57,64 +57,38 @@ public class MergeTwoSortedList {
 	
 
 
-	//this is the most intutive solution
-	static class Solution1 {
-		public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+	/**
+	 * same code written in a different way. everything is taken care within the while loop.
+	 */
+	private static class Solution2 {
+	    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+	        ListNode dummy = new ListNode();
+	        ListNode current = dummy;
+	        while(list1!=null || list2!=null){
+	            if(list1!=null && list2!=null){
 
-			if(l1==null && l2==null) {
-				return null;
-			}else if(l1==null && l2!=null) {
-				return l2;
-			}else if(l2==null && l1!=null) {
-				return l1;
-			}else {
-
-				ListNode root = null;
-				ListNode current = null;
-				while(l1!=null && l2!=null){
-					if(l1.val <= l2.val ){
-
-						if(root==null){
-							root = new ListNode(l1.val);
-							current = root;
-						}else{
-							current.next = new ListNode(l1.val);
-							current = current.next;
-						}
-						l1 = l1.next;               
-
-					}else{
-
-						if(root==null){
-							root = new ListNode(l2.val);
-							current = root;
-						}else{
-							current.next = new ListNode(l2.val);
-							current = current.next;
-
-						}
-						l2 = l2.next;
-					}
-				}
-
-				//if list1 is not exhausted
-				while(l1!=null){
-					current.next = new ListNode(l1.val);
-					current = current.next;
-					l1 = l1.next;
-				}
-
-
-				//if list2 is not exhausted
-				while(l2!=null){
-					current.next = new ListNode(l2.val);
-					current = current.next;
-					l2 = l2.next;
-				}
-				return root;
-			}
-
-		}
+	                if(list1.val<=list2.val){
+	                    current.next = list1;
+	                    current = current.next;
+	                    list1 = list1.next;
+	                }else{
+	                    current.next = list2;
+	                    current = current.next;
+	                    list2 = list2.next;
+	                }
+	            }else{
+	                if(list1!=null){
+	                    current.next = list1;
+	                    list1 = null; //this is to make the while loop break
+	                }
+	                if(list2!=null){
+	                    current.next = list2;
+	                    list2 = null;   //this is to make the while loop break
+	                }
+	            }
+	        }
+	        return dummy.next;
+	    }
 	}
 
 

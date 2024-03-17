@@ -20,8 +20,8 @@ public class OddEvenLinkedList {
 	            return head;
 	        
 	        ListNode odd = head ;
-	        ListNode even = odd.next ;
-	        ListNode evenHead = even;
+	        ListNode even = head.next ;
+	        ListNode evenHead = head.next;
 	        while(even!=null && even.next!=null){
 	            odd.next = even.next;
 	            odd = odd.next;
