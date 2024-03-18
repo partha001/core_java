@@ -10,52 +10,53 @@ import java.util.HashMap;
 public class RomanToInteger {
 
     public static void main(String[] args) {
-        System.out.println(new Solution().romanToInt("MCMXCIV"));
+        System.out.println(new Solution1().romanToInt("MCMXCIV"));
     }
 
-    static class Solution {
 
-        HashMap<String, Integer> map;
-
-        Solution() {
-            super();
-            map = new HashMap<>();
-            map.put("I", 1);
-            map.put("V", 5);
-            map.put("X", 10);
-            map.put("L", 50);
-            map.put("C", 100);
-            map.put("D", 500);
-            map.put("M", 1000);
-        }
-
-
+    private static class Solution1 {
         public int romanToInt(String s) {
-
-
             int result = 0;
-            if (s == null || s.length() == 0) {
-                result = 0;
-            } else {
-                char[] arr = s.toCharArray();
-                int previousValue = 0;
-                for (int i = arr.length - 1; i >= 0; i--) {
-                    int currentValue = map.get("" + arr[i]).intValue();
-                    if (i == arr.length - 1) {
-                        result = currentValue;
-                        previousValue = currentValue;
+            int lastInteger = 0;
+            char[] arr = s.toCharArray();
+            int arrLength = arr.length;
+
+            for (int i = arrLength - 1; i >= 0; i--) {
+                char currentChar = arr[i];
+                int currentCharToInt = romanCharToInteger(currentChar);
+                if (i == (arrLength - 1)) {
+                    result = result + currentCharToInt;
+                } else {
+                    if (currentCharToInt >= lastInteger) {
+                        result = result + currentCharToInt;
                     } else {
-                        if (currentValue >= previousValue) {
-                            result = result + currentValue;
-                            previousValue = currentValue;
-                        } else {
-                            result = result - currentValue;
-                            previousValue = currentValue;
-                        }
+                        result = result - currentCharToInt;
                     }
                 }
+                lastInteger = currentCharToInt;
             }
             return result;
+        }
+
+        public int romanCharToInteger(Character c) {
+            switch (c) {
+                case ('I'):
+                    return 1;
+                case ('V'):
+                    return 5;
+                case ('X'):
+                    return 10;
+                case ('L'):
+                    return 50;
+                case ('C'):
+                    return 100;
+                case ('D'):
+                    return 500;
+                case ('M'):
+                    return 1000;
+                default:
+                    throw new RuntimeException();
+            }
         }
     }
 }
