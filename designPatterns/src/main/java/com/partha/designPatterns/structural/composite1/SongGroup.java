@@ -17,19 +17,23 @@ public class SongGroup extends SongComponent{
 	
 	public String getGroupName(){return groupName;};
 	public String getGroupDescription(){return groupDescription;}
-	
+
+	@Override
 	public void add(SongComponent newSongComponent){
 		songComponents.add(newSongComponent);
 	}
-	
+
+	@Override
 	public void remove(SongComponent newSongComponent){
 		songComponents.remove(newSongComponent);
 	}
-	
+
+	@Override
 	public SongComponent getComponent(int  componentIndex){
 		return (SongComponent)songComponents.get(componentIndex);
 	}
-	
+
+	@Override
 	public void displaySongInfo(){
 		System.out.println(getGroupName()+" "+getGroupDescription());
 		Iterator songIterator=songComponents.iterator();

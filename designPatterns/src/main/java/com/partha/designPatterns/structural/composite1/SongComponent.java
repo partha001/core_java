@@ -13,7 +13,7 @@ public class SongComponent {
 	public SongComponent getComponent(int componentIndex){
 		throw new UnsupportedOperationException();
 	}
-	
+
 	public String getSongName(){
 		throw new UnsupportedOperationException();
 	}
@@ -29,6 +29,13 @@ public class SongComponent {
 	public void displaySongInfo(){
 		throw new UnsupportedOperationException();
 	}
+
+	/**
+	 * note that this has default implementation for all methods and its not an abstract class.
+	 * while some methods are overriden by the Song class
+	 * while some methods are overriden by the SongGroup class
+	 * while method like displaySongInfo is being overriden by both Song and SongGroup class
+	 */
 
 
 }
