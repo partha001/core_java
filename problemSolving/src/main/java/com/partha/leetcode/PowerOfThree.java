@@ -5,7 +5,7 @@ package com.partha.leetcode;
  * @author partha
  *
  */
-public class PwerOfThree {
+public class PowerOfThree {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
