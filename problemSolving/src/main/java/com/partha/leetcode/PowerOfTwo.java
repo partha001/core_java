@@ -13,6 +13,9 @@ public class PowerOfTwo {
     }
 
 
+    /**
+     * solution using bitwise operator
+     */
     private static class Solution1 {
         public boolean isPowerOfTwo(int n) {
             if (n <= 0)
@@ -22,7 +25,27 @@ public class PowerOfTwo {
     }
 
 
-    private static class Solution2 {
+    /**
+     * iterative division solution
+     */
+    private  static class Solution2 {
+        public boolean isPowerOfTwo(int n) {
+            if(n<=0)
+                return false;
+            while(n!=1){
+                if(n%2!=0)
+                    return false;
+                n = n/2;
+            }
+            return true;
+        }
+    }
+
+
+    /**
+     * recursive division solution
+     */
+    private static class Solution3 {
 
         /**
          * recursively dividing by 2 till a value less than 2 is
