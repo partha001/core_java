@@ -37,7 +37,7 @@ public class ReconstructItinerary {
 				String departure = ticket.get(0);
 				String arrival = ticket.get(1);
 				if (!graph.containsKey(departure)) {
-					Queue<String> queue = new PriorityQueue<>((a, b) -> a.compareTo(b));
+					Queue<String> queue = new PriorityQueue<>((a, b) -> a.compareTo(b)); //also note that its priority queue and the comparison goes like this
 					graph.put(departure, queue);
 				}
 
@@ -52,7 +52,7 @@ public class ReconstructItinerary {
 				String arrival = arrivals.poll();
 				dfs(arrival, graph, res);
 			}
-			res.addFirst(departure);
+			res.addFirst(departure); //the trick is here that elements are added to result list at the front while backtracking
 		}
 	}
 
