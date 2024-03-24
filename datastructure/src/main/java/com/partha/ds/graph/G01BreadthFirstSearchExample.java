@@ -10,6 +10,8 @@ import java.util.Queue;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class G01BreadthFirstSearchExample {
 
 	public static void main(String[] args) {
@@ -50,7 +52,7 @@ public class G01BreadthFirstSearchExample {
 	
 	@Getter
 	@Setter
-	public static class Vertex {
+	private static class Vertex {
 		
 		private int value;
 		private boolean visited;

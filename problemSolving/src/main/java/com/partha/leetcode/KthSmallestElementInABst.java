@@ -34,7 +34,7 @@ public class KthSmallestElementInABst {
 	    public void inOrder(TreeNode node){
 	        if(node!=null){
 	            inOrder(node.left);
-	            list.add(new Integer(node.val));
+	            list.add(node.val);
 	            inOrder(node.right);
 	        }
 	    }
