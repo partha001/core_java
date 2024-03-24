@@ -98,8 +98,7 @@ public class WallsAndGates {
 	            for(int i=0;i<4;i++){
 	                int newx = row + directions[i][0];
 	                int newy = col + directions[i][1];
-	                if(newx>=0 && newx<n && newy>=0 && newy<m 
-	                   && vis[newx][newy]==0 && a[newx][newy]==Integer.MAX_VALUE){
+	                if(newx>=0 && newx<n && newy>=0 && newy<m && vis[newx][newy]==0 && a[newx][newy]==Integer.MAX_VALUE){
 	                    vis[newx][newy] = 1;
 	                    a[newx][newy] = a[row][col]+1;  
 	                    //since the gates=0 so as we fan out we increase the value by 1
