@@ -4,78 +4,83 @@ import java.util.Stack;
 
 /**
  * https://leetcode.com/problems/binary-search-tree-iterator
- * @author partha
  *
+ * @author partha
  */
 public class BinarySearchTreeIterator {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-	}
-
-
-
-	/**
-	 * Definition for a binary tree node.
-	 * public class TreeNode {
-	 *     int val;
-	 *     TreeNode left;
-	 *     TreeNode right;
-	 *     TreeNode() {}
-	 *     TreeNode(int val) { this.val = val; }
-	 *     TreeNode(int val, TreeNode left, TreeNode right) {
-	 *         this.val = val;
-	 *         this.left = left;
-	 *         this.right = right;
-	 *     }
-	 * }
-	 */
-	class BSTIterator {
-
-		Stack<TreeNode>st=new Stack<TreeNode>();
-		public BSTIterator(TreeNode root) {
-			pushAll(root);
-		}
-
-		public int next() {
-			TreeNode temp=st.pop();
-			pushAll(temp.right);
-			return temp.val;
-		}
-
-		public boolean hasNext() {
-			if(!st.isEmpty()) return true;
-			return false;
-		}
-
-		public void pushAll(TreeNode root){
-			while(root!=null){
-				st.push(root);
-				root=root.left;
-			}
-		}
-	}
+    }
 
 
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class BSTIterator {
 
-	private static class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-		TreeNode() {}
-		TreeNode(int val) { this.val = val; }
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-	}
+        Stack<TreeNode> st = new Stack<TreeNode>();
 
-	/**
-	 * Your BSTIterator object will be instantiated and called as such:
-	 * BSTIterator obj = new BSTIterator(root);
-	 * int param_1 = obj.next();
-	 * boolean param_2 = obj.hasNext();
-	 */
+        public BSTIterator(TreeNode root) {
+            pushAll(root);
+        }
+
+        public int next() {
+            TreeNode temp = st.pop();
+            pushAll(temp.right);
+            return temp.val;
+        }
+
+        public boolean hasNext() {
+            if (!st.isEmpty()) return true;
+            return false;
+        }
+
+        public void pushAll(TreeNode root) {
+            while (root != null) {
+                st.push(root);
+                root = root.left;
+            }
+        }
+    }
+
+
+    private static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    /**
+     * Your BSTIterator object will be instantiated and called as such:
+     * BSTIterator obj = new BSTIterator(root);
+     * int param_1 = obj.next();
+     * boolean param_2 = obj.hasNext();
+     */
 
 }
