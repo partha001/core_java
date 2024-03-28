@@ -72,7 +72,7 @@ public class ShortestPathInBinaryMatrix {
     are marking the grid[][]=1 so that its not visited again since by problem statement we are suppossed
     to visit only cells=0 . so ones a cell is visited we make it 1.
      */
-    private static class Solution {
+    private static class Solution2 {
         public int shortestPathBinaryMatrix(int[][] grid) {
 
             int[][] dirs = new int[][]{{0,-1},{-1,-1},{-1,0},{-1,1},{0,1},{1,1},{1,0},{1,-1}};
