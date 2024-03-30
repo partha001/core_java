@@ -66,85 +66,44 @@ public class SumOfNodeWithEvenValuedGrandparent {
 	        
 	    }
 	}
-	
-	
-	//solution using recursion
-	private static class Solution2 {
-	    
-	    int sum = 0;
-	    public int sumEvenGrandparent(TreeNode root) {
-	        if(root == null){
-	            return 0;
-	        }
-	        path(root);
-	        return sum;
-	    }
-	    
-	    private void path(TreeNode root){
-	        if(root == null){
-	            return;
-	        }
-	        
-	        if(root.val % 2 == 0){
-	            if(root.left!=null && root.left.left!=null){
-	                sum = sum + root.left.left.val;
-	            }
-	            if(root.left!=null && root.left.right!=null){
-	                sum = sum + root.left.right.val;
-	            }
-	            if(root.right!=null && root.right.left!=null){
-	                sum = sum + root.right.left.val;
-	            }
-	            if(root.right!=null && root.right.right!=null){
-	                sum = sum + root.right.right.val;
-	            }
-	        }
-	        path(root.left);
-	        path(root.right);
-	    }
-	    
 
+
+	/**
+	 * recursive solution
+	 */
+	private static class Solution2 {
+
+		int sum=0;
+
+		public int sumEvenGrandparent(TreeNode root) {
+			if(root==null)
+				return sum;
+			find(root);
+			return sum;
+		}
+
+		public void find(TreeNode node){
+			if(node==null)
+				return;
+			if(node.val%2==0){
+				int temp =0;
+				if(node.left!=null){
+					temp+= node.left.left==null ? 0 : node.left.left.val;
+					temp+= node.left.right==null ? 0: node.left.right.val;
+				}
+				if(node.right!=null){
+					temp+= node.right.left==null ? 0 : node.right.left.val;
+					temp+= node.right.right==null ? 0: node.right.right.val;
+				}
+				sum+= temp;
+			}
+			find(node.left);
+			find(node.right);
+		}
 	}
 	
 	
-	//using level order traversal
-	private static class Solution3 {
-	    
-	    int result =0;
-	    
-	    public int sumEvenGrandparent(TreeNode root) {
-	        if(root==null)
-	            return result;
-	        Queue<TreeNode> queue = new LinkedList();
-	        queue.add(root);
-	        while(!queue.isEmpty()){
-	            TreeNode current = queue.poll();
-	            calculate(current);
-	            if(current.left!=null  )
-	                queue.add(current.left);
-	            if(current.right!=null)
-	                queue.add(current.right);
-	        }
-	        return result;
-	    }
-	    
-	    public void calculate(TreeNode node){
-	        // if(node.val%2!=0)
-	        //     return;
-	        if(node.left!=null){
-	            if(node.left.left!=null)
-	                result+=node.left.left.val;
-	            if(node.left.right!=null)
-	                result+=node.left.right.val;
-	        }
-	        if(node.right!=null){
-	            if(node.right.left!=null)
-	                result+=node.right.left.val;
-	            if(node.right.right!=null)
-	                result+=node.right.right.val;
-	        }
-	    }
-	}
+
 	
 	
 	private static class TreeNode {
