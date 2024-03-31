@@ -4,7 +4,7 @@ package com.partha.multithread.topic03.waitNotify;
  * this program represent a ping-pong game. where player1 does ping
  * while player2 does pong and the game continues.
  */
-public class Application02 {
+public class PingPongGameUsingWaitNotify {
 
     public static void main(String[] args) throws InterruptedException {
 
