@@ -1,10 +1,14 @@
 package com.partha.multithread.topic03.waitNotify;
 
+/**
+ * this program represent a ping-pong game. where player1 does ping
+ * while player2 does pong and the game continues.
+ */
 public class Application02 {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Game game = new Game("ping");
+        Game game = new Game("pong");
 
         Thread player1 = new Thread(() -> {
             game.performTask1();
