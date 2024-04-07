@@ -12,7 +12,7 @@ import java.util.List;
 public class CombinationSum4 {
 
     public static void main(String[] args) {
-        System.out.println(new CombinationSum4.Solution3.combinationSum4(new int[]{1, 2, 3}, 3));
+        System.out.println(new CombinationSum4.Solution4().combinationSum4(new int[]{1, 2, 3}, 3));
     }
 
     /**
