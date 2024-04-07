@@ -12,6 +12,7 @@ public class PalindromePartitioning {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
+        System.out.println(new PalindromePartitioning.Solution2().partition("aab"));
 
     }
 
