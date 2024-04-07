@@ -12,7 +12,7 @@ import java.util.List;
 public class CombinationSum4 {
 
     public static void main(String[] args) {
-        System.out.println(new Solution3().combinationSum4(new int[]{1, 2, 3}, 3));
+        System.out.println(new CombinationSum4.Solution3.combinationSum4(new int[]{1, 2, 3}, 3));
     }
 
     /**
@@ -85,7 +85,7 @@ public class CombinationSum4 {
     //Memoziation + Dynamic programming
     // Time: O(n)
     // COIN CHANGE
-    private class Solution3 {
+    private static class Solution3 {
 
         public int combinationSum4(int[] nums, int target) {
             int len = nums.length;
@@ -130,7 +130,7 @@ public class CombinationSum4 {
             int []dp = new int[target+1];  //taking size target+1 since value of target can also be zero
             dp[0]=1; //there is only 1 way 0 target can be achieved i.e. by not picking any element
 
-            for(int comb=1;comb<target+1;comb++) {
+            for(int comb=1;comb<=target;comb++) {
                 for(int num : nums) {
                     if(comb-num>=0) {
                         dp[comb] += dp[comb-num];
