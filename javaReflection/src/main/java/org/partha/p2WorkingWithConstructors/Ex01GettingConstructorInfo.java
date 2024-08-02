@@ -1,10 +1,13 @@
-package org.partha.p2GettingConstructorInfo;
+package org.partha.p2WorkingWithConstructors;
 
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * this program shows how to get hold of constuctor information
+ */
 public class Ex01GettingConstructorInfo {
 
     public static void main(String[] args) {
