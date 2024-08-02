@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * 2. using reflection we will call the right constructor of the class
  * based upon the arguments passed
  */
-public class Ex03CreateObjectUsingReflection {
+public class Ex03CreateObjectUsingReflection2 {
 
     public static void main(String[] args) throws InvocationTargetException, InstantiationException, IllegalAccessException {
 
