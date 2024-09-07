@@ -8,10 +8,10 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 
 /**
- * this program enhances Program4WritingCustomJsonSerializer3
- * to accomodate array attribute serialization present in an object
+ * this program is built on top of the previous program Program6WritingCustomJsonSerializer4
+ * to format json array.
  */
-public class Program6WritingCustomJsonSerializer4 {
+public class Program6WritingCustomJsonSerializer5 {
 
     public static void main(String[] args) throws IllegalAccessException {
 
@@ -54,7 +54,7 @@ public class Program6WritingCustomJsonSerializer4 {
             }else if(field.getType().equals(String.class)){
                 stringBuilder.append(formatStringValues(field.get(instance).toString()));
             }else if (field.getType().isArray()){
-                stringBuilder.append(arrayToJson(field.get(instance)));
+                stringBuilder.append(arrayToJson(field.get(instance),indentSize+1));
             }
             else {
                 stringBuilder.append(objectToJson(field.get(instance),indentSize+1));
@@ -75,23 +75,29 @@ public class Program6WritingCustomJsonSerializer4 {
 
     }
 
-    private static String arrayToJson(Object arrayInstance) throws IllegalAccessException {
+    private static String arrayToJson(Object arrayInstance,int indentSize) throws IllegalAccessException {
         StringBuilder stringBuilder = new StringBuilder();
         int arrayLength = Array.getLength(arrayInstance);
         Class<?> componentType = arrayInstance.getClass().getComponentType();
         stringBuilder.append("[");
+        stringBuilder.append("\n");
+
         for (int i = 0; i < arrayLength; i++) {
             Object element = Array.get(arrayInstance, i);
             if (componentType.isPrimitive()) {
+                stringBuilder.append(indent(indentSize+1));
                 stringBuilder.append(formatPrimitiveValue(element, componentType));
             } else if (componentType.equals(String.class)) {
+                stringBuilder.append(indent(indentSize+1));
                 stringBuilder.append(formatStringValues(element.toString()));
             }
 
             if (i != arrayLength - 1) {
                 stringBuilder.append(",");
             }
+            stringBuilder.append("\n");
         }
+        stringBuilder.append(indent(indentSize));
         stringBuilder.append("]");
         return stringBuilder.toString();
     }
