@@ -2,27 +2,35 @@ package org.partha.p3WorkingWithFields;
 
 
 import org.partha.p3WorkingWithFields.dto.Address;
+import org.partha.p3WorkingWithFields.dto.Person;
+import org.partha.p3WorkingWithFields.dto.PersonV2;
 
 import java.lang.reflect.Field;
 
 /**
- * here we will make use of the knowledge of accessing attributes
- * and write our own custom serializer
+ * this program is a minor enhancement over the previous
+ * where we serialize nested objects if present;
  */
-public class Program4WritingCustomJsonSerializer1 {
+public class Program4WritingCustomJsonSerializer3 {
 
     public static void main(String[] args) throws IllegalAccessException {
         Address address = new Address("main street", (short)1);
-        String json = objectToJson(address);
+        String json = objectToJson(address,0);
+        System.out.println(json);
+
+        PersonV2 person = new PersonV2("john", true, 29, 100.555f,address);
+        json = objectToJson(person,0);
         System.out.println(json);
 
     }
 
-    public static String objectToJson(Object instance) throws IllegalAccessException {
+    public static String objectToJson(Object instance,int indentSize) throws IllegalAccessException {
         Field[] fields = instance.getClass().getDeclaredFields();
         StringBuilder stringBuilder = new StringBuilder();
 
+        stringBuilder.append(indent(indentSize));
         stringBuilder.append("{"); //appending the first curly brace
+        stringBuilder.append("\n");
         for(int i=0;i< fields.length;i++){
             Field field = fields[i];
 
@@ -33,6 +41,7 @@ public class Program4WritingCustomJsonSerializer1 {
             if(field.isSynthetic())
                 continue;
 
+            stringBuilder.append(indent(indentSize+1));
             //appending field name
             stringBuilder.append(formatStringValues(field.getName()));
             //appending colon
@@ -43,6 +52,8 @@ public class Program4WritingCustomJsonSerializer1 {
                 stringBuilder.append(formatPrimitiveValue(field,instance));
             }else if(field.getType().equals(String.class)){
                 stringBuilder.append(formatStringValues(field.get(instance).toString()));
+            }else {
+                stringBuilder.append(objectToJson(field.get(instance),indentSize+1));
             }
 
 
@@ -50,16 +61,25 @@ public class Program4WritingCustomJsonSerializer1 {
             if(i!=fields.length-1){
                 stringBuilder.append(",");
             }
+            stringBuilder.append("\n");
 
         }
 
+        stringBuilder.append(indent(indentSize));
         stringBuilder.append("}");
         return stringBuilder.toString();
 
     }
 
+    private static String indent(int indentSize){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i=0;i<indentSize;i++){
+            stringBuilder.append("\t");
+        }
+        return stringBuilder.toString();
+    }
 
-
+    
 
     //helperMethod1 : this method will process other primitive type values
     private static String formatPrimitiveValue(Field field, Object parentInstance) throws IllegalAccessException {
