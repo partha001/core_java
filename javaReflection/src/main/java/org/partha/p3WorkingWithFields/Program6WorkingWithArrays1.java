@@ -1,7 +1,7 @@
 package org.partha.p3WorkingWithFields;
 
 
-public class Program06WorkingWithArrays1 {
+public class Program6WorkingWithArrays1 {
 
     public static void main(String[] args) {
         int[]  oneDimensionalArray = {1,2};
