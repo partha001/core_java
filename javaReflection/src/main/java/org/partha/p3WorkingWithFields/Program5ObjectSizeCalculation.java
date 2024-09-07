@@ -1,5 +1,8 @@
 package org.partha.p3WorkingWithFields;
 
+import org.partha.p3WorkingWithFields.dto.Address;
+import org.partha.p3WorkingWithFields.dto.PersonV2;
+
 import java.lang.reflect.Field;
 
 /**
@@ -13,7 +16,12 @@ public class Program5ObjectSizeCalculation {
     private static final long HEADER_SIZE = 12;
     private static final long REFERENCE_SIZE = 4;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
+        Address address = new Address("main street", (short)1);
+        System.out.println("size of the object is:"+sizeOfObject(address));
+
+        //note the program is not considering nested objects
+        //PersonV2 person = new PersonV2("john", true, 29, 100.555f,address);
 
     }
 
