@@ -9,6 +9,8 @@ import java.lang.reflect.Field;
 /**
  * this program is a minor enhancement over the previous
  * where we formatting the json output to add tab .
+ * however it is to be noted that the flattened json string is better suited
+ * for storage and transfer over network
  */
 public class Program4WritingCustomJsonSerializer2 {
 
