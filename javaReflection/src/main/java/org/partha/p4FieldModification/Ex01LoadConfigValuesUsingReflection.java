@@ -1,7 +1,7 @@
 package org.partha.p4FieldModification;
 
-import org.partha.p4FieldModification.dto.GameConfig;
-import org.partha.p4FieldModification.dto.UserInterfaceConfig;
+import org.partha.p4FieldModification.dto1.GameConfig;
+import org.partha.p4FieldModification.dto1.UserInterfaceConfig;
 
 import java.io.*;
 import java.lang.reflect.Constructor;

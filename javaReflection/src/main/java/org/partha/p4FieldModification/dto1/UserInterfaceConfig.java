@@ -1,4 +1,4 @@
-package org.partha.p4FieldModification.dto;
+package org.partha.p4FieldModification.dto1;
 
 public class UserInterfaceConfig {
 
