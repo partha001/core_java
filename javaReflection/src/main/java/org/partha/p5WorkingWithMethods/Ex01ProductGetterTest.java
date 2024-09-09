@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Ex01ProductTest {
+public class Ex01ProductGetterTest {
 
     public static void main(String[] args) {
         testGetters(Product.class);
@@ -22,6 +22,9 @@ public class Ex01ProductTest {
         }
         return nameToMethod;
     }
+
+
+
 
     //now writing our test method
     public static void testGetters(Class<?> dataClass){
