@@ -17,9 +17,16 @@ import java.util.stream.Collectors;
 public class Ex01Annotations {
 
     public static void main(String[] args) throws URISyntaxException, IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-//        Class.forName("org.partha.p7Annotations.ex01.app.AutoSaver");
-//        System.out.println("class loaded successfully");
-        initialize("app");
+        System.out.println("program execution started");
+
+        //Class.forName("org.partha.p7Annotations.ex01.app.AutoSaver");
+        //System.out.println("class loaded successfully");
+
+        //initialize("app");
+
+        initialize("app", "app.configs", "app.databases", "app.http");
+
+        System.out.println("program execution completed");
     }
 
     public static void initialize(String... packageNames) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, URISyntaxException, IOException, ClassNotFoundException {
@@ -69,8 +76,6 @@ public class Ex01Annotations {
                 //code changed as per my need. since my main class is located not under src/main/java but is further nested
                 String classFullName = Ex01Annotations.class.getPackage().getName() + "." + packageName + "." + fileName.replace(".class", "");
 
-
-                //System.out.println();
                 Class<?> clazz = Class.forName(classFullName);
                 classes.add(clazz);
             }
