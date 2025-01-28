@@ -3,6 +3,7 @@ package org.partha.p7Annotations.ex02;
 import lombok.extern.log4j.Log4j2;
 import org.partha.p7Annotations.ex02.app.customAnnotations.InitializerClass;
 import org.partha.p7Annotations.ex02.app.customAnnotations.InitializerMethod;
+import org.partha.p7Annotations.ex02.app.customAnnotations.ScanPackages;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -15,7 +16,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * programDescription: earlier in the previous example we passed the packages to be scanned for annotated classes
+ *                      manually using code. here in this example we want to pass the packages to be scanned using
+ *                      annotation arguments
+ */
 @Log4j2
+@ScanPackages(values = {"app", "app.configs", "app.databases", "app.http"})
 public class Ex02Annotations {
 
     public static void main(String[] args) throws URISyntaxException, IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -25,13 +32,24 @@ public class Ex02Annotations {
         //System.out.println("class loaded successfully");
 
         //initialize("app");
-        initialize("app", "app.configs", "app.databases", "app.http");
+        //initialize("app", "app.configs", "app.databases", "app.http");
+
+        initialize();
 
         log.info("program execution completed");
     }
 
-    public static void initialize(String... packageNames) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, URISyntaxException, IOException, ClassNotFoundException {
-        List<Class<?>> classes = getAllClasses(packageNames);
+    public static void initialize() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, URISyntaxException, IOException, ClassNotFoundException {
+
+        ScanPackages scanPackages = Ex02Annotations.class.getAnnotation(ScanPackages.class);
+
+        if(scanPackages == null || scanPackages.values().length==0){
+            return;
+        }
+
+        //List<Class<?>> classes = getAllClasses(packageNames);
+        List<Class<?>> classes = getAllClasses(scanPackages.values());
+
 
         for (Class<?> clazz : classes) {
             if (!clazz.isAnnotationPresent(InitializerClass.class)) {
