@@ -1,5 +1,6 @@
 package org.partha.p7Annotations.ex01;
 
+import lombok.extern.log4j.Log4j2;
 import org.partha.p7Annotations.ex01.app.customAnnotations.InitializerClass;
 import org.partha.p7Annotations.ex01.app.customAnnotations.InitializerMethod;
 
@@ -14,19 +15,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Log4j2
 public class Ex01Annotations {
 
     public static void main(String[] args) throws URISyntaxException, IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        System.out.println("program execution started");
+        log.info("program execution started");
 
         //Class.forName("org.partha.p7Annotations.ex01.app.AutoSaver");
         //System.out.println("class loaded successfully");
 
         //initialize("app");
-
         initialize("app", "app.configs", "app.databases", "app.http");
 
-        System.out.println("program execution completed");
+        log.info("program execution completed");
     }
 
     public static void initialize(String... packageNames) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, URISyntaxException, IOException, ClassNotFoundException {
@@ -97,9 +98,16 @@ public class Ex01Annotations {
                 Path packageFullPath = Paths.get(packageUri);
                 allClasses.addAll(getAllPackageClasses(packageFullPath, packageName));
             } else if (packageUri.getScheme().equals("jar")) {
-                FileSystem fileSystem = FileSystems.newFileSystem(packageUri, Collections.emptyMap());
 
-                Path packageFullPathInJar = fileSystem.getPath(packageRelativePath);
+//                //code as per source. however this was not working for me .
+//                FileSystem fileSystem = FileSystems.newFileSystem(packageUri, Collections.emptyMap());
+//                Path packageFullPathInJar = fileSystem.getPath(packageRelativePath); //code from tutorial
+//                allClasses.addAll(getAllPackageClasses(packageFullPathInJar, packageName));
+//                fileSystem.close();
+
+                //having the same code as for file system worked for jar file for me.
+                FileSystem fileSystem = FileSystems.newFileSystem(packageUri, Collections.emptyMap());
+                Path packageFullPathInJar = Paths.get(packageUri); //tweaked code
                 allClasses.addAll(getAllPackageClasses(packageFullPathInJar, packageName));
                 fileSystem.close();
             }
