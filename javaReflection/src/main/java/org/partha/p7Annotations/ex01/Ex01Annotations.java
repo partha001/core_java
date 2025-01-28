@@ -15,6 +15,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * program description: this program shows how to discover annotated classed and trigger annotated methods
+ */
 @Log4j2
 public class Ex01Annotations {
 
