@@ -110,7 +110,7 @@ public class Ex01Annotations {
 
                 //having the same code as for file system worked for jar file for me.
                 FileSystem fileSystem = FileSystems.newFileSystem(packageUri, Collections.emptyMap());
-                Path packageFullPathInJar = Paths.get(packageUri); //tweaked code
+                Path packageFullPathInJar = Paths.get(packageUri); //tweaked code. this works for the jar build using intelliJ and maven
                 allClasses.addAll(getAllPackageClasses(packageFullPathInJar, packageName));
                 fileSystem.close();
             }
