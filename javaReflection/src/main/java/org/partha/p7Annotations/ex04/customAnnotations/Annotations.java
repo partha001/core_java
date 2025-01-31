@@ -18,4 +18,11 @@ public class Annotations {
     public @interface DependsOn {
         String value();
     }
+
+    //this is just a marking annotation which gives the final result from the
+    //execution of all the operations in a given class
+    @Target(ElementType.METHOD)
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface FinalResult{
+    }
 }
