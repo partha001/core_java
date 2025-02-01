@@ -9,6 +9,24 @@ import java.util.*;
 
 public class ApplicationParamAnnotation {
 
+
+//        public static void main(String[] args) {
+//
+//        BestGamesFinder bestGamesFinder = new BestGamesFinder();
+//
+//        Set<String> allGames = bestGamesFinder.getAllGames();
+//
+//        Map<String, Float> gameToRating = bestGamesFinder.getGameToRating(allGames);
+//        Map<String, Float> gameToPrice = bestGamesFinder.getGameToPrice(allGames);
+//
+//        SortedMap<Double, String> scoreToGame = bestGamesFinder.scoreGames(gameToPrice, gameToRating);
+//
+//        List<String> bestGamesInDescendingOrder = bestGamesFinder.getTopGames(scoreToGame);
+//
+//        System.out.println(bestGamesInDescendingOrder);
+//
+//    }
+
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         BestGamesFinder bestGamesFinder = new BestGamesFinder();
         List<String> bestGamesInDescendingOrder = execute(bestGamesFinder);
@@ -64,20 +82,5 @@ public class ApplicationParamAnnotation {
         throw new RuntimeException("no method foiund with finalResult annotation");
     }
 
-//    public static void main(String[] args) {
-//
-//        BestGamesFinder bestGamesFinder = new BestGamesFinder();
-//
-//        Set<String> allGames = bestGamesFinder.getAllGames();
-//
-//        Map<String, Float> gameToRating = bestGamesFinder.getGameToRating(allGames);
-//        Map<String, Float> gameToPrice = bestGamesFinder.getGameToPrice(allGames);
-//
-//        SortedMap<Double, String> scoreToGame = bestGamesFinder.scoreGames(gameToPrice, gameToRating);
-//
-//        List<String> bestGamesInDescendingOrder = bestGamesFinder.getTopGames(scoreToGame);
-//
-//        System.out.println(bestGamesInDescendingOrder);
-//
-//    }
+
 }
