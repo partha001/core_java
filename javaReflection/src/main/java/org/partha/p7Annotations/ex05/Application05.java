@@ -12,28 +12,7 @@ import java.util.*;
 public class Application05 {
 
 
-//        public static void main(String[] args) {
-//
-//        BestGamesFinder bestGamesFinder = new BestGamesFinder();
-//
-//        Set<String> allGames = bestGamesFinder.getAllGames();
-//
-//        Map<String, Float> gameToRating = bestGamesFinder.getGameToRating(allGames);
-//        Map<String, Float> gameToPrice = bestGamesFinder.getGameToPrice(allGames);
-//
-//        SortedMap<Double, String> scoreToGame = bestGamesFinder.scoreGames(gameToPrice, gameToRating);
-//
-//        List<String> bestGamesInDescendingOrder = bestGamesFinder.getTopGames(scoreToGame);
-//
-//        System.out.println(bestGamesInDescendingOrder);
-//
-//    }
-
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
-//        BestGamesFinder bestGamesFinder = new BestGamesFinder();
-//        List<String> bestGamesInDescendingOrder = execute(bestGamesFinder);
-//        System.out.println(bestGamesInDescendingOrder);
-
         SqlQueryBuilder sqlQueryBuilder = new SqlQueryBuilder(Arrays.asList("1","2","3"),
                 10,
                 "movies",
