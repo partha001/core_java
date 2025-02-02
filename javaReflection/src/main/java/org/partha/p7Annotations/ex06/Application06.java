@@ -20,6 +20,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+/**
+ * this program is to show repeatable-annotations are used in java.
+ */
 @Annotations.ScanPackages(values = {"loaders"})
 public class Application06 {
 
