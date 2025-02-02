@@ -7,21 +7,26 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.*;
 
-public class ApplicationParamAnnotation {
+/**
+ * this application shows
+ * 1. how to perform operations in sequence using annotations
+ * 2. how to use parameter-annotations to pass value calculate by one method/operation to another method/operation
+ */
+public class Application04 {
 
 
 //        public static void main(String[] args) {
 //
 //        BestGamesFinder bestGamesFinder = new BestGamesFinder();
 //
-//        Set<String> allGames = bestGamesFinder.getAllGames();
+//        Set<String> allGames = bestGamesFinder.getAllGames();  //operation1
 //
-//        Map<String, Float> gameToRating = bestGamesFinder.getGameToRating(allGames);
-//        Map<String, Float> gameToPrice = bestGamesFinder.getGameToPrice(allGames);
+//        Map<String, Float> gameToRating = bestGamesFinder.getGameToRating(allGames); //operation2
+//        Map<String, Float> gameToPrice = bestGamesFinder.getGameToPrice(allGames); //operation3
 //
-//        SortedMap<Double, String> scoreToGame = bestGamesFinder.scoreGames(gameToPrice, gameToRating);
+//        SortedMap<Double, String> scoreToGame = bestGamesFinder.scoreGames(gameToPrice, gameToRating); //operation4
 //
-//        List<String> bestGamesInDescendingOrder = bestGamesFinder.getTopGames(scoreToGame);
+//        List<String> bestGamesInDescendingOrder = bestGamesFinder.getTopGames(scoreToGame); //operation5
 //
 //        System.out.println(bestGamesInDescendingOrder);
 //
