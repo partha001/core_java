@@ -50,11 +50,6 @@ class User {
 }
 
 
-class Service1 {
-
-}
-
-
 //here we are putting the threadLocal in a separate class
 class UserUtil {
 	public static ThreadLocal<User> userContext = new ThreadLocal<User>();
