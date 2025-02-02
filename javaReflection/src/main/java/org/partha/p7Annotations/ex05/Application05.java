@@ -9,6 +9,9 @@ import java.lang.reflect.Parameter;
 import java.util.*;
 
 
+/**
+ * programDescription: this example is to demonstrate how to use class-field annotation
+ */
 public class Application05 {
 
 
