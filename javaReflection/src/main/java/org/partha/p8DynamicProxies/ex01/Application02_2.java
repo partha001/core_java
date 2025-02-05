@@ -9,6 +9,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this is an enhancement on top Application02 where line-42 is complaining about unchecked cast exception .
+ * in this class we have handled it using the @SuppressWarnings annotation.
+ */
 public class Application02_2 {
 
     public static void main(String[] args) throws InterruptedException {

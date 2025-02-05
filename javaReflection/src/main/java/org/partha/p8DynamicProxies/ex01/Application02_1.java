@@ -9,6 +9,11 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this program contains changes on top of the previous program . note: how the warning in line-44 has been handled.
+ * i.e. first we return the object itself not returning it as generic
+ * secondly at the receiving end of the object we cast it to the appropriate type.
+ */
 public class Application02_1 {
 
     public static void main(String[] args) throws InterruptedException {

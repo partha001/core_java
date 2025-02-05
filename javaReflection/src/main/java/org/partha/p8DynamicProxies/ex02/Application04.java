@@ -9,6 +9,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this program is show how the proxy reacts to exception by default. thus everything remaining the same as previous example
+ * i.e. code with simple dynamic-proxy implementation , here we additionally introduce another exception in our DatabaseReader class i.e. IOException
+ *
+ * in this case the output differs when useDatabaseReader(databaseReader); is called on actualObject and when called on proxy.
+ * uncomment and comment to see the difference in output.
+ */
 public class Application04 {
 
     public static void main(String[] args) throws InterruptedException {

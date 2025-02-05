@@ -9,6 +9,13 @@ import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * this is same as Application02 . this is just to that the concept of dynamic proxy is so powerful
+ * that it can even be used on native jdk classes like arraylist.
+ *
+ * however the duration of addition and removal of elements from arraylist is so small and even in milliseconds it would come as 0.
+ * so we have made another small change i.e. we have replaced System.currentTimeMillis() with System.nanoTime()
+ */
 public class Application03 {
 
     public static void main(String[] args) throws InterruptedException {

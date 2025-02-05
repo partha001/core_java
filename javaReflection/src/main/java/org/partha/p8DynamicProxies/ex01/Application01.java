@@ -9,6 +9,13 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this is the base code on which we will be introducing our proxy.
+ * 1. the HttpClient and the DatabaseReader simulates classes from external libraries which we cant modify
+ *
+ * however we want to develop a dynamic proxy using java reflection which will do somework.
+ * 1. in this case track total-execution time take by a method.
+ */
 public class Application01 {
 
     public static void main(String[] args) throws InterruptedException {

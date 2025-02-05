@@ -10,6 +10,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this class in an extention to the previous program. here we see how to do exception handling so that our dynamic proxy class
+ * behaves exactly at the original class even in case of exception
+ *
+ * note the change line-73 try-catch
+ */
 public class Application04_1 {
 
     public static void main(String[] args) throws InterruptedException {

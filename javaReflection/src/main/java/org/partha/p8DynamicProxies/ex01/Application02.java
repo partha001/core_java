@@ -9,6 +9,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+/**
+ * this program contains change on top of the previous main class where we have
+ * introduced changes to incorporate dynamic-proxy using java reflection
+ */
 public class Application02 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -38,6 +42,10 @@ public class Application02 {
     }
 
 
+    /**
+     * also note that like 54 gives warning for unchecked exception which can be handled in multiple ways.
+     * classes Application02_1 and Application02_2 are 2 ways to go about it.
+     */
     public static<T> T createProxy(Object originalObject){
         Class<?>[] interfaces = originalObject.getClass().getInterfaces();
         TimeMeasuringProxyHandler timeMeasuringProxyHandler = new TimeMeasuringProxyHandler(originalObject);
