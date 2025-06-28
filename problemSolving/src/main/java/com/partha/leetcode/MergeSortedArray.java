@@ -82,7 +82,8 @@ public class MergeSortedArray {
 	}
 
 	/**
-	 * this is same as solution2 . just have written the code in a cleaner way
+	 * this is same as solution2 . just have written the code in a cleaner way.
+	 * have just used a single loop for the total number of elements to be sorted.
 	 */
 	private static class Solution3 {
 		public void merge(int[] nums1, int m, int[] nums2, int n) {
