@@ -83,4 +83,37 @@ public class FirstMissingPositive {
 		    }
 		}
 
+	/**
+	 * same algo as above just written in different style. here i have mentioned the condition to move ahead
+	 * [without swap first]
+	 */
+	private static class Solution3 {
+		public int firstMissingPositive(int[] nums) {
+			int i=0;
+			while(i<nums.length){
+				int current = nums[i];
+				int correct = current-1;
+				if(correct<0 || correct>=nums.length || nums[correct]== current){
+					i++;
+				}else{
+					swap(nums, i, correct);
+				}
+			}
+
+			for(int m=0;m<nums.length;m++){
+				if(m+1!= nums[m]){
+					return m+1;
+				}
+			}
+
+			return nums.length+1;
+		}
+
+		private void swap(int[] nums, int i, int j){
+			int temp = nums[i];
+			nums[i]= nums[j];
+			nums[j] = temp;
+		}
+	}
+
 }
